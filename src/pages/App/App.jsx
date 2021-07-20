@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
@@ -13,7 +13,7 @@ export default function App() {
   return (
     <main className="App">
       { user ? 
-        <>
+        <Fragment>
           <NavBar user={user} setUser={setUser} />
           <Switch>
             <Route path="/orders/new">
@@ -24,7 +24,7 @@ export default function App() {
             </Route>
             <Redirect to="/orders" />
           </Switch>
-        </>
+        </Fragment>
         :
         <AuthPage setUser={setUser} />
       }

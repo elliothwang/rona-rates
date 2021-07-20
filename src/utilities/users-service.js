@@ -7,7 +7,7 @@ export async function signUp(userData) {
     const token = await usersAPI.signUp(userData);
     localStorage.setItem('token', token);
     return getUser();
-  } catch {
+  } catch (err) {
     throw new Error('Invalid Sign Up');
   }
 }
@@ -19,7 +19,7 @@ export async function login(credentials) {
     const token = await usersAPI.login(credentials);
     localStorage.setItem('token', token);
     return getUser();
-  } catch {
+  } catch (err) {
     throw new Error('Invalid Credentials - Try Again');
   }
 }
