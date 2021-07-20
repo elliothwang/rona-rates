@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 
 export default function LogIn({ setUser }) {
@@ -18,7 +18,7 @@ export default function LogIn({ setUser }) {
     try {
       const user = await usersService.login(credentials);
       setUser(user);
-    } catch {
+    } catch (err) {
       setError('Log In Failed - Try Again');
     }
   }

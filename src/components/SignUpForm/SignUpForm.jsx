@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
@@ -29,7 +29,7 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       // baby step
       this.props.setUser(user);
-    } catch {
+    } catch (err) {
       // An error occurred
       this.setState({ error: 'Sign Up Failed - Try Again'});
     }
