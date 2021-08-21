@@ -1,3 +1,4 @@
+import './SignUpForm.css';
 import React, { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
 
