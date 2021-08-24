@@ -2,8 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   border: 0.1vmin solid black;
-  height: 50vmin;
-  width: 100vmin;
+  height: 75vmin;
+  /* width: 120vmin; */
+  margin: 2vmin auto 0 auto;
 }
+
