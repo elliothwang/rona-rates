@@ -11,14 +11,12 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <div className="Title">COVID-19 Dashboard</div>
-      <Link to="/">Home</Link>
-      &nbsp; | &nbsp;
-      <Link to="/stats">Stats</Link>
-      &nbsp; | &nbsp;
-      <span>Welcome, {user.name}</span>
-      &nbsp; | &nbsp;
-      <Link to="" onClick={handleLogOut}>Log Out</Link>
+      {/* <div className="Title">COVID-19 Dashboard</div> */}
+      <div className="Exit">X</div>
+      <Link to="/" className="Home">Home</Link>
+      <Link to="/stats"className="Stats">Stats</Link>
+      <span className="Welcome">Welcome, {user.name}</span>
+      <Link to="" onClick={handleLogOut} className="LogOut">Log Out</Link>
     </nav>
   );
 }

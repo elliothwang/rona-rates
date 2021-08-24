@@ -1,0 +1,35 @@
+nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 25vmin;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #60a6dc;
+}
+
+.Exit {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: solid white 0.1vmin;
+  height: 3vmin;
+  font-size: 3vmin;
+  font-weight: 500;
+  color: #E8F0FF;
+}
+
+.Exit:hover {
+  cursor: pointer;
+}
+
+.Home, .Stats, .LogOut {
+  color: white;
+  text-decoration: none;
+}
+
+span {
+  color: white;
+}
