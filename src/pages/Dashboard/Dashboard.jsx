@@ -11,7 +11,7 @@ export default function OrderHistoryPage() {
   }
 
   return (
-    <div className="Dashboard">
+    <div className="dashboard">
       <MajorStats />
       <USMap />
     </div>
