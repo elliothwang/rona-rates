@@ -15,16 +15,12 @@ export default function NavBar({ user, setUser }) {
     if (!sideNavOpen) {
       document.querySelector(".sideNav").classList.add('sideNavOpened');
       document.querySelector(".openSideNavButton").classList.add('hide');
-      document.querySelector(".openSideNavButton").classList.remove('show');
-      document.querySelector(".closeSideNavButton").classList.add('show');
       document.querySelector(".closeSideNavButton").classList.remove('hide');
       setSideNavOpen(true);
     } else {
       document.querySelector(".sideNav").classList.remove('sideNavOpened');
-      document.querySelector(".openSideNavButton").classList.add('show');
       document.querySelector(".openSideNavButton").classList.remove('hide');
       document.querySelector(".closeSideNavButton").classList.add('hide');
-      document.querySelector(".closeSideNavButton").classList.remove('show');
       setSideNavOpen(false);
     };
   };
