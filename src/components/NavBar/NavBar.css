@@ -1,20 +1,22 @@
 .sideNavButton {
   padding: 0.2vmin 0.225vmin 0 0.2vmin;
-  /* display: flex;
+  display: flex;
   justify-content: flex-start;
-  align-items: center; */
+  align-items: flex-start;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: -webkit-sticky;
-  position: sticky;
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-duration: 0.75s;
   transition-duration: 0.75s;
   background-color: #60a6dc;
   border-radius: 0.5vmin;
-  z-index: 1;
+  z-index: 2;
+  width: 4.3vmin;
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
 }
 
 .sideNavButton:before {
@@ -51,7 +53,7 @@
   transform: scaleX(1);
   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-  border-radius: 0.5vmin;
+  border-radius: 0.35vmin;
 }
 
 .sideNav {
@@ -70,18 +72,27 @@
 }
 
 .sideNavOpened {
-  width: 50%;
+  width: 25%;
 }
 
 .hide {
   display: none;
 }
 
+.home {
+  margin: 3vmin 0 0 0;
+}
+
 .home, .stats, .logOut {
-  padding: 2vmin 0 2vmin 0;
+  font-family: 'PT Serif', serif;
   font-size: 5vmin;
   color: #60a6dc;
   text-decoration: none;
+  margin: 2vmin 0 2vmin 0;
+}
+
+.home:hover, .stats:hover, .logOut:hover {
+  color: white;
 }
 
 span {
