@@ -42,7 +42,8 @@ export default function NavBar({ user, setUser }) {
       <div className="sideNav">
         <NavLink to="/" exact className="home" name="activeHome" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Home</NavLink>
         <NavLink to="/stats"className="stats" name="activeStats" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Stats</NavLink>
-        <span className="welcome">Welcome, {user.name}</span>
+        {/* <span className="welcome">Welcome, {user.name}</span> */}
+        
         <NavLink to="" className="logOut" onClick={handleLogOut}>Log Out</NavLink>
       </div>
     </nav>
