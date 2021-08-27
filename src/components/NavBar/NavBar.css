@@ -13,7 +13,7 @@
   background-color: #60a6dc;
   border-radius: 0.5vmin;
   z-index: 2;
-  width: 4.3vmin;
+  width: 3.25vmin;
   position: -webkit-sticky;
   position: sticky;
   left: 0;
@@ -79,10 +79,6 @@
   display: none;
 }
 
-.home {
-  margin: 3vmin 0 0 0;
-}
-
 .home, .stats, .logOut {
   font-family: 'PT Serif', serif;
   font-size: 5vmin;
@@ -91,14 +87,22 @@
   margin: 2vmin 0 2vmin 0;
 }
 
+.home {
+  margin: 7vmin 0 0 0;
+}
+
+.logOut {
+  margin: 50vmin 0 0 0;
+}
+
 .home:hover, .stats:hover, .logOut:hover {
   color: white;
 }
 
-span {
+/* span {
   top: 0;
   left: 0;
   padding: 2vmin 0 2vmin 0;
   font-size: 5vmin;
   color: #60a6dc;
-}
+} */
