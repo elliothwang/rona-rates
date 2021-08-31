@@ -1,14 +1,12 @@
 const axios = require('axios').default;
 
 export default function fetchNovelCOVIDAPI() {
-  return axios.get('https://corona.lmao.ninja/v2/countries/USA?yesterday=true&strict=true&query')
+  axios.get('https://corona.lmao.ninja/v2/countries/USA?yesterday=true&strict=true&query')
   .then(res => {
-    // handle success
-    console.log(res);
-    return res;
+    console.log(res.data);
+    return res.data;
   })
-  .catch( err => {
-    // handle error
+  .catch(err => {
     console.log(err);
   });
 };
