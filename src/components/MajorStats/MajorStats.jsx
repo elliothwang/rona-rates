@@ -20,22 +20,29 @@ export default function MajorStats() {
 
   useEffect(() => fetchNovelCOVIDAPI(), []);
 
+  function numberWithCommas(x) {
+    if (x) return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    else return null;
+  }
+
   return (
-    <div className="info">
-      <div className="cases">
-        <div>Cases</div>
-        <div style={{ color: "black" }}>{APIData.cases}</div>
-        {/* <div style={{ color: "black" }}>{APIData.todayCases}</div> */}
-      </div>
-      <div className="deaths">
-        <div>Deaths</div>
-        <div style={{ color: "red" }}>{APIData.deaths}</div>
-        {/* <div style={{ color: "red" }}>{APIData.todayDeaths}</div> */}
-      </div>
-      <div className="recoveries">
-        <div>Recoveries</div>
-        <div style={{ color: "green" }}>{APIData.recovered}</div>
-        {/* <div style={{ color: "green" }}>{APIData.todayRecovered}</div> */}
+    <div className="parentContainer">
+      <div className="info">
+        <div className="cases">
+          <div className="title">Cases</div>
+          <div className="totalStat">{numberWithCommas(APIData.cases)}</div>
+          <div className="newCases">+{numberWithCommas(APIData.todayCases)}</div>
+        </div>
+        <div className="deaths">
+          <div className="title">Deaths</div>
+          <div className="totalStat">{numberWithCommas(APIData.deaths)}</div>
+          <div className="newDeaths">+{numberWithCommas(APIData.todayDeaths)}</div>
+        </div>
+        <div className="recoveries">
+          <div className="title">Recoveries</div>
+          <div className="totalStat">{numberWithCommas(APIData.recovered)}</div>
+          <div className="newRecoveries">+{numberWithCommas(APIData.todayRecovered)}</div>
+        </div>
       </div>
     </div>
   )
