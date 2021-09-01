@@ -24,24 +24,22 @@ export default function MajorStats() {
   }
 
   return (
-    <div className="parentContainer">
       <div className="info">
         <div className="cases">
           <div className="title">Cases</div>
-          <div className="totalStat">{numberWithCommas(USData.cases)}</div>
+          <div className="totalCases">{numberWithCommas(USData.cases)}</div>
           <div className="newCases">+{numberWithCommas(USData.todayCases)}</div>
         </div>
         <div className="deaths">
           <div className="title">Deaths</div>
-          <div className="totalStat">{numberWithCommas(USData.deaths)}</div>
+          <div className="totalDeaths">{numberWithCommas(USData.deaths)}</div>
           <div className="newDeaths">+{numberWithCommas(USData.todayDeaths)}</div>
         </div>
         <div className="recoveries">
           <div className="title">Recoveries</div>
-          <div className="totalStat">{numberWithCommas(USData.recovered)}</div>
+          <div className="totalRecoveries">{numberWithCommas(USData.recovered)}</div>
           <div className="newRecoveries">+{numberWithCommas(USData.todayRecovered)}</div>
         </div>
       </div>
-    </div>
   )
 }
