@@ -1,3 +1,11 @@
+.topNavBar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #dce4e9;
+  height: 3.15vmin;
+}
+
 .sideNavButton {
   padding: 0.2vmin 0.225vmin 0 0.2vmin;
   display: flex;
@@ -56,6 +64,14 @@
   border-radius: 0.35vmin;
 }
 
+.logOut {
+  font-family: 'PT Serif', serif;
+  font-size: 2vmin;
+  color: #60a6dc;
+  text-decoration: none;
+  margin: 2vmin 0 2vmin 0;
+}
+
 .sideNav {
   display: flex;
   flex-direction: column;
@@ -79,7 +95,7 @@
   display: none;
 }
 
-.home, .stats, .logOut {
+.home, .stats {
   font-family: 'PT Serif', serif;
   font-size: 5vmin;
   color: #60a6dc;
@@ -89,10 +105,6 @@
 
 .home {
   margin: 7vmin 0 0 0;
-}
-
-.logOut {
-  margin: 50vmin 0 0 0;
 }
 
 .home:hover, .stats:hover, .logOut:hover {
