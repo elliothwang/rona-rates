@@ -1,35 +1,45 @@
 .info {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  /* align-items: flex-start; */
   background-color: #dce4e9;
-  height: 10vmin;
+  height: 20vmin;
   width: 75%;
   margin: 3vmin auto;
+  font-family: 'PT Serif', serif;
 }
 
 .cases, .deaths, .recoveries {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  height: 10vmin;
-  font-family: 'PT Serif', serif;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title {
-  font-size: 1.1vmin;
+  font-size: 3vmin;
+  grid-column-start: 1;
 }
 
-.totalStat {
-  font-size: 3vmin;
+.totalCases, .totalDeaths, .totalRecoveries {
+  font-size: 3.5vmin;
   font-weight: bold;
-  margin: -0.75vmin 0 0 0;
+}
+
+.totalCases {
+  margin: 0 0 0 2vmin;
+}
+
+.totalDeaths {
+  margin: 0 0 0 -1.5vmin;
+}
+
+.totalRecoveries {
+  margin: 0 0 0 -5.1vmin;
 }
 
 .newCases, .newDeaths, .newRecoveries {
-  font-size: 1.5vmin;
-  margin: -1.25vmin 0 0 0;
+  font-size: 2vmin;
 }
 
 .newCases {
@@ -42,4 +52,41 @@
 
 .newRecoveries {
   color: green;
+}
+
+@media only screen and (min-width: 768px) {
+  .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #dce4e9;
+    height: 10vmin;
+    width: 75%;
+    margin: 3vmin auto;
+  }
+  
+  .cases, .deaths, .recoveries {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: 10vmin;
+    font-family: 'PT Serif', serif;
+  }
+  
+  .title {
+    font-size: 1.8vmin;
+  }
+  
+  .totalCases, .totalDeaths, .totalRecoveries {
+    font-size: 3.5vmin;
+    font-weight: bold;
+    margin: -0.5vmin 0 0 0;
+  }
+  
+  .newCases, .newDeaths, .newRecoveries {
+    font-size: 1.75vmin;
+    margin: -1vmin 0 0 0;
+  }
 }

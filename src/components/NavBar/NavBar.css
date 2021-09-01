@@ -1,9 +1,25 @@
 .topNavBar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #dce4e9;
-  height: 3.15vmin;
+  display: none;
+}
+
+.homeSideNav, .statsSideNav, .logOutSideNav {
+  font-family: 'PT Serif', serif;
+  font-size: 5vmin;
+  color: #60a6dc;
+  text-decoration: none;
+  margin: 2vmin 0 2vmin 0;
+}
+
+.homeSideNav:hover, .statsSideNav:hover, .logOutSideNav:hover {
+  color: white;
+}
+
+.welcomeSideNav {
+  top: 0;
+  left: 0;
+  padding: 2vmin 0 2vmin 0;
+  font-size: 5vmin;
+  color: #60a6dc;
 }
 
 .sideNavButton {
@@ -64,15 +80,7 @@
   border-radius: 0.35vmin;
 }
 
-.logOut {
-  font-family: 'PT Serif', serif;
-  font-size: 2vmin;
-  color: #60a6dc;
-  text-decoration: none;
-  margin: 2vmin 0 2vmin 0;
-}
-
-.sideNav {
+.sideNavBar {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -95,26 +103,36 @@
   display: none;
 }
 
-.home, .stats {
-  font-family: 'PT Serif', serif;
-  font-size: 5vmin;
-  color: #60a6dc;
-  text-decoration: none;
-  margin: 2vmin 0 2vmin 0;
+@media only screen and (min-width: 600px) {
+
 }
 
-.home {
-  margin: 7vmin 0 0 0;
+@media only screen and (min-width: 768px) {
+  .topNavBar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #dce4e9;
+    height: 3.15vmin;
+  }
+  
+  .homeTopNav, .statsTopNav, .logOutTopNav {
+    font-family: 'PT Serif', serif;
+    font-size: 2vmin;
+    color: #60a6dc;
+    text-decoration: none;
+    margin: 2vmin 0 2vmin 0;
+  }
+  
+  .homeTopNav:hover, .statsTopNav:hover, .logOutTopNav:hover {
+    color: white;
+  }
+  
+  .welcomeTopNav {
+    font-family: 'PT Serif', serif;
+    font-size: 2vmin;
+    color: #60a6dc;
+    text-decoration: none;
+    margin: 2vmin 0 2vmin 0;
+  }
 }
-
-.home:hover, .stats:hover, .logOut:hover {
-  color: white;
-}
-
-/* span {
-  top: 0;
-  left: 0;
-  padding: 2vmin 0 2vmin 0;
-  font-size: 5vmin;
-  color: #60a6dc;
-} */

@@ -13,12 +13,12 @@ export default function NavBar({ user, setUser }) {
 
   function openOrCloseSideNav() {
     if (!sideNavOpen) {
-      document.querySelector(".sideNav").classList.add('sideNavOpened');
-      document.querySelector(".openSideNavButton").classList.add('hide');
-      document.querySelector(".closeSideNavButton").classList.remove('hide');
+      document.querySelector(".sideNavBar").classList.add('sideNavOpened');
+      document.querySelector(".openSideNavButton").classList.add('hideSideNav');
+      document.querySelector(".closeSideNavButton").classList.remove('hideSideNav');
       setSideNavOpen(true);
     } else {
-      document.querySelector(".sideNav").classList.remove('sideNavOpened');
+      document.querySelector(".sideNavBar").classList.remove('sideNavOpened');
       document.querySelector(".openSideNavButton").classList.remove('hide');
       document.querySelector(".closeSideNavButton").classList.add('hide');
       setSideNavOpen(false);
@@ -28,7 +28,12 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav>
       <div className="topNavBar">
-        <div className="sideNavButton" onClick={openOrCloseSideNav}>
+        <NavLink to="/" exact className="homeTopNav" name="activeHome" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Home</NavLink>
+        <NavLink to="/stats"className="statsTopNav" name="activeStats" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Stats</NavLink>
+        <NavLink to="" className="logOutTopNav" onClick={handleLogOut}>Log Out</NavLink>
+        <span className="welcomeTopNav">Welcome, {user.name}</span>
+      </div>
+      <div className="sideNavButton" onClick={openOrCloseSideNav}>
           <div className="openSideNavButton">
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
@@ -40,12 +45,11 @@ export default function NavBar({ user, setUser }) {
             </svg>
           </div>
         </div>
-        <NavLink to="" className="logOut" onClick={handleLogOut}>Log Out</NavLink>
-      </div>
-      <div className="sideNav">
-        <NavLink to="/" exact className="home" name="activeHome" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Home</NavLink>
-        <NavLink to="/stats"className="stats" name="activeStats" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Stats</NavLink>
-        {/* <span className="welcome">Welcome, {user.name}</span> */}
+      <div className="sideNavBar">
+        <NavLink to="/" exact className="homeSideNav" name="activeHome" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Home</NavLink>
+        <NavLink to="/stats"className="statsSideNav" name="activeStats" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Stats</NavLink>
+        <NavLink to="" className="logOutSideNav" onClick={handleLogOut}>Log Out</NavLink>
+        <span className="welcomeSideNav">Welcome, {user.name}</span>
       </div>
     </nav>
   );
