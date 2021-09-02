@@ -1,3 +1,9 @@
+.flex-ctr-ctr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .info {
   display: flex;
   flex-direction: column;
@@ -18,7 +24,7 @@
 
 .title {
   font-size: 3vmin;
-  grid-column-start: 1;
+  margin: 0 0 0 2vmin;
 }
 
 .totalCases, .totalDeaths, .totalRecoveries {
@@ -40,6 +46,7 @@
 
 .newCases, .newDeaths, .newRecoveries {
   font-size: 2vmin;
+  margin: 0 2vmin 0 0;
 }
 
 .newCases {
@@ -52,6 +59,11 @@
 
 .newRecoveries {
   color: green;
+}
+
+.newDate {
+  font-size: 1.3vmin;
+  color: black;
 }
 
 @media only screen and (min-width: 768px) {
@@ -77,6 +89,7 @@
   
   .title {
     font-size: 1.8vmin;
+    margin: 0;
   }
   
   .totalCases, .totalDeaths, .totalRecoveries {
