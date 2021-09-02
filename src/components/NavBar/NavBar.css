@@ -1,4 +1,31 @@
+.flex-ctr-ctr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .topNavBar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 0.2vmin solid #dce4e9;
+  height: 5vmin;
+  width: 100%;
+}
+
+.pageTitle {
+  margin-right: auto;
+}
+
+.pageTitle > * {
+  font-family: 'PT Serif', serif;
+  font-size: 2vmin;
+  color: #172121;
+  text-decoration: none;
+  left: 0;
+}
+
+.homeTopNav, .statsTopNav, .myCountyTopNav, .logOutTopNav {
   display: none;
 }
 
@@ -10,8 +37,8 @@
   margin: 2vmin 0 2vmin 0;
 }
 
-.homeSideNav:hover, .statsSideNav:hover, .myCountySideNav, .logOutSideNav:hover {
-  color: white;
+.homeSideNav:hover, .statsSideNav:hover, .myCountySideNav:hover, .logOutSideNav:hover {
+  color: #dce4e9;
 }
 
 .homeSideNav {
@@ -19,9 +46,9 @@
 }
 
 .logOutSideNav {
-  padding: 63.3vmin 0 0 0;
+  margin: 63.3vmin 0 0 0;
   font-size: 5vmin;
-  color: white;
+  color: #60a6dc;
 }
 
 .sideNavButtonContainer {
@@ -31,7 +58,7 @@
 }
 
 .sideNavButton {
-  padding: 0.2vmin 0.225vmin 0 0.2vmin;
+  padding: 0.275vmin 0.25vmin 0vmin 0.26vmin;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -39,10 +66,11 @@
   transition-property: color;
   -webkit-transition-duration: 0.75s;
   transition-duration: 0.75s;
-  background-color: #60a6dc;
+  background-color: #dce4e9;
   border-radius: 0.5vmin;
   z-index: 2;
   border: 0.1vmin solid #172121;
+  margin: 0 0 0.5vmin 0;
 }
 
 .sideNavButton:before {
@@ -110,16 +138,17 @@
     justify-content: flex-end;
     align-items: center;
     border-bottom: 0.2vmin solid #dce4e9;
-    height: 4vmin;
+    height: 5vmin;
     width: 100%;
   }
   
   .homeTopNav, .statsTopNav, .myCountyTopNav {
+    display: inline;
     font-family: 'PT Serif', serif;
     font-size: 2vmin;
     margin: 0 1vmin 0 1vmin;
     padding: 0.3vmin;
-    color: white;
+    color: #dce4e9;
     background-color: #60a6dc;
     text-decoration: none;
   }
@@ -129,15 +158,16 @@
   }
 
   .logOutTopNav {
+    display: inline;
     font-family: 'PT Serif', serif;
     font-size: 2vmin;
     margin: 0 0 0 1vmin;
-    padding: 0.3vmin;
+    padding: 0.3vmin 0.3vmin 0.35vmin 0.3vmin;
     text-decoration: none;
     border: 0.1vmin solid #172121;
     border-radius: 0.5vmin;
     color: #172121;
-    background-color: white;
+    background-color: #dce4e9;
   }
 
   .logOutTopNav:hover {
@@ -147,5 +177,9 @@
   
   .sideNavButton {
     display: none;
+  }
+
+  .sideNavBar {
+    width: 0;
   }
 }
