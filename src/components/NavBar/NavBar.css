@@ -14,19 +14,24 @@
   color: white;
 }
 
+.homeSideNav {
+  margin: 3vmin 0 2vmin 0;
+}
+
 .welcomeSideNav {
-  top: 0;
-  left: 0;
-  padding: 2vmin 0 2vmin 0;
-  font-size: 5vmin;
-  color: #60a6dc;
+  padding: 46.2vmin 0 2vmin 0;
+  font-size: 3vmin;
+  color: white;
+}
+
+.sideNavButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .sideNavButton {
   padding: 0.2vmin 0.225vmin 0 0.2vmin;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -37,10 +42,6 @@
   background-color: #60a6dc;
   border-radius: 0.5vmin;
   z-index: 2;
-  width: 3.25vmin;
-  position: -webkit-sticky;
-  position: sticky;
-  left: 0;
 }
 
 .sideNavButton:before {
@@ -69,7 +70,6 @@
   color: white;
   cursor: pointer;
   border-radius: 0.5vmin;
-  transform: scale(1.05);
 }
 
 .sideNavButton:hover:before, .sideNavButton:focus:before, .sideNavButton:active:before {
@@ -88,7 +88,7 @@
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: #172121;
   overflow-x: hidden;
   padding: 5vmin 0 0 0;
@@ -103,11 +103,7 @@
   display: none;
 }
 
-@media only screen and (min-width: 600px) {
-
-}
-
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1768px) {
   .topNavBar {
     display: flex;
     justify-content: flex-start;
