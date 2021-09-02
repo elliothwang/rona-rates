@@ -28,8 +28,8 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav>
       <div className="topNavBar">
-        <NavLink to="/" exact className="homeTopNav" name="activeHome" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Home</NavLink>
-        <NavLink to="/stats"className="statsTopNav" name="activeStats" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Stats</NavLink>
+        <NavLink to="/" exact className="homeTopNav" name="activeHome" activeStyle={{color : "#172121"}}>Home</NavLink>
+        <NavLink to="/stats"className="statsTopNav" name="activeStats" activeStyle={{color : "#172121"}}>Stats</NavLink>
         <NavLink to="" className="logOutTopNav" onClick={handleLogOut}>Log Out</NavLink>
         <span className="welcomeTopNav">Welcome, {user.name}</span>
       </div>
