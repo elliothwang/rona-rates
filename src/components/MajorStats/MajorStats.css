@@ -32,15 +32,15 @@
 }
 
 .totalCases {
-  margin: 0 0 0 2vmin;
+  margin: 0 0 0 7vmin;
 }
 
 .totalDeaths {
-  margin: 0 0 0 -1.5vmin;
+  margin: 0 0 0 3vmin;
 }
 
 .totalRecoveries {
-  margin: 0 0 0 -5.1vmin;
+  margin: 0 0 0 0.5vmin;
 }
 
 .newCases, .newDeaths, .newRecoveries {

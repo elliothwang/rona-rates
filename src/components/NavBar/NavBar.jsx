@@ -28,29 +28,34 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav>
       <div className="topNavBar">
-        <NavLink to="/stats/mycounty"className="myCountyTopNav" name="activeMyCounty" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>My County</NavLink>
-        <NavLink to="/stats"className="statsTopNav" name="activeStats" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>Stats</NavLink>
-        <NavLink to="/" exact className="homeTopNav" name="activeHome" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>Home</NavLink>
-        <NavLink to="" className="logOutTopNav" onClick={handleLogOut}>Log Out</NavLink>
-      </div>
-      <div className="sideNavButtonContainer">
-        <div className="sideNavButton" onClick={openOrCloseSideNav}>
-          <div className="openSideNavButton hide">
-            <svg xmlns="http://www.w3.org/2000/svg" width="3vmin" height="3vmin" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
-            </svg>
-          </div>
-          <div className="closeSideNavButton">
-            <svg xmlns="http://www.w3.org/2000/svg" width="3vmin" height="3vmin" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z"/>
-            </svg>
+        <div className="pageTitle">
+          <NavLink to="/" exact className="flx-ctr-ctr" name="activeHome">COVID-19 Dashboard</NavLink>
+        </div>
+        <div>
+          <NavLink to="/stats/mycounty" exact className="myCountyTopNav flex-ctr-ctr" name="activeMyCounty" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>My County</NavLink>
+          <NavLink to="/stats" exact className="statsTopNav flex-ctr-ctr" name="activeStats" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>Stats</NavLink>
+          <NavLink to="/" exact className="homeTopNav flex-ctr-ctr" name="activeHome" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>Home</NavLink>
+          <NavLink to="" className="logOutTopNav flex-ctr-ctr" onClick={handleLogOut}>Log Out</NavLink>
+        </div>
+        <div className="sideNavButtonContainer">
+          <div className="sideNavButton" onClick={openOrCloseSideNav}>
+            <div className="openSideNavButton hide">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3vmin" height="3vmin" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
+              </svg>
+            </div>
+            <div className="closeSideNavButton">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3vmin" height="3vmin" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z"/>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
       <div className="sideNavBar">
-        <NavLink to="/" exact className="homeSideNav" name="activeHome" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Home</NavLink>
-        <NavLink to="/stats"className="statsSideNav" name="activeStats" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Stats</NavLink>
-        <NavLink to="/stats/mycounty"className="myCountySideNav" name="activeMyCounty" activeStyle={{color : "white"}}>My County</NavLink>
+        <NavLink to="/" exact className="homeSideNav" name="activeHome" activeStyle={{color : "#dce4e9"}} onClick={openOrCloseSideNav}>Home</NavLink>
+        <NavLink to="/stats" exact className="statsSideNav" name="activeStats" activeStyle={{color : "#dce4e9"}} onClick={openOrCloseSideNav}>Stats</NavLink>
+        <NavLink to="/stats/mycounty" exact className="myCountySideNav" name="activeMyCounty" activeStyle={{color : "#dce4e9"}} onClick={openOrCloseSideNav}>My County</NavLink>
         <NavLink to="" className="logOutSideNav" onClick={handleLogOut}>Log Out</NavLink>
       </div>
     </nav>
