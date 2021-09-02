@@ -17,7 +17,7 @@ export default function App() {
         <Fragment>
           <NavBar user={user} setUser={setUser} />
           <Switch>
-            <Route path="/mycounty">
+            <Route path="/stats/mycounty">
               <MyCountyPage />
             </Route>
             <Route path="/stats">

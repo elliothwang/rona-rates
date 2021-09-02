@@ -28,7 +28,7 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav>
       <div className="topNavBar">
-        <NavLink to="/mycounty"className="myCountyTopNav" name="activeMyCounty" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>My County</NavLink>
+        <NavLink to="/stats/mycounty"className="myCountyTopNav" name="activeMyCounty" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>My County</NavLink>
         <NavLink to="/stats"className="statsTopNav" name="activeStats" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>Stats</NavLink>
         <NavLink to="/" exact className="homeTopNav" name="activeHome" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>Home</NavLink>
         <NavLink to="" className="logOutTopNav" onClick={handleLogOut}>Log Out</NavLink>
@@ -50,7 +50,7 @@ export default function NavBar({ user, setUser }) {
       <div className="sideNavBar">
         <NavLink to="/" exact className="homeSideNav" name="activeHome" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Home</NavLink>
         <NavLink to="/stats"className="statsSideNav" name="activeStats" activeStyle={{color : "white"}} onClick={openOrCloseSideNav}>Stats</NavLink>
-        <NavLink to="/mycounty"className="myCountySideNav" name="activeMyCounty" activeStyle={{color : "white"}}>My County</NavLink>
+        <NavLink to="/stats/mycounty"className="myCountySideNav" name="activeMyCounty" activeStyle={{color : "white"}}>My County</NavLink>
         <NavLink to="" className="logOutSideNav" onClick={handleLogOut}>Log Out</NavLink>
       </div>
     </nav>
