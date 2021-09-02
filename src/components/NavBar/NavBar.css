@@ -114,7 +114,7 @@
     width: 100%;
   }
   
-  .homeTopNav, .statsTopNav, .myCountyTopNav, .logOutTopNav {
+  .homeTopNav, .statsTopNav, .myCountyTopNav {
     font-family: 'PT Serif', serif;
     font-size: 2vmin;
     margin: 0 1vmin 0 1vmin;
@@ -129,7 +129,13 @@
   }
 
   .logOutTopNav {
+    font-family: 'PT Serif', serif;
+    font-size: 2vmin;
+    margin: 0 0 0 1vmin;
+    padding: 0.3vmin;
+    text-decoration: none;
     border: 0.1vmin solid #172121;
+    border-radius: 0.5vmin;
     color: #172121;
     background-color: white;
   }
