@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
+import MyCountyPage from '../MyCountyPage/MyCountyPage';
 import StatsPage from '../StatsPage/StatsPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -16,6 +17,9 @@ export default function App() {
         <Fragment>
           <NavBar user={user} setUser={setUser} />
           <Switch>
+            <Route path="/mycounty">
+              <MyCountyPage />
+            </Route>
             <Route path="/stats">
               <StatsPage />
             </Route>

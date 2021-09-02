@@ -2,7 +2,7 @@
   display: none;
 }
 
-.homeSideNav, .statsSideNav, .logOutSideNav {
+.homeSideNav, .statsSideNav, .myCountySideNav, .logOutSideNav {
   font-family: 'PT Serif', serif;
   font-size: 5vmin;
   color: #60a6dc;
@@ -10,7 +10,7 @@
   margin: 2vmin 0 2vmin 0;
 }
 
-.homeSideNav:hover, .statsSideNav:hover, .logOutSideNav:hover {
+.homeSideNav:hover, .statsSideNav:hover, .myCountySideNav, .logOutSideNav:hover {
   color: white;
 }
 
@@ -18,9 +18,9 @@
   margin: 3vmin 0 2vmin 0;
 }
 
-.welcomeSideNav {
-  padding: 46.2vmin 0 2vmin 0;
-  font-size: 3vmin;
+.logOutSideNav {
+  padding: 63.3vmin 0 0 0;
+  font-size: 5vmin;
   color: white;
 }
 
@@ -42,6 +42,7 @@
   background-color: #60a6dc;
   border-radius: 0.5vmin;
   z-index: 2;
+  border: 0.1vmin solid #172121;
 }
 
 .sideNavButton:before {
@@ -103,36 +104,42 @@
   display: none;
 }
 
-@media only screen and (max-width: 768px) {
-
-}
-
 @media only screen and (min-width: 768px) {
   .topNavBar {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: #dce4e9;
-    height: 3.15vmin;
+    border-bottom: 0.2vmin solid #dce4e9;
+    height: 4vmin;
+    width: 100%;
   }
   
-  .homeTopNav, .statsTopNav, .logOutTopNav {
+  .homeTopNav, .statsTopNav, .myCountyTopNav, .logOutTopNav {
     font-family: 'PT Serif', serif;
     font-size: 2vmin;
-    color: #60a6dc;
-    text-decoration: none;
-    margin: 2vmin 0 2vmin 0;
-  }
-  
-  .homeTopNav:hover, .statsTopNav:hover, .logOutTopNav:hover {
+    margin: 0 1vmin 0 1vmin;
+    padding: 0.3vmin;
     color: white;
+    background-color: #60a6dc;
+    text-decoration: none;
   }
   
-  .welcomeTopNav {
-    font-family: 'PT Serif', serif;
-    font-size: 2vmin;
-    color: #60a6dc;
-    text-decoration: none;
-    margin: 2vmin 0 2vmin 0;
+  .homeTopNav:hover, .statsTopNav:hover, .myCountyTopNav:hover {
+    color: #172121;
+  }
+
+  .logOutTopNav {
+    border: 0.1vmin solid #172121;
+    color: #172121;
+    background-color: white;
+  }
+
+  .logOutTopNav:hover {
+    color: white;
+    background-color: #172121;
+  }
+  
+  .sideNavButton {
+    display: none;
   }
 }
