@@ -2,10 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 0.1vmin solid black;
   height: 60vmin;
   width: 90%;
   margin: 5vmin auto 0 auto;
   background-color: #dce4e9;
 }
-

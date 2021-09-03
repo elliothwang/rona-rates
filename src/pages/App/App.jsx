@@ -13,25 +13,27 @@ export default function App() {
   
   return (
     <main className="App">
-      { user ? 
-        <Fragment>
-          <NavBar user={user} setUser={setUser} />
-          <Switch>
-            <Route path="/stats/mycounty">
-              <MyCountyPage />
-            </Route>
-            <Route path="/stats">
-              <StatsPage />
-            </Route>
-            <Route path="/">
-              <DashboardPage />
-            </Route>
-            <Redirect to="/" />
-          </Switch>
-        </Fragment>
-        :
-        <AuthPage setUser={setUser} />
-      }
+      <Fragment>
+        <NavBar user={user} setUser={setUser}/>
+        <Switch>
+          <Route path="/stats/mycounty">
+            <MyCountyPage user={user}/>
+          </Route>
+          <Route path="/stats">
+            <StatsPage />
+          </Route>
+          <Route path="/login">
+            <AuthPage setUser={setUser}/>
+          </Route>
+          <Route path="/signup">
+            <AuthPage setUser={setUser}/>
+          </Route>
+          <Route path="/">
+            <DashboardPage/>
+          </Route>
+          <Redirect to="/" />
+        </Switch>
+      </Fragment>
     </main>
   );
 }

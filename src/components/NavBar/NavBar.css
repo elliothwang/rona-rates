@@ -1,9 +1,3 @@
-.flex-ctr-ctr {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .topNavBar {
   display: flex;
   justify-content: flex-end;
@@ -18,26 +12,58 @@
 }
 
 .pageTitle > * {
-  font-family: 'PT Serif', serif;
+  font-family: "PT Serif", serif;
   font-size: 2vmin;
   color: #172121;
   text-decoration: none;
   left: 0;
 }
 
-.homeTopNav, .statsTopNav, .myCountyTopNav, .logOutTopNav {
+.homeTopNav,
+.statsTopNav,
+.myCountyTopNav,
+.logOutTopNav,
+.spacerTopNav,
+.logInTopNav,
+.signUpTopNav,
+.spacerTopNav {
   display: none;
 }
 
-.homeSideNav, .statsSideNav, .myCountySideNav, .logOutSideNav {
-  font-family: 'PT Serif', serif;
+.sideNavBar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #172121;
+  overflow-x: hidden;
+  padding: 5vmin 0 0 0;
+  transition: 0.5s;
+}
+
+.homeSideNav,
+.statsSideNav,
+.myCountySideNav,
+.logOutSideNav,
+.logInSideNav,
+.signUpSideNav {
+  font-family: "PT Serif", serif;
   font-size: 5vmin;
   color: #60a6dc;
   text-decoration: none;
   margin: 2vmin 0 2vmin 0;
 }
 
-.homeSideNav:hover, .statsSideNav:hover, .myCountySideNav:hover, .logOutSideNav:hover {
+.homeSideNav:hover,
+.statsSideNav:hover,
+.myCountySideNav:hover,
+.logOutSideNav:hover,
+.logInSideNav:hover,
+.signUpSideNav:hover {
   color: #dce4e9;
 }
 
@@ -45,11 +71,22 @@
   margin: 3vmin 0 2vmin 0;
 }
 
-.logOutSideNav {
-  margin: 63.3vmin 0 0 0;
-  font-size: 5vmin;
-  color: #60a6dc;
+.spacerSideNav {
+  border-top: 0.2vmin solid #dce4e9;
 }
+
+/* .logOutSideNav {
+  margin: 10.98vmin 0 0 0;
+} */
+
+.logInSideNav,
+.signUpSideNav {
+  font-size: 3vmin;
+}
+
+/* .logInSideNav {
+  margin: 4vmin 0 0 0;
+} */
 
 .sideNavButtonContainer {
   display: flex;
@@ -95,13 +132,17 @@
   border-radius: 0.5vmin;
 }
 
-.sideNavButton:hover, .sideNavButton:focus, .sideNavButton:active {
+.sideNavButton:hover,
+.sideNavButton:focus,
+.sideNavButton:active {
   color: white;
   cursor: pointer;
   border-radius: 0.5vmin;
 }
 
-.sideNavButton:hover:before, .sideNavButton:focus:before, .sideNavButton:active:before {
+.sideNavButton:hover:before,
+.sideNavButton:focus:before,
+.sideNavButton:active:before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
@@ -109,23 +150,8 @@
   border-radius: 0.35vmin;
 }
 
-.sideNavBar {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background-color: #172121;
-  overflow-x: hidden;
-  padding: 5vmin 0 0 0;
-  transition: 0.5s;
-}
-
 .sideNavOpened {
-  width: 25%;
+  width: 30%;
 }
 
 .hide {
@@ -141,25 +167,38 @@
     height: 5vmin;
     width: 100%;
   }
-  
-  .homeTopNav, .statsTopNav, .myCountyTopNav {
+
+  .homeTopNav,
+  .statsTopNav,
+  .myCountyTopNav,
+  .logInTopNav {
     display: inline;
-    font-family: 'PT Serif', serif;
+    font-family: "PT Serif", serif;
     font-size: 2vmin;
     margin: 0 1vmin 0 1vmin;
     padding: 0.3vmin;
     color: #dce4e9;
-    background-color: #60a6dc;
     text-decoration: none;
   }
-  
-  .homeTopNav:hover, .statsTopNav:hover, .myCountyTopNav:hover {
+
+  .homeTopNav:hover,
+  .statsTopNav:hover,
+  .myCountyTopNav:hover,
+  .logInTopNav:hover {
     color: #172121;
   }
 
-  .logOutTopNav {
+  .spacerTopNav {
     display: inline;
-    font-family: 'PT Serif', serif;
+    padding: 1vmin 0 0.5vmin 0;
+    border-left: 0.2vmin solid #dce4e9;
+    pointer-events: none;
+  }
+
+  .logOutTopNav,
+  .signUpTopNav {
+    display: inline;
+    font-family: "PT Serif", serif;
     font-size: 2vmin;
     margin: 0 0 0 1vmin;
     padding: 0.3vmin 0.3vmin 0.35vmin 0.3vmin;
@@ -170,11 +209,12 @@
     background-color: #dce4e9;
   }
 
-  .logOutTopNav:hover {
+  .logOutTopNav:hover,
+  .signUpTopNav:hover {
     color: white;
     background-color: #172121;
   }
-  
+
   .sideNavButton {
     display: none;
   }

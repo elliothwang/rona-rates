@@ -1,6 +1,6 @@
 import './NavBar.css';
 import { NavLink } from 'react-router-dom';
-import React, { useState }  from 'react';
+import React, { Fragment, useState }  from 'react';
 import * as userService from '../../utilities/users-service';
 
 export default function NavBar({ user, setUser }) {
@@ -32,10 +32,18 @@ export default function NavBar({ user, setUser }) {
           <NavLink to="/" exact className="flx-ctr-ctr" name="activeHome">COVID-19 Dashboard</NavLink>
         </div>
         <div>
-          <NavLink to="/stats/mycounty" exact className="myCountyTopNav flex-ctr-ctr" name="activeMyCounty" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>My County</NavLink>
-          <NavLink to="/stats" exact className="statsTopNav flex-ctr-ctr" name="activeStats" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>Stats</NavLink>
-          <NavLink to="/" exact className="homeTopNav flex-ctr-ctr" name="activeHome" activeStyle={{color : "#172121", borderTop : "0.2vmin solid white"}}>Home</NavLink>
-          <NavLink to="" className="logOutTopNav flex-ctr-ctr" onClick={handleLogOut}>Log Out</NavLink>
+          <NavLink to="/stats/mycounty" exact className="myCountyTopNav flex-ctr-ctr" name="activeMyCounty" activeStyle={{color : "#172121", borderTop : "0.2vmin solid #dce4e9"}}>My County</NavLink>
+          <NavLink to="/stats" exact className="statsTopNav flex-ctr-ctr" name="activeStats" activeStyle={{color : "#172121", borderTop : "0.2vmin solid #dce4e9"}}>Stats</NavLink>
+          <NavLink to="/" exact className="homeTopNav flex-ctr-ctr" name="activeHome" activeStyle={{color : "#172121", borderTop : "0.2vmin solid #dce4e9"}}>Home</NavLink>
+          <NavLink to="" className="spacerTopNav flex-ctr-ctr"></NavLink>
+          { user ?
+            <NavLink to="" className="logOutTopNav flex-ctr-ctr" onClick={handleLogOut}>Log Out</NavLink>
+            :
+            <Fragment>
+              <NavLink to="/login" className="logInTopNav flex-ctr-ctr">Log In</NavLink>
+              <NavLink to="/signup" className="signUpTopNav flex-ctr-ctr">Sign Up</NavLink>
+            </Fragment>
+          }
         </div>
         <div className="sideNavButtonContainer">
           <div className="sideNavButton" onClick={openOrCloseSideNav}>
@@ -56,7 +64,15 @@ export default function NavBar({ user, setUser }) {
         <NavLink to="/" exact className="homeSideNav" name="activeHome" activeStyle={{color : "#dce4e9"}} onClick={openOrCloseSideNav}>Home</NavLink>
         <NavLink to="/stats" exact className="statsSideNav" name="activeStats" activeStyle={{color : "#dce4e9"}} onClick={openOrCloseSideNav}>Stats</NavLink>
         <NavLink to="/stats/mycounty" exact className="myCountySideNav" name="activeMyCounty" activeStyle={{color : "#dce4e9"}} onClick={openOrCloseSideNav}>My County</NavLink>
-        <NavLink to="" className="logOutSideNav" onClick={handleLogOut}>Log Out</NavLink>
+        <NavLink to="" className="spacerSideNav flex-ctr-ctr"></NavLink>
+        { user ?
+          <NavLink to="" className="logOutSideNav" onClick={handleLogOut}>Log Out</NavLink>
+          :
+          <Fragment>
+            <NavLink to="/login" className="logInSideNav">Log In</NavLink>
+            <NavLink to="/signup" className="signUpSideNav">Sign Up</NavLink>
+          </Fragment>
+        }
       </div>
     </nav>
   );
