@@ -1,8 +1,10 @@
 import './LoginForm.css';
 import React, { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import { useHistory } from 'react-router-dom';
 
 export default function LogIn({ setUser }) {
+  const history = useHistory();
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -19,6 +21,7 @@ export default function LogIn({ setUser }) {
     try {
       const user = await usersService.login(credentials);
       setUser(user);
+      history.push('/');
     } catch (err) {
       setError('Log In Failed - Try Again');
     }
