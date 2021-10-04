@@ -7,6 +7,7 @@ import MyCountyPage from '../MyCountyPage/MyCountyPage';
 import StatsPage from '../StatsPage/StatsPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import NavBar from '../../components/NavBar/NavBar';
+import * as covidAPI from '../../utilities/covid-api';
 const axios = require('axios').default;
 
 
@@ -14,7 +15,7 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [apiData, setApiData] = useState([]);
   
-  function getStateData() {
+  function getUSData() {
     axios.get('https://corona.lmao.ninja/v2/states?sort&yesterday')
     .then(res => {
       setApiData(res.data);
@@ -24,17 +25,17 @@ export default function App() {
     });
   };
 
-  useEffect(() => getStateData(), []);
+  useEffect(() => getUSData(), []);
   
   return (
     <main className="App">
       <Fragment>
         <NavBar user={user} setUser={setUser}/>
         <Switch>
-          <Route path="/stats/mycounty">
+          <Route path="/mycounty">
             <MyCountyPage user={user}/>
           </Route>
-          <Route path="/stats">
+          <Route path="/stats/:name">
             <StatsPage apiData={apiData}/>
           </Route>
           <Route path="/login">
