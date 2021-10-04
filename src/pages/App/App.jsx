@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from 'react';
+import './App.css';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
@@ -6,10 +7,24 @@ import MyCountyPage from '../MyCountyPage/MyCountyPage';
 import StatsPage from '../StatsPage/StatsPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import NavBar from '../../components/NavBar/NavBar';
-import './App.css';
+const axios = require('axios').default;
+
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [apiData, setApiData] = useState([]);
+  
+  function getStateData() {
+    axios.get('https://corona.lmao.ninja/v2/states?sort&yesterday')
+    .then(res => {
+      setApiData(res.data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  };
+
+  useEffect(() => getStateData(), []);
   
   return (
     <main className="App">
@@ -20,7 +35,7 @@ export default function App() {
             <MyCountyPage user={user}/>
           </Route>
           <Route path="/stats">
-            <StatsPage />
+            <StatsPage apiData={apiData}/>
           </Route>
           <Route path="/login">
             <AuthPage setUser={setUser}/>
