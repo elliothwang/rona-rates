@@ -1,15 +1,23 @@
 import './StatsPage.css';
-import React from 'react';
-import { useParams } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useLocation } from "react-router-dom";
+const axios = require('axios').default;
 
-export default function StatsPage({ APIData }) {
-  const { params } = useParams();
-  // const state = APIData.find((state) => state.name === name);
+export default function StatsPage({ apiData }) {
+  const location = useLocation();
+  const name = apiData.find((state) => state.state === location.state.name);
+
+  
 
   return (
   <div>
-    stats
-    { console.log(params) }
+    Stats Page
+    <div>
+      { name.state }
+      { name.cases }
+      { name.deaths }
+      { name.recovered }
+    </div>
   </div>
   )
 }
