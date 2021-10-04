@@ -1,12 +1,10 @@
 import './USMap.css';
-import React, { useState }  from 'react';
+import React  from 'react';
 import { useHistory } from 'react-router-dom';
-import USAMap from "react-usa-map";
-const axios = require('axios').default;
+import USAMap from 'react-usa-map';
 
 export default function USMap() {
   const history = useHistory();
-  const [stateData, setStateData] = useState("");
   
   var states = {
     "AL": "Alabama",
@@ -60,7 +58,7 @@ export default function USMap() {
     "WV": "West Virginia",
     "WI": "Wisconsin",
     "WY": "Wyoming"
-  };
+  }
 
   function customizeStates() {
     return {
@@ -118,29 +116,14 @@ export default function USMap() {
     };
   };
 
-  function getStateData(stateName) {
-    axios.get(`https://corona.lmao.ninja/v2/states/${stateName}?yesterday=true`)
-    .then(res => {
-      setStateData(res.data);
-      // history.push({
-      //   path: "/stats",
-      //   state: setStateData,
-      // });
-      history.push("/stats");
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  };
-
-  function getStateInfo(evt) {
+  function handleMapClick(evt) {
     const stateName = evt.target.dataset.name;
-    getStateData(states[stateName]);
+    history.push(`/stats/${states[stateName]}`);
   }
 
   return (
     <div className="mapContainer">
-      <USAMap customize={customizeStates()} onClick={getStateInfo}/>
+      <USAMap customize={customizeStates()} onClick={handleMapClick}/>
     </div>
   )
 }
