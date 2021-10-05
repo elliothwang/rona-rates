@@ -33,6 +33,7 @@ export default class SignUpForm extends Component {
     } catch (err) {
       // An error occurred
       this.setState({ error: 'Sign Up Failed - Please Try Again'});
+      console.log(err);
     }
   };
 
@@ -44,46 +45,10 @@ export default class SignUpForm extends Component {
         <div className="signUpTag">Create your free account here.</div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            {/* <div className="usernameInput"> */}
-              <input 
-                type="text" 
-                name="name" 
-                value={this.state.name} 
-                onChange={this.handleChange} 
-                placeholder="Name" 
-                required 
-              />
-            {/* </div> */}
-            {/* <div className="emailInput"> */}
-              <input 
-                type="text" 
-                name="email" 
-                value={this.state.email} 
-                onChange={this.handleChange} 
-                placeholder="Email" 
-                required 
-              />
-            {/* </div> */}
-            {/* <div className="passwordInput"> */}
-              <input 
-                type="password" 
-                name="password" 
-                value={this.state.password} 
-                onChange={this.handleChange} 
-                placeholder="Password" 
-                required 
-              />
-            {/* </div> */}
-            {/* <div className="passwordConfirmInput"> */}
-              <input 
-                type="password" 
-                name="confirm" 
-                value={this.state.confirm} 
-                onChange={this.handleChange} 
-                placeholder="Confirm Password"
-                required 
-              />
-            {/* </div> */}
+              <input type="text" name="name" value={this.state.name} placeholder="Name" onChange={this.handleChange} required autoFocus  />
+              <input type="text" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Email" required />
+              <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required />
+              <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} placeholder="Confirm Password"required />
             <button type="submit" disabled={disable}>Sign Up</button>
           </form>
         </div>
