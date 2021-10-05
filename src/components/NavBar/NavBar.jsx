@@ -2,9 +2,12 @@ import './NavBar.css';
 import { NavLink } from 'react-router-dom';
 import React, { Fragment, useState }  from 'react';
 import * as userService from '../../utilities/users-service';
+import AuthPage from '../../pages/AuthPage/AuthPage';
 
 export default function NavBar({ user, setUser }) {
   const [sideNavOpen, setSideNavOpen] = useState(false);
+  const [popUpOpen, setPopUpOpen] = useState(false);
+  const [showLogIn, setShowLogIn] = useState(true);
 
   function handleLogOut() {
     userService.logOut();
@@ -25,8 +28,39 @@ export default function NavBar({ user, setUser }) {
     };
   };
 
+  function handleAuthClick(evt) {
+    const name = evt.target.className;
+    if (!popUpOpen && name === "logInTopNav") {
+      document.querySelector(".authPopUpContainer").classList.remove('hidden');
+      setShowLogIn(true);
+      setPopUpOpen(true);
+    }
+    if (!popUpOpen && name === "signUpTopNav") {
+      document.querySelector(".authPopUpContainer").classList.remove('hidden');
+      setShowLogIn(false);
+      setPopUpOpen(true);
+    }
+  }
+
+  function closeAuthPopUp() {
+    document.querySelector(".authPopUpContainer").classList.add('hidden');
+    setPopUpOpen(false);
+  }
+
   return (
     <nav>
+      <div className="authPopUpContainer hidden">
+        <div className="authPopUp">
+          <div className="closeIcon" onClick={closeAuthPopUp}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="3.5vmin" height="3.5vmin" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+          </div>
+          <div className="authPage">
+            <AuthPage showLogIn={showLogIn} setShowLogIn={setShowLogIn}/>
+          </div>
+        </div>
+      </div>
       <div className="topNavBar">
         <div className="pageTitle">
           <NavLink to="/" exact className="flx-ctr-ctr" name="activeHome">COVID-19 Dashboard</NavLink>
@@ -42,8 +76,8 @@ export default function NavBar({ user, setUser }) {
           <NavLink to="" className="logOutTopNav flex-ctr-ctr" onClick={handleLogOut}>Log Out</NavLink>
           :
           <Fragment>
-            <div className="logInTopNav open">Log In</div>
-            <div className="signUpTopNav open">Sign Up</div>
+            <div className="logInTopNav" onClick={handleAuthClick}>Log In</div>
+            <div className="signUpTopNav" onClick={handleAuthClick}>Sign Up</div>
           </Fragment>
         }
         </div>
@@ -73,8 +107,8 @@ export default function NavBar({ user, setUser }) {
           <NavLink to="" className="logOutSideNav" onClick={handleLogOut}>Log Out</NavLink>
           :
           <Fragment>
-            <div className="logInTopNav">Log In</div>
-            <div className="signUpTopNav">Sign Up</div>
+            <div className="logInSideNav" onClick={handleAuthClick}>Log In</div>
+            <div className="signUpSideNav" onClick={handleAuthClick}>Sign Up</div>
           </Fragment>
         }
       </div>

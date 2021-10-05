@@ -1,4 +1,4 @@
-import './LoginForm.css';
+import './LogInForm.css';
 import React, { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 import { useHistory } from 'react-router-dom';
@@ -10,7 +10,7 @@ export default function LogIn({ setUser }) {
     password: ''
   });
   const [error, setError] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  // const [passwordShown, setPasswordShown] = useState(false);
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -35,7 +35,7 @@ export default function LogIn({ setUser }) {
       <div className="form-container" onSubmit={handleSubmit}>
         <form autoComplete="off" >
           <div className="logInInputs">
-            <div className="emailInput">
+            {/* <div className="emailInput"> */}
               <input 
                 type="text" 
                 name="email" 
@@ -44,8 +44,8 @@ export default function LogIn({ setUser }) {
                 placeholder="Email" 
                 required 
               />
-            </div>
-            <div className="passwordInput">
+            {/* </div> */}
+            {/* <div className="passwordInput"> */}
               <input 
                 type="password"
                 name="password"
@@ -53,7 +53,7 @@ export default function LogIn({ setUser }) {
                 onChange={handleChange}
                 placeholder="Password"
                 required />
-            </div>
+            {/* </div> */}
           </div>
           <button type="submit">Log In</button>
         </form>
