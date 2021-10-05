@@ -1,5 +1,10 @@
 .logInTitle {
   font-size: 3vmin;
-  font-family: "PT Serif", serif;
-  margin: 0 0 1.5vmin 0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.logInTag {
+  font-size: 1.25vmin;
+  color: #6b706c;
+  margin: 1vmin 0 3vmin 0;
 }

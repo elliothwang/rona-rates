@@ -10,6 +10,7 @@ export default function LogIn({ setUser }) {
     password: ''
   });
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -23,23 +24,41 @@ export default function LogIn({ setUser }) {
       setUser(user);
       history.push('/');
     } catch (err) {
-      setError('Log In Failed - Try Again');
+      setError('Log In Failed - Please Try Again');
     }
   }
 
   return (
     <div>
       <div className="logInTitle">Log In</div>
+      <div className="logInTag">Welcome back, friend!</div>
       <div className="form-container" onSubmit={handleSubmit}>
         <form autoComplete="off" >
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+          <div className="logInInputs">
+            <div className="emailInput">
+              <input 
+                type="text" 
+                name="email" 
+                value={credentials.email} 
+                onChange={handleChange} 
+                placeholder="Email" 
+                required 
+              />
+            </div>
+            <div className="passwordInput">
+              <input 
+                type="password"
+                name="password"
+                value={credentials.password}
+                onChange={handleChange}
+                placeholder="Password"
+                required />
+            </div>
+          </div>
+          <button type="submit">Log In</button>
         </form>
       </div>
-      <p className="error-message">&nbsp;{error}</p>
+      <p className="error-message" style={{ display: !error ? "none" : "inline"}}>&nbsp;{error}</p>
     </div>
   );
 }
