@@ -33,28 +33,9 @@ export default function LogIn({ setUser }) {
       <div className="logInTitle">Log In</div>
       <div className="logInTag">Welcome back, friend!</div>
       <div className="form-container" onSubmit={handleSubmit}>
-        <form autoComplete="off" >
-          <div className="logInInputs">
-            {/* <div className="emailInput"> */}
-              <input 
-                type="text" 
-                name="email" 
-                value={credentials.email} 
-                onChange={handleChange} 
-                placeholder="Email" 
-                required 
-              />
-            {/* </div> */}
-            {/* <div className="passwordInput"> */}
-              <input 
-                type="password"
-                name="password"
-                value={credentials.password}
-                onChange={handleChange}
-                placeholder="Password"
-                required />
-            {/* </div> */}
-          </div>
+        <form >
+          <input type="text" name="email" value={credentials.email} autoComplete="on" onChange={handleChange} placeholder="Email" required autoFocus />
+          <input type="password" name="password" value={credentials.password} autoComplete="off" onChange={handleChange} placeholder="Password" required />
           <button type="submit">Log In</button>
         </form>
       </div>

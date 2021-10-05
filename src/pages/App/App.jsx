@@ -6,7 +6,7 @@ import MyCountyPage from '../MyCountyPage/MyCountyPage';
 import StatsPage from '../StatsPage/StatsPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import NavBar from '../../components/NavBar/NavBar';
-import * as covidAPI from '../../utilities/covid-api';
+// import * as covidAPI from '../../utilities/covid-api';
 const axios = require('axios').default;
 
 
