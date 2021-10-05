@@ -44,7 +44,7 @@ export default class SignUpForm extends Component {
         <div className="signUpTag">Create your free account here.</div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <div className="usernameInput">
+            {/* <div className="usernameInput"> */}
               <input 
                 type="text" 
                 name="name" 
@@ -53,8 +53,8 @@ export default class SignUpForm extends Component {
                 placeholder="Name" 
                 required 
               />
-            </div>
-            <div className="emailInput">
+            {/* </div> */}
+            {/* <div className="emailInput"> */}
               <input 
                 type="text" 
                 name="email" 
@@ -63,8 +63,8 @@ export default class SignUpForm extends Component {
                 placeholder="Email" 
                 required 
               />
-            </div>
-            <div className="passwordInput">
+            {/* </div> */}
+            {/* <div className="passwordInput"> */}
               <input 
                 type="password" 
                 name="password" 
@@ -73,8 +73,8 @@ export default class SignUpForm extends Component {
                 placeholder="Password" 
                 required 
               />
-            </div>
-            <div className="passwordConfirmInput">
+            {/* </div> */}
+            {/* <div className="passwordConfirmInput"> */}
               <input 
                 type="password" 
                 name="confirm" 
@@ -83,7 +83,7 @@ export default class SignUpForm extends Component {
                 placeholder="Confirm Password"
                 required 
               />
-            </div>
+            {/* </div> */}
             <button type="submit" disabled={disable}>Sign Up</button>
           </form>
         </div>

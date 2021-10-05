@@ -1,11 +1,9 @@
 import './AuthPage.css';
 import React, { useState } from 'react';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
-import LoginForm from '../../components/LoginForm/LoginForm';
+import LogInForm from '../../components/LogInForm/LogInForm';
 
-export default function AuthPage({ setUser }) {
-  const [showLogin, setShowLogin] = useState(true);
-
+export default function AuthPage({ setUser, showLogIn, setShowLogIn }) {
   function handlePasswordReset() {
     alert('not quite working yet!')
   }
@@ -13,9 +11,9 @@ export default function AuthPage({ setUser }) {
   return (
     <main>
       <div className="form">
-        {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
+        {showLogIn ? <LogInForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
       </div>
-      { showLogin ? 
+      { showLogIn ? 
         <div className="bottomLinks">
           <div className="resetPassword">
           Forgot Password? &nbsp;
@@ -23,13 +21,13 @@ export default function AuthPage({ setUser }) {
           </div>
           <div className="signUp">
             New here? &nbsp;
-            <span className="link" onClick={() => setShowLogin(!showLogin)}>Sign Up</span>
+            <span className="link" onClick={() => setShowLogIn(!showLogIn)}>Sign Up</span>
           </div>
         </div>
         :
         <div className="bottomLinks">
           Already have an account? &nbsp;
-          <span className="link" onClick={() => setShowLogin(!showLogin)}>Log In</span>
+          <span className="link" onClick={() => setShowLogIn(!showLogIn)}>Log In</span>
         </div>
       }
     </main>

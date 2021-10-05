@@ -158,6 +158,42 @@
   display: none;
 }
 
+.authPopUpContainer {
+  position: fixed;
+  background: #00000090;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.authPopUp {
+  position: relative;
+  width: 35%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 70vh;
+  margin-top: calc(100vh - 80vh);
+  background: #fff;
+  border-radius: 2vmin;
+  padding: 1.5vmin;
+  border: 0.1vmin solid #999;
+  overflow: auto;
+}
+
+.closeIcon {
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+  height: 3.5vmin;
+  width: 3.5vmin;
+  margin: -1vmin 0 0 -1vmin;
+}
+
+.authPage {
+  margin: -2vmin 0 0 0;
+}
+
 @media only screen and (min-width: 768px) {
   .topNavBar {
     display: flex;
@@ -179,6 +215,7 @@
     padding: 0.3vmin;
     color: #dce4e9;
     text-decoration: none;
+    cursor: pointer;
   }
 
   .homeTopNav:hover,
@@ -213,6 +250,7 @@
   .signUpTopNav:hover {
     color: white;
     background-color: #172121;
+    cursor: pointer;
   }
 
   .sideNavButton {
