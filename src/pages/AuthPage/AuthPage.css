@@ -1,0 +1,9 @@
+.link {
+  color: blue;
+  font-family: "PT Serif", serif;
+}
+
+.link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
