@@ -1,6 +1,15 @@
+.bottomLinks {
+  margin: 1vmin 0 0 0;
+}
+
+.resetPassword {
+  margin: 0 0 0.3vmin 0;
+}
+
 .link {
-  color: blue;
-  font-family: "PT Serif", serif;
+  color: #204c91;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
 }
 
 .link:hover {

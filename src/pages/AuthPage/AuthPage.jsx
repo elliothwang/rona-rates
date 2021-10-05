@@ -6,16 +6,20 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 export default function AuthPage({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
+  function handlePasswordReset() {
+    alert('not quite working yet!')
+  }
+
   return (
     <main>
       <div className="form">
         {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
       </div>
       { showLogin ? 
-        <div>
+        <div className="bottomLinks">
           <div className="resetPassword">
           Forgot Password? &nbsp;
-          <span className="link">Reset</span>
+          <span className="link" onClick={handlePasswordReset}>Reset</span>
           </div>
           <div className="signUp">
             New here? &nbsp;
@@ -23,7 +27,7 @@ export default function AuthPage({ setUser }) {
           </div>
         </div>
         :
-        <div className="logIn">
+        <div className="bottomLinks">
           Already have an account? &nbsp;
           <span className="link" onClick={() => setShowLogin(!showLogin)}>Log In</span>
         </div>
