@@ -34,7 +34,7 @@ export default function App() {
           <Route path="/me">
             <MyCountyPage user={user} apiData={apiData} />
           </Route>
-          <Route path="/:name">
+          <Route path="/stats">
             <StatsPage apiData={apiData} />
           </Route>
           <Route path="/">

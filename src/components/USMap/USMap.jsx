@@ -62,8 +62,10 @@ export default function USMap() {
   }
 
   function handleMapClick(evt) {
-    const stateName = evt.target.dataset.name;
-    history.push(`/stats/${states[stateName]}`, {name: states[stateName]});
+    const stateAbr = evt.target.dataset.name;
+    const state = states[stateAbr]
+    localStorage.setItem('state', state);
+    history.push(`/stats/${state}`);
   }
 
   return (
