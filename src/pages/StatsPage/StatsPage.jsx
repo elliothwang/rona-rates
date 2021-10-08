@@ -1,34 +1,22 @@
 import './StatsPage.css';
-import React from 'react';
-import { useLocation } from "react-router-dom";
+import React, { useEffect } from 'react';
+import StateImg from '../../components/StateImg/StateImg'
+import StateStats from '../../components/StateStats/StateStats'
 
 export default function StatsPage({ apiData }) {
-  const location = useLocation();
-  const state = apiData.find((state) => state.state === location.state.name);
+  const stateName = localStorage.getItem('state');
+  const state = apiData.find((state) => state.state === stateName);
+
+  function storeStateData() {
+    localStorage.setItem('stateData', JSON.stringify(state));
+  };
+
+  useEffect(() => storeStateData(), [stateName]);
 
   return (
   <div>
-    <h1>{state.state}</h1>
-    <div className="stateStatsContainer">
-      <div className="stateCasesTotal">
-        Total Cases: { state.cases }
-      </div>
-      <div className="stateDeathsTotal">
-        Total Deaths: { state.deaths }  
-      </div>
-      <div className="stateRecoveriesTotal">
-        Total Recoveries: { state.recovered }
-      </div>
-      <div className="stateCasesToday">
-        New Cases: { state.todayCases }
-      </div>
-      <div className="stateDeathsToday">
-        New Deaths: { state.todayDeaths }
-      </div>
-    </div>
-    <div className="stateImgContainer">
-      State Image
-    </div>
+    <StateImg></StateImg>
+    {/* <StateStats></StateStats> */}
   </div>
   )
 }
