@@ -21,6 +21,7 @@ code {
   --tan-4: #D3C1AE;
   --text-light: #968c84;
   --text-dark: #615954;
+  --main-blue: #60a6dc;
 }
 
 *, *:before, *:after {
@@ -121,14 +122,14 @@ input {
 }
 
 input:focus {
-  border-color: #60a6dc;
+  border-color: var(--main-blue);
 }
 
 button, a.button {
   margin: 1vmin 0 0 0;
   padding: 1vmin;
   color: var(--white);
-  background-color: #60a6dc;
+  background-color: var(--main-blue);
   font-size: 1.5vmin;
   font-weight: bold;
   text-decoration: none;
