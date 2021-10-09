@@ -64,14 +64,14 @@ export default function NavBar({ user, setUser }) {
       </div>
       <div className="topNavBar">
         <div className="pageTitle">
-          <NavLink to="/" exact className="flx-ctr-ctr" name="activeHome">COVID-19 Dashboard</NavLink>
+          <NavLink to="/" exact className="flx-ctr-ctr" name="activeHome">covid</NavLink>
         </div>
         <div>
           { user && (
-            <NavLink to="/me" exact className="myCountyTopNav flex-ctr-ctr" name="activeMyCounty" activeStyle={{color : "#172121", borderTop : "0.2vmin solid #dce4e9"}}>My County</NavLink>
+            <NavLink to="/me" exact className="myCountyTopNav flex-ctr-ctr" name="activeMyCounty" activeStyle={{color : "#60a6dc", borderTop : "0.2vmin solid #60a6dc"}}>My County</NavLink>
           )}
-          {/* <NavLink to="/stats" exact className="statsTopNav flex-ctr-ctr" name="activeStats" activeStyle={{color : "#172121", borderTop : "0.2vmin solid #dce4e9"}}>Stats</NavLink> */}
-          <NavLink to="/" exact className="homeTopNav flex-ctr-ctr" name="activeHome" activeStyle={{color : "#172121", borderTop : "0.2vmin solid #dce4e9"}}>Home</NavLink>
+          {/* <NavLink to="/stats" exact className="statsTopNav flex-ctr-ctr" name="activeStats" activeStyle={{color : "#60a6dc", borderTop : "0.2vmin solid #60a6dc"}}>Stats</NavLink> */}
+          <NavLink to="/" exact className="homeTopNav flex-ctr-ctr" name="activeHome" activeStyle={{color : "#60a6dc", borderTop : "0.2vmin solid #60a6dc"}}>Home</NavLink>
           <div to="" className="spacerTopNav flex-ctr-ctr"></div>
         { user ?
           <NavLink to="" className="logOutTopNav flex-ctr-ctr" onClick={handleLogOut}>Log Out</NavLink>

@@ -6,25 +6,31 @@ import MyCountyPage from '../MyCountyPage/MyCountyPage';
 import StatsPage from '../StatsPage/StatsPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import NavBar from '../../components/NavBar/NavBar';
-// import * as covidAPI from '../../utilities/covid-api';
+import Footer from '../../components/Footer/Footer';
+// import * as api from '../../utilities/covid-api';
 const axios = require('axios').default;
 
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [apiData, setApiData] = useState([]);
+  const [allStatesData, setAllStatesData] = useState([]);
   
-  function getUSData() {
+  function getAllStatesData() {
     axios.get('https://corona.lmao.ninja/v2/states?sort&yesterday')
     .then(res => {
-      setApiData(res.data);
+      setAllStatesData(res.data);
     })
     .catch(err => {
       console.log(err);
     });
   };
 
-  useEffect(() => getUSData(), []);
+  useEffect(() => getAllStatesData(), []);
+
+  // useEffect(() => {
+  //   setAllStatesData(api.getAllStatesData());
+  //   console.log(api.getAllStatesData());
+  // }, []);
   
   return (
     <main className="App">
@@ -32,16 +38,17 @@ export default function App() {
         <NavBar user={user} setUser={setUser} />
         <Switch>
           <Route path="/me">
-            <MyCountyPage user={user} apiData={apiData} />
+            <MyCountyPage user={user} allStatesData={allStatesData} />
           </Route>
           <Route path="/stats">
-            <StatsPage apiData={apiData} />
+            <StatsPage allStatesData={allStatesData} />
           </Route>
           <Route path="/">
             <DashboardPage />
           </Route>
           <Redirect to="/" />
         </Switch>
+        <Footer />
       </Fragment>
     </main>
   );

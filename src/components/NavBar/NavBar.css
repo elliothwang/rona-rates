@@ -1,10 +1,21 @@
+:root {
+  --light-gray: #dce4e9;
+  --dark-gray: #787878;
+  --main-blue: #60a6dc;
+  --main-black: #172121;
+  --popup-page-background: #00000090;
+  --popup-form-background: #fff;
+  --popup-border: #999;
+}
+
 .topNavBar {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: 0.2vmin solid #dce4e9;
-  height: 5vmin;
+  border-bottom: 0.3vmin solid var(--light-gray);
+  height: 4vmin;
   width: 100%;
+  padding: 0 1vmin 0 1vmin;
 }
 
 .pageTitle {
@@ -14,7 +25,7 @@
 .pageTitle > * {
   font-family: "PT Serif", serif;
   font-size: 2vmin;
-  color: #172121;
+  color: var(--main-black);;
   text-decoration: none;
   left: 0;
 }
@@ -39,7 +50,7 @@
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: #172121;
+  background-color: var(--main-black);
   overflow-x: hidden;
   padding: 5vmin 0 0 0;
   transition: 0.5s;
@@ -53,7 +64,7 @@
 .signUpSideNav {
   font-family: "PT Serif", serif;
   font-size: 5vmin;
-  color: #60a6dc;
+  color: var(--main-blue);
   text-decoration: none;
   margin: 2vmin 0 2vmin 0;
 }
@@ -73,7 +84,7 @@
 }
 
 .spacerSideNav {
-  border-top: 0.2vmin solid #dce4e9;
+  border-top: 0.2vmin solid var(--light-gray);
 }
 
 .logInSideNav,
@@ -104,10 +115,10 @@
   transition-property: color;
   -webkit-transition-duration: 0.75s;
   transition-duration: 0.75s;
-  background-color: #dce4e9;
+  background-color: var(--light-gray);
   border-radius: 0.5vmin;
   z-index: 2;
-  border: 0.1vmin solid #172121;
+  border: 0.1vmin solid var(--main-black);;
   margin: 0 0 0.5vmin 0;
 }
 
@@ -119,7 +130,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #172121;
+  background: var(--main-black);;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;
@@ -161,11 +172,12 @@
 
 .authPopUpContainer {
   position: fixed;
-  background: #00000090;
+  background: var(--popup-page-background);
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 .authPopUp {
@@ -175,10 +187,10 @@
   height: auto;
   max-height: 70vh;
   margin-top: calc(100vh - 80vh);
-  background: #fff;
+  background: var(--popup-form-background);
   border-radius: 2vmin;
   padding: 1.5vmin;
-  border: 0.1vmin solid #999;
+  border: 0.1vmin solid var(--popup-border);
   overflow: auto;
 }
 
@@ -200,9 +212,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    border-bottom: 0.2vmin solid #dce4e9;
-    height: 5vmin;
+    border-bottom: 0.3vmin solid var(--light-gray);
+    height: 4vmin;
     width: 100%;
+    padding: 0 1vmin 0 1vmin;
   }
 
   .homeTopNav,
@@ -211,10 +224,10 @@
   .logInTopNav {
     display: inline;
     font-family: "PT Serif", serif;
-    font-size: 2vmin;
+    font-size: 1.5vmin;
     margin: 0 1vmin 0 1vmin;
-    padding: 0.3vmin;
-    color: #dce4e9;
+    padding: 0.6vmin;
+    color: var(--main-black);;
     text-decoration: none;
     cursor: pointer;
   }
@@ -223,13 +236,13 @@
   .statsTopNav:hover,
   .myCountyTopNav:hover,
   .logInTopNav:hover {
-    color: #172121;
+    color: var(--light-gray);
   }
 
   .spacerTopNav {
     display: inline;
-    padding: 1vmin 0 0.5vmin 0;
-    border-left: 0.2vmin solid #dce4e9;
+    padding: 0.35vmin 0 0.35vmin 0;
+    border-left: 0.2vmin solid var(--light-gray);
     pointer-events: none;
   }
 
@@ -237,21 +250,19 @@
   .signUpTopNav {
     display: inline;
     font-family: "PT Serif", serif;
-    font-size: 2vmin;
-    margin: 0 0 0 1vmin;
+    font-size: 1.5vmin;
     padding: 0.3vmin 0.3vmin 0.35vmin 0.3vmin;
     text-decoration: none;
-    border: 0.1vmin solid #172121;
+    border: 0.1vmin solid var(--tan-3);
     border-radius: 0.5vmin;
-    color: #172121;
-    background-color: #dce4e9;
+    color: var(--light-gray);
+    background-color: var(--main-blue);
   }
 
   .logOutTopNav:hover,
   .signUpTopNav:hover {
-    color: white;
-    background-color: #172121;
     cursor: pointer;
+    color: var(--main-black);;
   }
 
   .sideNavButton {
