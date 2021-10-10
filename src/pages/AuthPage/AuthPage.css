@@ -1,10 +1,12 @@
+
+
 .bottomLinks {
-  font-size: 1.5vmin;
-  margin: 1vmin 0 0 0;
+  font-size: 3vmin;
+  margin: 2vmin 0 0 0;
 }
 
 .resetPassword {
-  margin: 0 0 0.3vmin 0;
+  margin: 0 0 0.6vmin 0;
 }
 
 .link {
@@ -16,4 +18,26 @@
 .link:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 480px) {
+  .bottomLinks {
+    font-size: 2.25vmin;
+    margin: 1.5vmin 0 0 0;
+  }
+  
+  .resetPassword {
+    margin: 0 0 0.45vmin 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .bottomLinks {
+    font-size: 1.5vmin;
+    margin: 1vmin 0 0 0;
+  }
+  
+  .resetPassword {
+    margin: 0 0 0.3vmin 0;
+  }
 }

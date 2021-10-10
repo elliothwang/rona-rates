@@ -1,11 +1,33 @@
 .signUpTitle {
-  font-size: 3vmin;
+  font-size: 6vmin;
   font-family: "PT Serif", serif;
   font-weight: 800;
 }
 
 .signUpTag {
-  font-size: 1.5vmin;
+  font-size: 3vmin;
   color: #6b706c;
-  margin: 1vmin 0 3vmin 0;
+  margin: 2vmin 0 4vmin 0;
+}
+
+@media only screen and (min-width: 480px) {
+  .signUpTitle {
+    font-size: 4.5vmin;
+  }
+
+  .signUpTag {
+    font-size: 2.25vmin;
+    margin: 1vmin 0 3vmin 0;
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  .signUpTitle {
+    font-size: 3vmin;
+  }
+
+  .signUpTag {
+    font-size: 1.5vmin;
+  }
 }

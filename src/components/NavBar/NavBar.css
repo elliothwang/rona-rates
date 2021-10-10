@@ -22,7 +22,7 @@
   position: relative;
   width: 75%;
   margin: 0 auto;
-  height: 50vh;
+  height: auto;
   max-height: 70vh;
   margin-top: calc(100vh - 75vh);
   background: var(--popup-form-background);
@@ -69,8 +69,8 @@
 }
 
 .logo {
-  height: 3vmin;
-  margin: 0 0.5vmin 0 0;
+  height: 5vmin;
+  margin: 0 1vmin 0 0;
 }
 
 .homeTopNav,
@@ -253,10 +253,6 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .authPopUp {
-    width: 30%;
-  }
-
   .topNavBar {
     height: 4vmin;
   }
@@ -268,6 +264,11 @@
   .pageTitle > * {
     font-size: 2vmin;
     margin-left: 0;
+  }
+
+  .logo {
+    height: 3vmin;
+    margin: 0 0.5vmin 0 0;
   }
   
   .homeTopNav,
