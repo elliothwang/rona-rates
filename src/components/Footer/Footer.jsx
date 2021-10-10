@@ -19,7 +19,7 @@ export default function Footer() {
         <NavLink to="">Privacy Policy</NavLink>
       </div>
       <div className="copyright">
-        COVID-19 Dashboard © 2021
+        corona-rona © 2021
       </div>
     </div>
   )

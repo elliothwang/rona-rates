@@ -45,7 +45,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: 0.3vmin solid var(--light-gray);
+  border-bottom: 0.5vmin solid var(--light-gray);
   height: 7.5vmin;
   width: 100%;
   padding: 0 1vmin;
@@ -225,6 +225,10 @@
     border: 0.1vmin solid var(--popup-border);
   }
 
+  .topNavBar {
+    border-bottom: 0.3vmin solid var(--light-gray);
+  }
+
   .homeSideNav,
   .statsSideNav,
   .myCountySideNav,
@@ -242,8 +246,6 @@
   .signUpSideNav {
     font-size: 3vmin;
   }
-
-
 
   .opened {
     width: 30%;
