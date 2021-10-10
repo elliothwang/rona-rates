@@ -68,6 +68,11 @@
   text-decoration: none;
 }
 
+.logo {
+  height: 3vmin;
+  margin: 0 0.5vmin 0 0;
+}
+
 .homeTopNav,
 .statsTopNav,
 .myCountyTopNav,

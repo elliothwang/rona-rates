@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import React, { Fragment, useState }  from 'react';
 import * as userService from '../../utilities/users-service';
 import AuthPage from '../../pages/AuthPage/AuthPage';
+import logo from '../../assets/2019-nCoV.png';
 
 export default function NavBar({ user, setUser }) {
   const [sideNavOpen, setSideNavOpen] = useState(false);
@@ -64,7 +65,10 @@ export default function NavBar({ user, setUser }) {
       </div>
       <div className="topNavBar">
         <div className="pageTitle">
-          <NavLink to="/" exact className="flx-ctr-ctr" name="activeHome">covid</NavLink>
+          <NavLink to="/" exact className="flx-ctr-ctr" name="activeHome">
+            <img className="logo" src={logo}/>
+            corona-rona
+          </NavLink>
         </div>
         <div>
           { user && (
