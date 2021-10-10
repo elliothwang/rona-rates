@@ -109,6 +109,36 @@ form {
   color: var(--text-light);
 }
 
+/* @media only screen and (min-width: 480px) {
+  input {
+    padding: 2vmin;
+    font-size: 2.5vmin;
+    border: .2vmin solid var(--tan-3);
+    border-radius: .5vmin;
+    color: var(--text-dark);
+    background-image: none !important;
+    outline: none;
+    margin: 2vmin 0 2vmin 0;
+    width: 100%;
+  }
+
+  button, a.button {
+    margin: 2vmin 0 0 0;
+    padding: 2vmin;
+    color: var(--white);
+    background-color: var(--main-blue);
+    font-size: 3vmin;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    border: 0.2vmin solid var(--tan-3);
+    border-radius: 0.5vmin;
+    outline: none;
+    cursor: pointer;
+    opacity: 0.9;
+  }
+} */
+
 input {
   padding: 1vmin;
   font-size: 1.25vmin;
