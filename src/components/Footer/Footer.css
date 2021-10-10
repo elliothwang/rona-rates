@@ -8,60 +8,111 @@
   --popup-border: #999;
 }
 
-
-
-@media only screen and (min-width: 480px) {
-  .footer {
+.footer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-top: 0.3vmin solid var(--light-gray);
+  border-top: 0.5vmin solid var(--light-gray);
   width: 100%;
   padding: 0 1vmin;
   position: absolute;
   bottom: 0;
+}
+
+.footer > * {
+  width: 25%;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.socials > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 4.5vmin;
+  width: 6vmin;
+  height: 6vmin;
+  line-height: 6vmin;
+  display: block;
+  text-align: center;
+  margin: 1.5vmin;
+  color: inherit;
+  opacity: 0.8;
+  border-radius: 0.5vmin;
+  border: 0.3vmin solid #ccc;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2vmin 5vmin;
+}
+
+.links >  * {
+  font-size: 3vmin;
+  text-decoration: none;
+  color: var(--main-black);
+  margin: 1vmin 0;
+}
+
+.links > *:hover {
+  color: var(--main-blue);
+  text-decoration: none;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1vmin 0;
+  font-size: 2.5vmin;
+  color: var(--popup-page-background);
+}
+
+@media only screen and (min-width: 480px) {
+  .footer {
+    flex-direction: column;
+    border-top: 0.3vmin solid var(--light-gray);
+  }
+
+  .footer > * {
+    width: auto;
   }
 
   .socials {
-    margin: 1.5vmin 0 0 0;
+    margin: 2vmin 0 0 0;
   }
 
   .socials > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.75vmin;
+    font-size: 2.25vmin;
     width: 3vmin;
     height: 3vmin;
     line-height: 3vmin;
     display: inline-block;
-    text-align: center;
     margin: 0 1.5vmin;
     color: inherit;
-    opacity: 0.75;
-    border-radius: 0.5vmin;
     border: 0.1vmin solid #ccc;
   }
 
   .links {
-    margin: 1vmin 0 0 0;
+    flex-direction: row;
+    margin: 2vmin 0;
   }
 
   .links >  * {
     font-size: 1.5vmin;
-    text-decoration: none;
-    color: #172121;
     margin: 0 2vmin;
   }
 
-  .links > *:hover {
-    color: var(--main-blue);
-  }
-
   .copyright {
-    margin: 1vmin 0;
-    font-size: 1.2vmin;
-    color: var(--popup-page-background);
+    font-size: 1.25vmin;
   }
 }
