@@ -5,6 +5,7 @@ export function customizeStates() {
   const blue4 = "#3d85c6";
   const blue5 = "#416aab";
   const blue6 = "#204c91";
+  
   return {
     "AL": {fill: blue2},
     "AK": {fill: blue1},
