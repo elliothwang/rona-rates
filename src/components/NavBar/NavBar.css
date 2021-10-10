@@ -8,26 +8,64 @@
   --popup-border: #999;
 }
 
+.authPopUpContainer {
+  position: fixed;
+  background: var(--popup-page-background);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.authPopUp {
+  position: relative;
+  width: 75%;
+  margin: 0 auto;
+  height: 50vh;
+  max-height: 70vh;
+  margin-top: calc(100vh - 75vh);
+  background: var(--popup-form-background);
+  border-radius: 2vmin;
+  padding: 3vmin;
+  border: 0.2vmin solid var(--popup-border);
+  overflow: auto;
+}
+
+.closeAuthIcon {
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+  height: 5vmin;
+  width: 5vmin;
+  margin: -0.8vmin 0 0 -0.8vmin;
+}
+
 .topNavBar {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   border-bottom: 0.3vmin solid var(--light-gray);
-  height: 4vmin;
+  height: 7.5vmin;
   width: 100%;
-  padding: 0 1vmin 0 1vmin;
+  padding: 0 1vmin;
 }
 
 .pageTitle {
   margin-right: auto;
+  margin-left: auto;
 }
 
 .pageTitle > * {
   font-family: "PT Serif", serif;
-  font-size: 2vmin;
+  font-size: 4vmin;
   color: var(--main-black);;
   text-decoration: none;
-  left: 0;
+  margin-left: 3vmin;
+}
+
+.pageTitle > *:hover {
+  text-decoration: none;
 }
 
 .homeTopNav,
@@ -59,46 +97,50 @@
 .homeSideNav,
 .statsSideNav,
 .myCountySideNav,
-.logOutSideNav,
 .logInSideNav,
+.logOutSideNav,
 .signUpSideNav {
   font-family: "PT Serif", serif;
-  font-size: 5vmin;
+  font-size: 7vmin;
   color: var(--main-blue);
   text-decoration: none;
-  margin: 2vmin 0 2vmin 0;
+  width: auto;
+  margin: 0 auto;
 }
 
 .homeSideNav:hover,
 .statsSideNav:hover,
-.myCountySideNav:hover,
-.logOutSideNav:hover,
-.logInSideNav:hover,
-.signUpSideNav:hover {
-  color: #dce4e9;
+.myCountySideNav:hover {
+  color: var(--light-gray);
   cursor: pointer;
-}
-
-.homeSideNav {
-  margin: 3vmin 0 2vmin 0;
+  text-decoration: none;
 }
 
 .spacerSideNav {
-  border-top: 0.2vmin solid var(--light-gray);
+  border-top: 0.3vmin solid var(--light-gray);
 }
 
 .logInSideNav,
+.logOutSideNav,
 .signUpSideNav {
-  font-size: 3vmin;
+  font-size: 5vmin;
 }
 
-/* .logOutSideNav {
-  margin: 10.98vmin 0 0 0;
-} */
+.logInSideNav,
+.logOutSideNav, 
+.signUpSideNav {
+  color: var(--main-blue);
+  cursor: pointer;
+}
 
-/* .logInSideNav {
-  margin: 4vmin 0 0 0;
-} */
+.logInSideNav:hover,
+.logOutSideNav:hover,
+.signUpSideNav:hover {
+  color: var(--light-gray);
+  cursor: pointer;
+  text-decoration: none;
+
+}
 
 .sideNavButtonContainer {
   display: flex;
@@ -107,7 +149,7 @@
 }
 
 .sideNavButton {
-  padding: 0.275vmin 0.25vmin 0vmin 0.26vmin;
+  padding: 0.4vmin 0.4vmin 0.5vmin 0.4vmin;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -163,61 +205,64 @@
 }
 
 .opened {
-  width: 30%;
+  width: 100%;
 }
 
 .hidden {
   display: none;
 }
 
-.authPopUpContainer {
-  position: fixed;
-  background: var(--popup-page-background);
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
+@media only screen and (min-width: 480px) {
+  .authPopUp {
+    width: 50%;
+    height: auto;
+    padding: 1.5vmin;
+    border: 0.1vmin solid var(--popup-border);
+  }
 
-.authPopUp {
-  position: relative;
-  width: 30%;
-  margin: 0 auto;
-  height: auto;
-  max-height: 70vh;
-  margin-top: calc(100vh - 80vh);
-  background: var(--popup-form-background);
-  border-radius: 2vmin;
-  padding: 1.5vmin;
-  border: 0.1vmin solid var(--popup-border);
-  overflow: auto;
-}
+  .homeSideNav,
+  .statsSideNav,
+  .myCountySideNav,
+  .logOutSideNav,
+  .logInSideNav,
+  .signUpSideNav {
+    font-size: 5vmin;
+  }
 
-.closeAuthIcon {
-  display: flex;
-  justify-content: flex-start;
-  cursor: pointer;
-  height: 3.5vmin;
-  width: 3.5vmin;
-  margin: -0.8vmin 0 0 -0.8vmin;
-}
+  .spacerSideNav {
+    border-top: 0.2vmin solid var(--light-gray);
+  }
 
-.authPage {
-  margin: -2vmin 0 0 0;
+  .logInSideNav,
+  .signUpSideNav {
+    font-size: 3vmin;
+  }
+
+
+
+  .opened {
+    width: 30%;
+  }
 }
 
 @media only screen and (min-width: 768px) {
-  .topNavBar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    border-bottom: 0.3vmin solid var(--light-gray);
-    height: 4vmin;
-    width: 100%;
-    padding: 0 1vmin 0 1vmin;
+  .authPopUp {
+    width: 30%;
   }
 
+  .topNavBar {
+    height: 4vmin;
+  }
+
+  .pageTitle {
+    margin-left: 0;
+  }
+
+  .pageTitle > * {
+    font-size: 2vmin;
+    margin-left: 0;
+  }
+  
   .homeTopNav,
   .statsTopNav,
   .myCountyTopNav,
@@ -237,6 +282,7 @@
   .myCountyTopNav:hover,
   .logInTopNav:hover {
     color: var(--light-gray);
+    text-decoration: none;
   }
 
   .spacerTopNav {
@@ -262,7 +308,7 @@
   .logOutTopNav:hover,
   .signUpTopNav:hover {
     cursor: pointer;
-    color: var(--main-black);;
+    color: var(--main-black);
   }
 
   .sideNavButton {
