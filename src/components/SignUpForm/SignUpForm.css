@@ -6,7 +6,7 @@
 
 .signUpTag {
   font-size: 3vmin;
-  color: #6b706c;
+  color: var(--dark-gray);
   margin: 2vmin 0 4vmin 0;
 }
 

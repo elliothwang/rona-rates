@@ -16,8 +16,10 @@ export default function USMap() {
   }
 
   return (
-    <div className="mapContainer">
-      <USAMap customize={help.customizeStates()} onClick={handleMapClick}/>
+    <div className="mapOuterContainer">
+      <div className="mapInnerContainer">
+        <USAMap className="USAMap"customize={help.customizeStates()} onClick={handleMapClick}/>
+      </div>
     </div>
   )
 }

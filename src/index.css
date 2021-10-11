@@ -21,7 +21,13 @@ code {
   --tan-4: #D3C1AE;
   --text-light: #968c84;
   --text-dark: #615954;
+  --light-gray: #dce4e9;
+  --dark-gray: #787878;
   --main-blue: #60a6dc;
+  --main-black: #172121;
+  --popup-page-background: #00000090;
+  --popup-form-background: #fff;
+  --popup-border: #999;
 }
 
 *, *:before, *:after {
