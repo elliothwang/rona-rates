@@ -33,15 +33,15 @@ export default function NavBar({ user, setUser }) {
     const name = evt.target.className;
     if ((!popUpOpen && name === "logInTopNav") || (!popUpOpen && name === "logInSideNav")) {
       document.querySelector(".authPopUpContainer").classList.remove('hidden');
-      setShowLogIn(true);
       setPopUpOpen(true);
+      setShowLogIn(true);
     }
     if ((!popUpOpen && name === "signUpTopNav") || (!popUpOpen && name === "signUpSideNav")) {
       document.querySelector(".authPopUpContainer").classList.remove('hidden');
-      setShowLogIn(false);
       setPopUpOpen(true);
+      setShowLogIn(false);
     }
-    handleArrowClick();
+    document.querySelector(".sideNavBar").classList.remove('opened');
   }
 
   function closeAuthPopUp() {
