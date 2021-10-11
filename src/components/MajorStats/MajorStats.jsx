@@ -28,7 +28,6 @@ export default function MajorStats() {
   //   console.log(api.getUSData());
   // }, []);
 
-
   return (
     <div className="info">
       <div className="cases">

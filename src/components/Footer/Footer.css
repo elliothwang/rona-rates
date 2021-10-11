@@ -1,13 +1,3 @@
-:root {
-  --light-gray: #dce4e9;
-  --dark-gray: #787878;
-  --main-blue: #60a6dc;
-  --main-black: #172121;
-  --popup-page-background: #00000090;
-  --popup-form-background: #fff;
-  --popup-border: #999;
-}
-
 .footer {
   display: flex;
   justify-content: center;

@@ -10,7 +10,7 @@
 }
 
 .link {
-  color: #60a6dc;
+  color: var(--main-blue);
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 600;
 }
