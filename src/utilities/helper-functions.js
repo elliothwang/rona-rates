@@ -1,7 +1,7 @@
 export function customizeStates() {
   const blue1 = "#cfe2f3";
-  const blue2 = "#6fa8dc";
-  const blue3 = "#9fc5e8";
+  const blue2 = "#9fc5e8";
+  const blue3 = "#6fa8dc";
   const blue4 = "#3d85c6";
   const blue5 = "#416aab";
   const blue6 = "#204c91";

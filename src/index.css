@@ -14,6 +14,7 @@ code {
 
 /* CSS Custom Properties */
 :root {
+  --body-background: #EEF2F7;
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
@@ -41,7 +42,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: white;
+  background-color: var(--body-background);
   height: 100vh;
 }
 
