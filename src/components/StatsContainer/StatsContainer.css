@@ -1,0 +1,141 @@
+.statsContainer {
+  flex-direction: column;
+  height: 15vh;
+  width: 30vw;
+  margin: 3vmin;
+  background-color: var(--main-blue);
+  border: 0.1vmin solid var(--light-gray);
+  border-radius: 5vmin;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06);
+}
+
+.statTitle {
+  font-size: 5vmin;
+  color: var(--tan-1);
+  height: 25%;
+}
+
+.totalStat {
+  font-size: 6vmin;
+  font-weight: bold;
+  color: var(--tan-1);
+  height: 35%;
+}
+
+.newStatContainer > * {
+  color: var(--tan-1);
+  height: 30%;
+}
+
+.newStat {
+  font-size: 3vmin;
+}
+
+.newDate {
+  font-size: 3vmin;
+}
+
+@media only screen and (min-width: 480px) {
+  .statsContainer {
+    margin: 0 2vmin;
+    border: 0.2vmin solid var(--light-gray);
+    border-radius: 2vmin;
+  }
+
+  .statTitle {
+    font-size: 3.75vmin;
+    height: 30%;
+  }
+  
+  .totalStat {
+    font-size: 4.5vmin;
+    font-weight: bold;
+    height: 35%;
+  }
+  
+  .newStatContainer > * {
+    height: 30%;
+  }
+  
+  .newStat {
+    font-size: 2.25vmin;
+  }
+  
+  .newDate {
+    font-size: 2.25vmin;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .statsContainer {
+    height: 20vh;
+    width: 25vw;
+    margin: 0 2vmin;
+    border: 0.2vmin solid var(--light-gray);
+    border-radius: 2vmin;
+  }
+
+  .statTitle {
+    font-size: 3vmin;
+    height: 25%;
+  }
+  
+  .totalStat {
+    font-size: 4vmin;
+    font-weight: bold;
+    height: 40%;
+  }
+  
+  .newStatContainer > * {
+    height: 100%;
+  }
+  
+  .newStat {
+    font-size: 2vmin;
+  }
+  
+  .newDate {
+    font-size: 2vmin;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .statsContainer {
+    margin: 0 1vmin;
+    border: 0.2vmin solid var(--light-gray);
+    border-radius: 2vmin;
+  }
+
+  .statTitle {
+    font-size: 3vmin;
+    height: 25%;
+  }
+  
+  .totalStat {
+    font-size: 4vmin;
+    font-weight: bold;
+    height: 40%;
+  }
+  
+  .newStatContainer > * {
+    height: 100%;
+  }
+  
+  .newStat {
+    font-size: 1.5vmin;
+  }
+  
+  .newDate {
+    font-size: 1.5vmin;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .statsContainer {
+    height: 20vh;
+    width: 20vw;
+  }
+}

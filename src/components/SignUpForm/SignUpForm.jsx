@@ -30,10 +30,10 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       // baby step
       this.props.setUser(user);
+      this.props.closeAuthPopUp();
     } catch (err) {
       // An error occurred
       this.setState({ error: 'Sign Up Failed - Please Try Again'});
-      console.log(err);
     }
   };
 
@@ -45,10 +45,10 @@ export default class SignUpForm extends Component {
         <div className="signUpTag">Create your free account here.</div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-              <input type="text" name="name" value={this.state.name} placeholder="Name" onChange={this.handleChange} required autoFocus  />
-              <input type="text" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Email" required />
-              <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required />
-              <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} placeholder="Confirm Password"required />
+              <input type="text" name="name" value={this.state.name} placeholder="Name" onChange={this.handleChange} required autoFocus />
+              <input type="text" name="email" value={this.state.email} placeholder="Email" onChange={this.handleChange} required />
+              <input type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleChange} required />
+              <input type="password" name="confirm" value={this.state.confirm} placeholder="Confirm Password" onChange={this.handleChange} required />
             <button type="submit" disabled={disable}>Sign Up</button>
           </form>
         </div>

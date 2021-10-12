@@ -2,8 +2,9 @@ import './NavBar.css';
 import { NavLink } from 'react-router-dom';
 import React, { Fragment, useState }  from 'react';
 import * as userService from '../../utilities/users-service';
-import AuthPage from '../../pages/AuthPage/AuthPage';
+import AuthPopUp from '../AuthPopUp/AuthPopUp';
 import logo from '../../assets/2019-nCoV.png';
+import useKeypress from 'react-use-keypress';
 
 export default function NavBar({ user, setUser }) {
   const [sideNavOpen, setSideNavOpen] = useState(false);
@@ -49,6 +50,10 @@ export default function NavBar({ user, setUser }) {
     setPopUpOpen(false);
   }
 
+  useKeypress('Escape', () => {
+    closeAuthPopUp();
+  });
+
   return (
     <nav>
       <div className="authPopUpContainer hidden">
@@ -59,7 +64,7 @@ export default function NavBar({ user, setUser }) {
             </svg>
           </div>
           <div className="authPage">
-            <AuthPage showLogIn={showLogIn} setShowLogIn={setShowLogIn}/>
+            <AuthPopUp setUser={setUser} showLogIn={showLogIn} setShowLogIn={setShowLogIn} closeAuthPopUp={closeAuthPopUp} />
           </div>
         </div>
       </div>

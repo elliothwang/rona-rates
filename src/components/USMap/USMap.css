@@ -4,8 +4,12 @@
   align-items: center;
   height: 75%;
   width: 75vw;
-  margin: 1vh auto;
+  margin: 3vh auto;
   overflow: auto;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072);
 }
 
 .mapInnerContainer {
@@ -17,27 +21,10 @@
   margin: 0 auto;
 }
 
-@media only screen and (min-width: 480px) {
-  .mapOuterContainer {
-    height: 75%;
-    width: 75vw;
-    margin: 3vh auto;
-  }
-}
-
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1440px) and (min-height: 1024px) {
   .mapOuterContainer {
     height: 100%;
-    width: 90vw;
-    margin: 10vh auto;
-  }
-}
-
-@media only screen and (min-height: 860px) {
-  .mapOuterContainer {
-    height: 100%;
-    width: 90vw;
-    margin: 10vh auto;
-    overflow: auto;
+    width: 60vw;
+    margin-top: -1vmin;
   }
 }

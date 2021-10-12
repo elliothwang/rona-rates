@@ -1,16 +1,20 @@
 import './LogInForm.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import * as usersService from '../../utilities/users-service';
-import { useHistory } from 'react-router-dom';
 
-export default function LogIn({ setUser }) {
-  const history = useHistory();
+export default function LogIn({ setUser, closeAuthPopUp }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
   });
   const [error, setError] = useState('');
   // const [passwordShown, setPasswordShown] = useState(false);
+  const inputElement = useRef(null);
+  useEffect(() => {
+    if (inputElement.current) {
+      inputElement.current.focus();
+    }
+  }, []);
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -22,7 +26,11 @@ export default function LogIn({ setUser }) {
     try {
       const user = await usersService.login(credentials);
       setUser(user);
-      history.push('/');
+      closeAuthPopUp();
+      setCredentials({
+        email: '',
+        password: ''
+      })
     } catch (err) {
       setError('Log In Failed - Please Try Again');
     }
@@ -30,12 +38,12 @@ export default function LogIn({ setUser }) {
 
   return (
     <div>
-      <div className="logInTitle">Log In</div>
-      <div className="logInTag">Welcome back, friend!</div>
-      <div className="form-container" onSubmit={handleSubmit}>
-        <form >
-          <input type="text" name="email" value={credentials.email} autoComplete="on" onChange={handleChange} placeholder="Email" required autoFocus />
-          <input type="password" name="password" value={credentials.password} autoComplete="off" onChange={handleChange} placeholder="Password" required />
+      <div className="logInTitle">Welcome back!</div>
+      <div className="logInTag">Log in here, friend.</div>
+      <div className="form-container">
+        <form className="logInForm" onSubmit={handleSubmit}>
+          <input type="email" name="email" value={credentials.email} placeholder="Email" autoComplete="email" onChange={handleChange} ref={inputElement} required />
+          <input type="password" name="password" value={credentials.password} placeholder="Password" autoComplete="off" onChange={handleChange} required />
           <button type="submit">Log In</button>
         </form>
       </div>

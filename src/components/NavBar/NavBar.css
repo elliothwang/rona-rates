@@ -262,7 +262,7 @@
     display: inline;
     font-family: "PT Serif", serif;
     font-size: 1.5vmin;
-    margin: 0 1vmin 0 1vmin;
+    margin: 0 1vmin;
     padding: 0.6vmin;
     color: var(--main-black);;
     text-decoration: none;
@@ -301,6 +301,10 @@
   .signUpTopNav:hover {
     cursor: pointer;
     color: var(--main-black);
+  }
+
+  .logOutTopNav {
+    margin: 0 0 0 1.5vmin;
   }
 
   .sideNavButton {

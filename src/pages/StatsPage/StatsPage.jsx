@@ -1,7 +1,6 @@
 import './StatsPage.css';
 import React, { useEffect } from 'react';
-import StateImg from '../../components/StateImg/StateImg'
-import StateStats from '../../components/StateStats/StateStats'
+import StatsContainer from '../../components/StatsContainer/StatsContainer';
 
 export default function StatsPage({ allStatesData }) {
   const stateName = localStorage.getItem('storageStateName');
@@ -15,8 +14,7 @@ export default function StatsPage({ allStatesData }) {
 
   return (
   <div>
-    <StateImg></StateImg>
-    {/* <StateStats></StateStats> */}
+    {/* send pertinent stats to StatsContainer */}
   </div>
   )
 }
