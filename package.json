@@ -2,7 +2,8 @@
   "name": "corona-rona",
   "version": "0.1.0",
   "engines": {
-    "node": "15.13.0"
+    "node": "15.13.0",
+    "npm": "7.15.1"
   },
   "private": true,
   "dependencies": {
