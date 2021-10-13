@@ -1,12 +1,11 @@
 <h1>App Title:</h1> 
-  <strong>COVID-19 Dashboard</strong> <br/><br/>
-  <!-- Have you ever needed to jot down a quick melody you've through of in your head? Use mini midi to make & save that melody so you'll never forget a melody again! If you need to brush up on your sight-reading, you can also do that here. If you just wanted to mess around on a keyboard, you've come to the right place! Try it out! -->
+  <strong>corona-rona</strong> <br/><br/>
+  If you need to find relevant, up-to-date statistics & information on COVID-19, you've come to the right place! Find information on general US statistics, state-specific, & even county-specific statistics.
 
 <h1>Screenshots:</h1>
-<!-- <img src="https://i.imgur.com/87m5F5v.png" /> </br> -->
-<img src="" /> </br>
-<img src="" /> </br>
-<img src="" /> </br>
+<img src="https://i.imgur.com/5ef6K0r.png" /> </br>
+<img src="https://i.imgur.com/f317Epn.png" /> </br>
+<img src="https://i.imgur.com/hwG8bw4.png" /> </br>
 
 
 <h1>Technologies Used:</h1>
@@ -22,9 +21,8 @@
 <h1>Getting Started:</h1>
 https://trello.com/b/yx47zwB5/personal-project-covid-19-dashboard <br/>
 https://github.com/elliothwang/covid-dashboard <br/>
-<!-- https://mini-midi.herokuapp.com/ -->
+https://corona-rona.herokuapp.com/
 
 <h1>Next Steps:</h1>
-  1. <br/>
-  2. <br/>
-  3. <br/>
+  1. Show a more detailed (county-specific) map<br/>
+  2. Allow users to compare statistics on graphs<br/>
