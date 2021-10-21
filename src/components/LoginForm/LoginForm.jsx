@@ -2,7 +2,7 @@ import './LogInForm.css';
 import React, { useState, useEffect, useRef } from 'react';
 import * as usersService from '../../utilities/users-service';
 
-export default function LogIn({ setUser, closeAuthPopUp }) {
+export default function LogInForm({ setUser, closeAuthPopUp }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
