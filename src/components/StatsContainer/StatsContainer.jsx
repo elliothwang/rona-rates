@@ -9,13 +9,10 @@ export default function StatsContainer({ title, stat1, stat2 }) {
 
   return (
     <div className="statsContainer flex-ctr-ctr">
-      {/* <div className="title">{title}</div> */}
-      <div className="statTitle">Title</div>
-      {/* <div className="totalStat">{help.numberWithCommas(stat1)}</div> */}
-      <div className="totalStat">{help.numberWithCommas(1209381)}</div>
+      <div className="title">{title}</div>
+      <div className="totalStat">{help.addCommas(stat1)}</div>
       <div className="newStatContainer flex-ctr-ctr">
-        {/* <div>+{help.numberWithCommas(stat2)}</div> */}
-        <div className="newStat">+{help.numberWithCommas(12523)}</div>
+        <div>+{help.addCommas(stat2)}</div>
         <div className="newDate">&nbsp; ({yesterday})</div>
       </div>
     </div>
