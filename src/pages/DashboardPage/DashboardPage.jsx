@@ -1,6 +1,6 @@
 import './DashboardPage.css';
 import React  from 'react';
-import MajorStats from '../../components/MajorStats/MajorStats';
+import MajorStats from '../../components/USStatsSection/USStatsSection';
 import USMap from '../../components/USMap/USMap';
 // import * as userService from '../../utilities/users-service';
 
@@ -15,6 +15,7 @@ export default function DashboardPage() {
     <div className="dashboard">
       <MajorStats />
       <USMap />
+
     </div>
   );
 }

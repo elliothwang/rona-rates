@@ -12,7 +12,7 @@ export default function USMap() {
     const stateAbr = evt.target.dataset.name;
     const state = states[stateAbr]
     localStorage.setItem('storageStateName', state);
-    history.push(`/stats/${state}`);
+    history.push(`/${state}`);
   }
 
   return (

@@ -1,7 +1,6 @@
-import './MajorStats.css';
+import './USStatsSection.css';
 import React, { useEffect, useState }  from 'react';
 import StatsContainer from '../StatsContainer/StatsContainer';
-// import * as api from '../../utilities/covid-api';
 const axios = require('axios').default;
 
 export default function MajorStats() {
@@ -19,12 +18,6 @@ export default function MajorStats() {
   };
 
   useEffect(() => getUSData(), []);
-
-  // useEffect(() => {
-  //   setUSData(api.getUSData());
-  // }, []);
-
-  console.log(usData);
 
   return (
     <div className="majorStatsContainer">
