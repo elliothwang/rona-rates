@@ -7,7 +7,6 @@ import StatsPage from '../StatsPage/StatsPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
-// import * as api from '../../utilities/covid-api';
 const axios = require('axios').default;
 
 
@@ -26,11 +25,6 @@ export default function App() {
   };
 
   useEffect(() => getAllStatesData(), []);
-
-  // useEffect(() => {
-  //   setAllStatesData(api.getAllStatesData());
-  //   console.log(api.getAllStatesData());
-  // }, []);
   
   return (
     <main className="App">
@@ -40,7 +34,7 @@ export default function App() {
           <Route path="/me">
             <MyCountyPage user={user} allStatesData={allStatesData} />
           </Route>
-          <Route path="/stats">
+          <Route path="/:state">
             <StatsPage allStatesData={allStatesData} />
           </Route>
           <Route path="/">
