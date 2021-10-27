@@ -1,0 +1,22 @@
+.dateSection {
+  flex-direction: column;
+  height: 14vh;
+  font-family: "PT Serif", serif;
+}
+
+.yesterdayText {
+  color: var(--tan-1);
+  font-size: 1.75vmin;
+}
+
+.yesterdayDate {
+  color: var(--main-blue);
+  font-size: 2.5vmin;
+}
+
+.apiInfo {
+  color: var(--tan-1);
+  font-size: 1vmin;
+  letter-spacing: 0.1vmin;
+  margin-top: 2vmin;
+}

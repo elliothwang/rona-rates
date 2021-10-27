@@ -1,11 +1,26 @@
+.outerCountyContainer {
+  height: 61.79vh;
+  overflow: hidden;
+}
+
 .countyStatsSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 76vh;
+  height: 61.79vh;
   font-family: "PT Serif", serif;
-  /* border-radius: 0.5vmin; */
+  overflow-y: scroll;
+}
+
+.countyStatsSection::-webkit-scrollbar {
+  width: 1vh;
+}
+
+.countyStatsSection::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5vmin var(--light-gray); 
+  border-radius: 0.3vmin;
+}
+
+.countyStatsSection::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 1vmin var(--main-blue); 
+  border-radius: 0.5vmin;
 }
 
 /* @media only screen and (min-width: 768px) {

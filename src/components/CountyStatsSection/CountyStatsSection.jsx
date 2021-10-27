@@ -20,8 +20,85 @@ export default function CountyStatsSection() {
   // useEffect(() => getUSData(), []);
 
   return (
-    <div className="countyStatsSection">
-      <CountyStatsContainer />
+    <div className="outerCountyContainer">
+      <div className="countyStatsSection">
+        <CountyStatsContainer 
+          title={"Los Angeles"}
+          stat1={"1232824"}
+          stat2={"81312"}
+        />
+        <CountyStatsContainer 
+          title={"San Bernardino"}
+          stat1={"328374"}
+          stat2={"21839"}
+        />
+        <CountyStatsContainer 
+          title={"Santa Barbara"}
+          stat1={"238291"}
+          stat2={"15327"}
+        />
+        <CountyStatsContainer 
+          title={"Los Angeles"}
+          stat1={"1232824"}
+          stat2={"81312"}
+        />
+        <CountyStatsContainer 
+          title={"San Bernardino"}
+          stat1={"328374"}
+          stat2={"21839"}
+        />
+        <CountyStatsContainer 
+          title={"Santa Barbara"}
+          stat1={"238291"}
+          stat2={"15327"}
+        />
+        <CountyStatsContainer 
+          title={"Los Angeles"}
+          stat1={"1232824"}
+          stat2={"81312"}
+        />
+        <CountyStatsContainer 
+          title={"San Bernardino"}
+          stat1={"328374"}
+          stat2={"21839"}
+        />
+        <CountyStatsContainer 
+          title={"Santa Barbara"}
+          stat1={"238291"}
+          stat2={"15327"}
+        />
+        <CountyStatsContainer 
+          title={"Los Angeles"}
+          stat1={"1232824"}
+          stat2={"81312"}
+        />
+        <CountyStatsContainer 
+          title={"San Bernardino"}
+          stat1={"328374"}
+          stat2={"21839"}
+        />
+        <CountyStatsContainer 
+          title={"Santa Barbara"}
+          stat1={"238291"}
+          stat2={"15327"}
+        />
+        <CountyStatsContainer 
+          title={"Los Angeles"}
+          stat1={"1232824"}
+          stat2={"81312"}
+        />
+        <CountyStatsContainer 
+          title={"San Bernardino"}
+          stat1={"328374"}
+          stat2={"21839"}
+        />
+        <CountyStatsContainer 
+          title={"Santa Barbara"}
+          stat1={"238291"}
+          stat2={"15327"}
+        />
+      </div>
+      {/* <div className="scrollbar"></div> */}
     </div>
   )
 }
