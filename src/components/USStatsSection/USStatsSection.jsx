@@ -23,18 +23,19 @@ export default function USStatsSection() {
     <div className="usStatsSection">
       <StatsContainer 
         title={"Cases"}
-        stat1={usData[3]?.val || ""}
-        stat2={usData[4]?.val || ""}
+        stat1={usData[3]?.val}
+        stat2={usData[4]?.val}
       />
       <StatsContainer 
+        className="spaced"
         title={"Deaths"}
-        stat1={usData[5]?.val || ""}
-        stat2={usData[6]?.val || ""}
+        stat1={usData[5]?.val}
+        stat2={usData[6]?.val}
       />
       <StatsContainer 
         title={"Recoveries"}
-        stat1={usData[7]?.val || ""}
-        stat2={usData[8]?.val || ""}
+        stat1={usData[7]?.val}
+        stat2={usData[8]?.val}
       />
     </div>
   )
