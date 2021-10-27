@@ -2,10 +2,10 @@
   flex-direction: column;
   height: 15vh;
   width: 30vw;
-  margin: 3vmin;
+  /* margin: 3vmin; */
   background-color: var(--main-blue);
   border: 0.1vmin solid var(--light-gray);
-  border-radius: 5vmin;
+  border-radius: 0.5vmin;
   box-shadow:
   0 2.8px 2.2px rgba(0, 0, 0, 0.034),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -39,11 +39,9 @@
 }
 
 @media only screen and (min-width: 480px) {
-  .statsContainer {
+  /* .statsContainer {
     margin: 0 2vmin;
-    border: 0.2vmin solid var(--light-gray);
-    border-radius: 2vmin;
-  }
+  } */
 
   .statTitle {
     font-size: 3.75vmin;
@@ -73,12 +71,9 @@
   .statsContainer {
     height: 20vh;
     width: 25vw;
-    margin: 0 2vmin;
-    border: 0.2vmin solid var(--light-gray);
-    border-radius: 2vmin;
   }
 
-  .statTitle {
+  .title {
     font-size: 3vmin;
     height: 25%;
   }
@@ -103,13 +98,7 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .statsContainer {
-    margin: 0 1vmin;
-    border: 0.2vmin solid var(--light-gray);
-    border-radius: 2vmin;
-  }
-
-  .statTitle {
+  .title {
     font-size: 3vmin;
     height: 25%;
   }
@@ -136,6 +125,6 @@
 @media only screen and (min-width: 1440px) {
   .statsContainer {
     height: 20vh;
-    width: 20vw;
+    width: 33%;
   }
 }

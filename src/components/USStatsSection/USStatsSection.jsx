@@ -3,7 +3,7 @@ import React, { useEffect, useState }  from 'react';
 import StatsContainer from '../StatsContainer/StatsContainer';
 const axios = require('axios').default;
 
-export default function MajorStats() {
+export default function USStatsSection() {
   const [usData, setUsData] = useState([]);
 
   function getUSData() {
@@ -20,7 +20,7 @@ export default function MajorStats() {
   useEffect(() => getUSData(), []);
 
   return (
-    <div className="majorStatsContainer">
+    <div className="usStatsSection">
       <StatsContainer 
         title={"Cases"}
         stat1={usData[3]?.val || ""}
@@ -31,11 +31,11 @@ export default function MajorStats() {
         stat1={usData[5]?.val || ""}
         stat2={usData[6]?.val || ""}
       />
-      {/* <StatsContainer 
+      <StatsContainer 
         title={"Recoveries"}
         stat1={usData[7]?.val || ""}
         stat2={usData[8]?.val || ""}
-      /> */}
+      />
     </div>
   )
 }
