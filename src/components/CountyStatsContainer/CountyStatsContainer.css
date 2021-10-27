@@ -1,10 +1,41 @@
-.countyStatsContainer {
-  flex-direction: column;
-  height: 5vh;
-  width: 30vw;
-  background-color: var(--main-blue);
+.countyStatsOuterContainer {
+  height: 6vh;
+  width: 23.27vw;
   border: 0.1vmin solid var(--light-gray);
-  border-radius: 0.5vmin;
+}
+
+.countyStatsInnerContainer {
+  justify-content: space-between;
+  height: 6vh;
+  width: 19vw;
+  font-family: "PT Serif", serif;
+}
+
+.countyName {
+  height: 6vh;
+  width: 50%;
+  color: var(--tan-1);
+  font-size: 1.75vmin;
+}
+
+.countyMajorStats {
+  flex-direction: column;
+  height: 6vh;
+}
+
+.countyStatTitle, .countyDeathsTitle {
+  color: var(--tan-1);
+  font-size: 1.25vmin;
+}
+
+.countyCasesStat {
+  color: var(--tan-1);
+  font-size: 1.5vmin;
+}
+
+.countyDeathsStat {
+  color: red;
+  font-size: 1.5vmin;
 }
 
 /* @media only screen and (min-width: 480px) {
