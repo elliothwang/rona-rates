@@ -36,8 +36,8 @@
   justify-content: flex-end;
   align-items: center;
   border-bottom: 0.5vmin solid var(--light-gray);
-  height: 7.5vmin;
-  width: 100%;
+  height: 5vh;
+  width: 100vw;
   padding: 0 1vmin;
   background-color: var(--light-gray);
 }
@@ -239,7 +239,7 @@
 
 @media only screen and (min-width: 768px) {
   .topNavBar {
-    height: 4vmin;
+    height: 4vh;
   }
 
   .pageTitle {
@@ -274,7 +274,7 @@
   .statsTopNav:hover,
   .myCountyTopNav:hover,
   .logInTopNav:hover {
-    color: var(--light-gray);
+    color: var(--main-blue);
     text-decoration: none;
   }
 
