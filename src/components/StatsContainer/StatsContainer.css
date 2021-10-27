@@ -2,14 +2,9 @@
   flex-direction: column;
   height: 15vh;
   width: 30vw;
-  /* margin: 3vmin; */
   background-color: var(--main-blue);
   border: 0.1vmin solid var(--light-gray);
   border-radius: 0.5vmin;
-  box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06);
 }
 
 .statTitle {
@@ -39,9 +34,10 @@
 }
 
 @media only screen and (min-width: 480px) {
-  /* .statsContainer {
-    margin: 0 2vmin;
-  } */
+  .statsContainer {
+    height: 20vh;
+    width: 33%;
+  }
 
   .statTitle {
     font-size: 3.75vmin;
@@ -70,7 +66,7 @@
 @media only screen and (min-width: 768px) {
   .statsContainer {
     height: 20vh;
-    width: 25vw;
+    width: 33%;
   }
 
   .title {
@@ -119,12 +115,5 @@
   
   .newDate {
     font-size: 1.5vmin;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .statsContainer {
-    height: 20vh;
-    width: 33%;
   }
 }
