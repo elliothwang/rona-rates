@@ -1,12 +1,8 @@
 .footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-top: 0.5vmin solid var(--light-gray);
   width: 100%;
-  height: 15vh;
-  padding: 0 1vmin;
-  position: absolute;
+  height: 10vh;
+  position: fixed;
   bottom: 0;
   background-color: var(--light-gray);
 }
@@ -49,10 +45,10 @@
 }
 
 .links >  * {
-  font-size: 3vmin;
+  font-size: 2vmin;
   text-decoration: none;
   color: var(--main-black);
-  margin: 1vmin 0;
+  margin: 0.25vmin 0 0 0;
 }
 
 .links > *:hover {
@@ -64,12 +60,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1vmin 0;
   font-size: 2.5vmin;
   color: var(--popup-page-background);
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
   .footer {
     flex-direction: column;
     border-top: 0.3vmin solid var(--light-gray);
@@ -77,10 +72,6 @@
 
   .footer > * {
     width: auto;
-  }
-
-  .socials {
-    margin: 2vmin 0 0 0;
   }
 
   .socials > * {
@@ -96,7 +87,7 @@
 
   .links {
     flex-direction: row;
-    margin: 2vmin 0;
+    margin: 0.5vmin 0;
   }
 
   .links >  * {

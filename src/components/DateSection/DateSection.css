@@ -1,22 +1,89 @@
 .dateSection {
-  flex-direction: column;
-  height: 14vh;
+  height: 2.5vh;
   font-family: "PT Serif", serif;
-}
-
-.yesterdayText {
+  font-size: 1.5vmin;
   color: var(--tan-1);
-  font-size: 1.75vmin;
 }
 
-.yesterdayDate {
-  color: var(--main-blue);
-  font-size: 2.5vmin;
+.marquee {
+  position: relative;
+  overflow: hidden;
 }
 
-.apiInfo {
-  color: var(--tan-1);
-  font-size: 1vmin;
-  letter-spacing: 0.1vmin;
-  margin-top: 2vmin;
+.marqueeText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  -moz-animation: scroll-left 1.5s linear infinite;
+  -webkit-animation: scroll-left 1.5s linear infinite;
+  animation: scroll-left 15s linear infinite;
+}
+
+@-moz-keyframes scroll-left {
+  0% {
+      -moz-transform: translateX(100%);
+  }
+  100% {
+      -moz-transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes scroll-left {
+  0% {
+      -webkit-transform: translateX(100%);
+  }
+  100% {
+      -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+      -moz-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+  }
+  100% {
+      -moz-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .dateSection {
+    flex-direction: column;
+    height: 14vh;
+    font-family: "PT Serif", serif;
+  }
+
+  .marqueeText {
+    flex-direction: column;
+    margin: 0;
+    -moz-transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    animation: scroll-left 0s linear infinite;
+  }
+
+  .yesterdayText {
+    color: var(--tan-1);
+    font-size: 1.75vmin;
+  }
+
+  .yesterdayDate {
+    color: var(--main-blue);
+    font-size: 2.5vmin;
+  }
+
+  .apiInfo {
+    color: var(--tan-1);
+    font-size: 1vmin;
+    letter-spacing: 0.1vmin;
+    margin-top: 2vmin;
+  }
 }

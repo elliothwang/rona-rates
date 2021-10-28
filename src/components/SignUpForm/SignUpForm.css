@@ -10,7 +10,7 @@
   margin: 2vmin 0 4vmin 0;
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
   .signUpTitle {
     font-size: 4.5vmin;
   }
@@ -22,7 +22,7 @@
 }
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   .signUpTitle {
     font-size: 3vmin;
   }

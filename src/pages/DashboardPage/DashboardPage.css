@@ -1,33 +1,76 @@
 .dashboard {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 20vh 41vh 14vh;
+  grid-template-columns: 96vw;
+  grid-template-rows: 2.5vh 10vh 40vh 25vh;
   grid-gap: 1vh;
-  margin: 2vmin;
+  margin: 2vh auto;
+}
+
+.date {
+  grid-row: 1;
+  border: 0.1vmin solid var(--light-gray);
+  border-radius: 0.5vmin;
 }
 
 .usStats {
-  grid-column: 1;
-  grid-row: 1;
+  grid-row: 2;
 }
 
 .usMap {
-  grid-column: 1;
-  grid-row: 2 / 4;
+  grid-row: 3 / 4;
   border: 0.1vmin solid var(--light-gray);
   border-radius: 0.5vmin;
 }
 
 .countyStats {
-  grid-column: 2;
-  grid-row: 1 / 3;
+  grid-row: 4;
   border: 0.1vmin solid var(--light-gray);
   border-radius: 0.5vmin;
 }
 
-.date {
-  grid-column: 2;
-  grid-row: 3;
-  border: 0.1vmin solid var(--light-gray);
-  border-radius: 0.5vmin;
+@media only screen and (min-width: 481px) {
+  .dashboard {
+    grid-template-columns: 96vw;
+    grid-template-rows: 2.5vh 10vh 40vh 25vh;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: 73vw 23vw;
+    grid-template-rows: 20vh 46vh 14vh;
+  }
+
+  .usStats {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .usMap {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    border: 0.1vmin solid var(--light-gray);
+    border-radius: 0.5vmin;
+  }
+  
+  .countyStats {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    border: 0.1vmin solid var(--light-gray);
+    border-radius: 0.5vmin;
+  }
+  
+  .date {
+    grid-column: 2;
+    grid-row: 3;
+    border: 0.1vmin solid var(--light-gray);
+    border-radius: 0.5vmin;
+  }
+}
+
+@media only screen and (min-width: 1921px) {
+  .dashboard {
+    grid-template-columns: 30vw 20vw;
+  }
 }
