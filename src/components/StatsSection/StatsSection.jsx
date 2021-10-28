@@ -1,9 +1,9 @@
-import './USStatsSection.css';
+import './StatsSection.css';
 import React, { useEffect, useState }  from 'react';
-import StatsContainer from '../StatsContainer/StatsContainer';
+import StatsCard from '../StatsCard/StatsCard';
 const axios = require('axios').default;
 
-export default function USStatsSection() {
+export default function StatsSection() {
   const [usData, setUsData] = useState([]);
 
   function getUSData() {
@@ -20,19 +20,18 @@ export default function USStatsSection() {
   useEffect(() => getUSData(), []);
 
   return (
-    <div className="usStatsSection">
-      <StatsContainer 
+    <div className="statsSection flex-ctr-ctr">
+      <StatsCard 
         title={"Cases"}
         stat1={usData[3]?.val}
         stat2={usData[4]?.val}
       />
-      <StatsContainer 
-        className="spaced"
+      <StatsCard 
         title={"Deaths"}
         stat1={usData[5]?.val}
         stat2={usData[6]?.val}
       />
-      <StatsContainer 
+      <StatsCard 
         title={"Recoveries"}
         stat1={usData[7]?.val}
         stat2={usData[8]?.val}

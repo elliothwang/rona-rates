@@ -1,4 +1,4 @@
-.outerCountyContainer {
+.countySectionOuterContainer {
   height: 25vh;
   overflow: hidden;
   font-family: "PT Serif", serif;
@@ -33,23 +33,23 @@
   background-color: var(--light-gray);
 }
 
-.countyStatsSection {
+.countySection {
   height: 21.5vh;
   overflow-y: scroll;
 }
 
-.countyStatsSection::-webkit-scrollbar {
+.countySection::-webkit-scrollbar {
   width: 1vh;
   border-left: 0.1vmin solid var(--light-gray);
 }
 
-.countyStatsSection::-webkit-scrollbar-thumb {
+.countySection::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 2vmin var(--main-blue);
   border-bottom-right-radius: 0.3vmin;
 }
 
 @media only screen and (min-width: 769px) {
-  .outerCountyContainer {
+  .countySectionOuterContainer {
     height: 67vh;
   }
 
@@ -61,7 +61,7 @@
     font-size: 1.5vmin;
   }
   
-  .countyStatsSection {
+  .countySection {
     height: 63.5vh;
   }
 }

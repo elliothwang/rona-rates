@@ -1,4 +1,4 @@
-.countyStatsContainer {
+.countyCard {
   height: 7.5vh;
   width: 100%;
   font-family: "PT Serif", serif;
@@ -35,7 +35,7 @@
 }
 
 @media only screen and (min-width: 769px) {
-  .countyStatsContainer {
+  .countyCard {
     height: 6vh;
   }
 
