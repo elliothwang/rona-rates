@@ -1,4 +1,4 @@
-.statsContainer {
+.statsCard {
   flex-direction: column;
   height: 10vh;
   width: 33%;
@@ -37,7 +37,7 @@
 }
 
 @media only screen and (min-width: 769px) {
-  .statsContainer {
+  .statsCard {
     height: 20vh;
   }
 

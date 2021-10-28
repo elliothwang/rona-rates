@@ -1,13 +1,12 @@
-import './CountyStatsSection.css';
-import React, { useEffect, useState }  from 'react';
-import CountyStatsContainer from '../CountyStatsContainer/CountyStatsContainer';
+import './CountiesSection.css';
+import React, { useState, useEffect }  from 'react';
+import CountyCard from '../CountyCard/CountyCard';
 const axios = require('axios').default;
 
-export default function CountyStatsSection() {
+export default function CountiesSection() {
   const [usCountyCases, setUsCountyCases] = useState([]);
   const [usCountyDeaths, setUsCountyDeaths] = useState([]);
   const [casesShown, setCasesShown] = useState(true);
-  // const [stateCountyData, setStateCountyData] = useState([]);
 
   function getCountyData() {
     axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
@@ -43,15 +42,15 @@ export default function CountyStatsSection() {
   };
 
   return (
-    <div className="outerCountyContainer">
-      <div className="countyStatsSectionTitle flex-ctr-ctr">
+    <div className="countySectionOuterContainer">
+      <div className="flex-ctr-ctr">
         <div className="casesTab activeTab flex-ctr-ctr" onClick={handleTabClick}>Cases by County</div>
         <div className="deathsTab flex-ctr-ctr" onClick={handleTabClick}>Deaths by County</div>
       </div>
-      <div className="countyStatsSection">
+      <div className="countySection">
         { casesShown ? 
           usCountyCases.map((usCounty, idx) => 
-            <CountyStatsContainer 
+            <CountyCard 
               title={usCounty?.val.county}
               stat1={usCounty?.val.stats.confirmed }
               idx={idx}
@@ -60,7 +59,7 @@ export default function CountyStatsSection() {
           )
           :
           usCountyDeaths.map((usCounty, idx) => 
-            <CountyStatsContainer 
+            <CountyCard 
               title={usCounty?.val.county}
               stat1={usCounty?.val.stats.deaths }
               idx={idx}
@@ -68,7 +67,6 @@ export default function CountyStatsSection() {
             />
           )
         }
-        <div className="spacerContainer"></div>
       </div>
     </div>
   )

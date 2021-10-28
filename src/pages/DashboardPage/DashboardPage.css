@@ -22,7 +22,7 @@
   border-radius: 0.5vmin;
 }
 
-.countyStats {
+.usCounties {
   grid-row: 4;
   border: 0.1vmin solid var(--light-gray);
   border-radius: 0.5vmin;
@@ -54,7 +54,7 @@
     border-radius: 0.5vmin;
   }
   
-  .countyStats {
+  .usCounties {
     grid-column: 2;
     grid-row: 1 / 3;
     border: 0.1vmin solid var(--light-gray);
