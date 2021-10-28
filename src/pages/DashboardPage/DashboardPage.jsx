@@ -14,7 +14,7 @@ export default function DashboardPage() {
   // };
 
   return (
-    <div className="dashboard">
+    <div className="dashboard flex-ctr-ctr">
       <div className="usStats"><USStatsSection /></div>
       <div className="usMap"><USMap /></div>
       <div className="countyStats"><CountyStatsSection /></div>

@@ -23,12 +23,14 @@
 }
 
 .closeAuthIcon {
-  display: flex;
-  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--main-blue);
   cursor: pointer;
   height: 5vmin;
   width: 5vmin;
-  margin: -0.8vmin 0 0 -0.8vmin;
+  margin-top: 0.5vmin;
 }
 
 .topNavBar {
@@ -204,7 +206,7 @@
   display: none;
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
   .authPopUp {
     width: 50%;
     height: auto;
@@ -237,7 +239,7 @@
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   .topNavBar {
     height: 4vh;
   }

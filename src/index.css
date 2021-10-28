@@ -20,6 +20,12 @@ code {
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
   --tan-4: #D3C1AE;
+  --blue-1: #cfe2f3;
+  --blue-2: #9fc5e8;
+  --blue-3: #6fa8dc;
+  --blue-4: #3d85c6;
+  --blue-5: #416aab;
+  --blue-6: #204c91;
   --text-light: #968c84;
   --text-dark: #615954;
   --light-gray: #dce4e9;
@@ -44,6 +50,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--body-background);
   height: 100vh;
+  width: 100vw;
 }
 
 code {
@@ -168,7 +175,7 @@ button:disabled, form:invalid button[type="submit"] {
   background-color: #6fa8dc;
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
   input {
     padding: 1.5vmin;
     font-size: 2vmin;
@@ -182,7 +189,7 @@ button:disabled, form:invalid button[type="submit"] {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   input {
     padding: 1vmin;
     font-size: 1.25vmin;

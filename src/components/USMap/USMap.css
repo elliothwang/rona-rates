@@ -1,12 +1,154 @@
 .usMapContainer {
-  height: 55vh;
+  height: 40vh;
   margin: auto;
+  position: relative;
   overflow: auto;
+  font-family: "PT Serif", serif;
 }
 
-/* @media only screen and (min-width: 1440px) and (min-height: 1024px) {
+.usMapContainer::-webkit-scrollbar {
+  width: 1vh;
+  border-left: 0.1vmin solid var(--light-gray);
+}
+
+.usMapContainer::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 2vmin var(--main-blue);
+  border-top-right-radius: 0.3vmin;
+  border-bottom-right-radius: 0.3vmin;
+}
+
+.usMapLegend {
+  flex-direction: column;
+  height: 40vh;
+  width: 31.5vw;
+  border-radius: 0.5vmin;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--popup-form-background);
+  border: 0.1vmin solid var(--main-black);
+  z-index: 3;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.openMapLegendIcon {
+  height: 3vh;
+  width: 3vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--main-blue);
+  background-color: var(--popup-form-background);
+  border: 0.1vmin solid var(--main-black);
+  border-radius: 0.5vmin;
+  z-index: 2;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.closeMapLegendIcon {
+  color: var(--main-blue);
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: -0.25vmin 0 0 -0.35vmin;
+}
+
+.usMapLegendTitle {
+  font-size: 1.5vmin;
+  margin-bottom: 1.5vmin;
+}
+
+.usMapLegendMainSection {
+  height: 12vh;
+}
+
+.usMapLegendColorBoxes {
+  flex-direction: column;
+  margin-right: 1.5vmin;
+}
+
+.usMapLegendColorBoxes > * {
+  height: 2vh;
+  width: 2vh;
+  border: 0.1vmin solid var(--main-black);
+  border-top: none;
+}
+
+.firstColorBox {
+  border-top: 0.1vmin solid var(--main-black);
+  border-radius: 0.5vmin 0.5vmin 0 0;
+}
+
+.lastColorBox {
+  border-radius: 0 0 0.5vmin 0.5vmin;
+}
+
+.blue1 {
+  background-color: var(--blue-1);
+}
+
+.blue2 {
+  background-color: var(--blue-2);
+}
+
+.blue3 {
+  background-color: var(--blue-3);
+} 
+
+.blue4 {
+  background-color: var(--blue-4);
+}
+
+.blue5 {
+  background-color: var(--blue-5);
+}
+
+.blue6 {
+  background-color: var(--blue-6);
+}
+
+.usMapLegendText > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2vh;
+  font-size: 2vmin;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (min-width: 769px) {
   .usMapContainer {
-    height: auto;
-    width: 60vw;
+    height: 61vh;
   }
-} */
+  
+  .usMapLegend {
+    height: 20vh;
+    width: 33%;
+  }
+
+  .usMapLegendText > * {
+    font-size: 1.5vmin;
+  }
+}
+
+@media only screen and (min-width: 1921px) {
+  .usMapLegendText > * {
+    font-size: 1.1vmin;
+  }
+}

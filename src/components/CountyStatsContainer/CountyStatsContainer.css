@@ -1,29 +1,29 @@
-.countyStatsOuterContainer {
-  height: 6vh;
-  width: 23.27vw;
+.countyStatsContainer {
+  height: 7.5vh;
+  width: 100%;
   font-family: "PT Serif", serif;
-  border-top: 0.1vmin solid var(--light-gray);
-  border-right: 0.1vmin solid var(--light-gray);
+  border-bottom: 0.1vmin solid var(--light-gray);
 }
 
 .countyIdx {
-  height: 6vh;
+  height: 7.5vh;
   width: 10%;
+  font-size: 2vmin;
   color: var(--tan-1);
 }
 
 .countyName {
-  height: 6vh;
+  height: 7.5vh;
   width: 41.75%;
   color: var(--tan-1);
-  font-size: 1.3vmin;
-  padding-right: 2.5vmin;
+  font-size: 2vmin;
+  padding-right: 10vmin;
 }
 
 .countyCasesStat, .countyDeathsStat {
-  height: 6vh;
+  height: 7.5vh;
   width: 48.25%;
-  font-size: 1.5vmin;
+  font-size: 2.25vmin;
 }
 
 .countyCasesStat {
@@ -34,32 +34,27 @@
   color: red;
 }
 
-/* @media only screen and (min-width: 480px) {
+@media only screen and (min-width: 769px) {
   .countyStatsContainer {
-    margin: 0 2vmin;
-    border: 0.2vmin solid var(--light-gray);
+    height: 6vh;
+  }
+
+  .countyIdx {
+    height: 6vh;
+    width: 10%;
+    font-size: 1.5vmin;
+  }
+  
+  .countyName {
+    height: 6vh;
+    width: 41.75%;
+    font-size: 1.3vmin;
+    padding-right: 2.5vmin;
+  }
+  
+  .countyCasesStat, .countyDeathsStat {
+    height: 6vh;
+    width: 48.25%;
+    font-size: 1.5vmin;
   }
 }
-
-@media only screen and (min-width: 768px) {
-  .countyStatsContainer {
-    height: 20vh;
-    width: 25vw;
-    margin: 0 2vmin;
-  }
-} */
-
-/* @media only screen and (min-width: 1024px) {
-  .statsContainer {
-    margin: 0 1vmin;
-    border: 0.2vmin solid var(--light-gray);
-    border-radius: 2vmin;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .statsContainer {
-    height: 20vh;
-    width: 20vw;
-  }
-} */

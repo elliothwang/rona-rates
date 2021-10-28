@@ -20,7 +20,7 @@
   cursor: pointer;
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
   .bottomLinks {
     font-size: 2.25vmin;
     margin: 1.5vmin 0 0 0;
@@ -31,7 +31,7 @@
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   .bottomLinks {
     font-size: 1.5vmin;
     margin: 1vmin 0 0 0;
