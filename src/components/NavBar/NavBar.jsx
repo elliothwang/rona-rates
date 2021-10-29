@@ -77,7 +77,7 @@ export default function NavBar({ user, setUser }) {
         </div>
         <div>
           <NavLink to="/" exact className="homeTopNav flex-ctr-ctr" name="activeHome" activeStyle={{color : "#60a6dc", borderTop : "0.2vmin solid #60a6dc"}}>Home</NavLink>
-          <div to="" className="spacerTopNav flex-ctr-ctr"></div>
+          <NavLink to="" className="spacerTopNav flex-ctr-ctr"></NavLink>
         { user ?
           <NavLink to="" className="logOutTopNav flex-ctr-ctr" onClick={handleLogOut}>Log Out</NavLink>
           :
