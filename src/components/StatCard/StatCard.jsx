@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import * as help from '../../utilities/helper-functions';
 
-export default function StatCard({ title, stat1, stat2, stat3, msg1, msg2, msg3, spaced, red, guide }) {
+export default function StatCard({ title, stat1, stat2, stat3, statGraph, msg1, msg2, msg3, spaced, red, guide }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   function handleCardFlip(evt) {
