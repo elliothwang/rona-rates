@@ -76,10 +76,6 @@ export default function NavBar({ user, setUser }) {
           </NavLink>
         </div>
         <div>
-          { user && (
-            <NavLink to="/me" exact className="myCountyTopNav flex-ctr-ctr" name="activeMyCounty" activeStyle={{color : "#60a6dc", borderTop : "0.2vmin solid #60a6dc"}}>My County</NavLink>
-          )}
-          {/* <NavLink to="/stats" exact className="statsTopNav flex-ctr-ctr" name="activeStats" activeStyle={{color : "#60a6dc", borderTop : "0.2vmin solid #60a6dc"}}>Stats</NavLink> */}
           <NavLink to="/" exact className="homeTopNav flex-ctr-ctr" name="activeHome" activeStyle={{color : "#60a6dc", borderTop : "0.2vmin solid #60a6dc"}}>Home</NavLink>
           <div to="" className="spacerTopNav flex-ctr-ctr"></div>
         { user ?
@@ -108,10 +104,6 @@ export default function NavBar({ user, setUser }) {
       </div>
       <div className="sideNavBar">
         <NavLink to="/" exact className="homeSideNav" name="activeHome" activeStyle={{color : "#dce4e9"}} onClick={handleArrowClick}>Home</NavLink>
-        {/* <NavLink to="/stats" exact className="statsSideNav" name="activeStats" activeStyle={{color : "#dce4e9"}} onClick={handleArrowClick}>Stats</NavLink> */}
-        { user && (
-          <NavLink to="/me" exact className="myCountySideNav" name="activeMyCounty" activeStyle={{color : "#dce4e9"}} onClick={handleArrowClick}>My County</NavLink>
-        )}
         <NavLink to="" className="spacerSideNav flex-ctr-ctr"></NavLink>
         { user ?
           <NavLink to="" className="logOutSideNav" onClick={handleLogOut}>Log Out</NavLink>

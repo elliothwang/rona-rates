@@ -1,0 +1,210 @@
+.statCard {
+  flex-direction: column;
+  height: 9.75vh;
+  width: 31vw;
+  border-radius: 0.5vmin;
+}
+
+.cardFront {
+  height: 9.75vh;
+  width: 100%;
+}
+
+.cardFront > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardHeader {
+  height: 2.5vh;
+  width: 100%;
+  font-size: 1.5vmin;
+  color: var(--main-black);
+  background-color: var(--main-blue);
+  border-radius: 0.35vmin 0.35vmin 0 0;
+  border: 0.1vmin solid var(--light-gray);
+  border-bottom: 0.2vmin solid var(--light-gray);
+}
+
+.flipButton {
+  height: 2.4vh;
+  width: 2.4vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top: 2.43vh solid var(--light-gray);
+  border-right: 2.4vh solid var(--main-blue);
+  border-top-left-radius: 0.2vmin;
+}
+
+.flipIcon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.cardTitle {
+  font-size: 1.75vmin;
+}
+
+.cardContent {
+  height: 7.35vh;
+  width: 100%;
+  flex-direction: column;
+  border: 0.1vmin solid var(--light-gray);
+  border-top: 0;
+  border-radius: 0 0 0.5vmin 0.5vmin;
+}
+
+.cardContent > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat1Container, .stat2Container {
+  height: 2.5vh;
+  width: 100%;
+}
+
+.stat3Container {
+  height: 2.35vh;
+  width: 100%;
+}
+
+.stat1Container > *, .stat2Container > *, .stat3Container > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat1, .stat2 {
+  height: 2.5vh;
+  font-size: 2vmin;
+  font-weight: bold;
+  color: var(--tan-1);
+}
+
+.stat3 {
+  height: 2.35vh;
+  font-size: 1.5vmin;
+  color: var(--tan-1);
+}
+
+.msg1, .msg2 {
+  height: 2.5vh;
+  font-size: 1.2vmin;
+  color: var(--tan-1);
+}
+
+.msg3 {
+  height: 2.35vh;
+  font-size: 1.1vmin;
+  color: var(--tan-1);
+}
+
+.plusSign {
+  height: 2.4vh;
+  font-size: 1.2vmin;
+  color: var(--tan-1);
+}
+
+.cardBack > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardGraph {
+  height: 7.35vh;
+  border-radius: 0 0 0.5vmin 0.5vmin;
+}
+
+.spaced {
+  margin-bottom: 1vh;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+
+@media only screen and (min-width: 769px) {
+  .statCard, .cardFront, .cardBack {
+    height: 19.8vh;
+    width: 23.25vw;
+  }
+
+  .cardHeader {
+    height: 5vh;
+  }
+
+  .flipButton {
+    height: 4.7vh;
+    width: 4.7vh;
+    border-top: 4.86vh solid var(--light-gray);
+    border-right: 4.7vh solid var(--main-blue);
+  }
+
+  .flipIcon {
+    margin: 0.5vmin 0 0 0.25vmin;
+  }
+
+  .cardContent {
+    height: 14.8vh;
+  }
+
+  .stat1Container, .stat2Container {
+    height: 5vh;
+  }
+  
+  .stat3Container {
+    height: 4.8vh;
+  }
+
+  .stat1, .stat2 {
+    height: 5vh;
+    font-size: 2.5vmin;
+  }
+  
+  .stat3 {
+    height: 2.5vh;
+    font-size: 1.3vmin;
+  }
+  
+  .msg1, .msg2 {
+    height: 5vh;
+    font-size: 1.3vmin;
+  }
+
+  .msg3 {
+    height: 4.8vh;
+    font-size: 1.2vmin;
+  }
+
+  .cardGraph {
+    height: 14.8vh;
+  }
+}
+
+@media only screen and (min-width: 1921px) {
+  .statCard, .cardFront, .cardBack {
+    width: 11.5vw;
+  }
+
+  .stat3, .msg > * {
+    font-size: 1vmin;
+  }
+}
+
+@media only screen and (max-width: 1000px) and (min-height: 950px) {
+  .flipIcon {
+    margin-top: 0.5vmin;
+  }
+}

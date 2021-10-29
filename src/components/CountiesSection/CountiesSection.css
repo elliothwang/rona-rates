@@ -1,25 +1,21 @@
-.countySectionOuterContainer {
+.countiesSection {
   height: 25vh;
   overflow: hidden;
   font-family: "PT Serif", serif;
 }
 
-.casesTab {
+.casesTab, .deathsTab {
   height: 3.5vh;
   width: 50%;
-  font-size: 2.5vmin;
+  font-size: 2vmin;
   color: var(--light-gray);
   border-bottom: 0.1vmin solid var(--light-gray);
-  border-top-left-radius: 0.3vmin;
+  border-radius: 0.3vmin 0 0 0;
 }
 
 .deathsTab {
-  height: 3.5vh;
-  width: 50%;
-  font-size: 2.5vmin;
-  color: var(--light-gray);
   border-bottom: 0.1vmin solid var(--light-gray);
-  border-top-right-radius: 0.3vmin;
+  border-radius: 0 0.3vmin 0 0;
 }
 
 .casesTab:hover, .deathsTab:hover {
@@ -33,35 +29,31 @@
   background-color: var(--light-gray);
 }
 
-.countySection {
+.countiesContent {
   height: 21.5vh;
   overflow-y: scroll;
 }
 
-.countySection::-webkit-scrollbar {
+.countiesContent::-webkit-scrollbar {
   width: 1vh;
   border-left: 0.1vmin solid var(--light-gray);
 }
 
-.countySection::-webkit-scrollbar-thumb {
+.countiesContent::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 2vmin var(--main-blue);
   border-bottom-right-radius: 0.3vmin;
 }
 
 @media only screen and (min-width: 769px) {
-  .countySectionOuterContainer {
+  .countiesSection {
     height: 67vh;
   }
 
-  .casesTab {
-    font-size: 1.5vmin;
+  .casesTab, .deathsTab {
+    font-size: 1.25vmin;
   }
   
-  .deathsTab {
-    font-size: 1.5vmin;
-  }
-  
-  .countySection {
+  .countiesContent {
     height: 63.5vh;
   }
 }
