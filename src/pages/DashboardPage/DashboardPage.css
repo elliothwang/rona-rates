@@ -12,27 +12,20 @@
   border-radius: 0.5vmin;
 }
 
-.usStats {
+.stats {
   grid-row: 2;
 }
 
-.usMap {
+.map {
   grid-row: 3 / 4;
   border: 0.1vmin solid var(--light-gray);
   border-radius: 0.5vmin;
 }
 
-.usCounties {
+.counties {
   grid-row: 4;
   border: 0.1vmin solid var(--light-gray);
   border-radius: 0.5vmin;
-}
-
-@media only screen and (min-width: 481px) {
-  .dashboard {
-    grid-template-columns: 96vw;
-    grid-template-rows: 2.5vh 10vh 40vh 25vh;
-  }
 }
 
 @media only screen and (min-width: 769px) {
@@ -42,19 +35,19 @@
     grid-template-rows: 20vh 46vh 14vh;
   }
 
-  .usStats {
+  .stats {
     grid-column: 1;
     grid-row: 1;
   }
   
-  .usMap {
+  .map {
     grid-column: 1;
     grid-row: 2 / 4;
     border: 0.1vmin solid var(--light-gray);
     border-radius: 0.5vmin;
   }
   
-  .usCounties {
+  .counties {
     grid-column: 2;
     grid-row: 1 / 3;
     border: 0.1vmin solid var(--light-gray);
@@ -71,6 +64,6 @@
 
 @media only screen and (min-width: 1921px) {
   .dashboard {
-    grid-template-columns: 30vw 20vw;
+    grid-template-columns: 35vw 15vw;
   }
 }
