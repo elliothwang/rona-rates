@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   height: 9.8vh;
   width: 96vw;
-  overflow: auto;
+  overflow-y: auto;
   font-family: "PT Serif", serif;
 }
 
@@ -22,5 +22,12 @@
   .statsSection {
     height: 19.8vh;
     width: 73vw;
+  }
+}
+
+@media only screen and (min-width: 1921px) {
+  .statsSection {
+    height: 19.8vh;
+    width: 35vw;
   }
 }

@@ -8,7 +8,8 @@ const axios = require('axios').default;
 
 export default function DashboardPage({ user }) {
   const [usData, setUsData] = useState([]);
-  const [historicalUsData, setHistoricalUsData] = useState([]);
+  const [chartDataArr, setChartDataArr] = useState([]);
+  const [chartLabelsArr, setChartLabelsArr] = useState([]);
   const [usCountiesCases, setUsCountiesCases] = useState([]);
   const [usCountiesDeaths, setUsCountiesDeaths] = useState([]);
   const onDashboard = true;
@@ -28,7 +29,8 @@ export default function DashboardPage({ user }) {
     axios.get('https://corona.lmao.ninja/v2/historical/USA?lastdays=30')
     .then(res => {
       const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
-      setHistoricalUsData(apiDataArr[2].val);
+      setChartDataArr([...chartDataArr, Object.values(apiDataArr[2].val.cases), Object.values(apiDataArr[2].val.deaths)]);
+      setChartLabelsArr([...chartLabelsArr, Object.keys(apiDataArr[2].val.cases)]);
     })
     .catch(err => {
       console.log(err);
@@ -57,7 +59,7 @@ export default function DashboardPage({ user }) {
 
   return (
     <div className="dashboard flex-ctr-ctr">
-      <div className="stats"><StatsSection onDashboard={onDashboard} dbData={usData} dbHistoricalData={historicalUsData} /></div>
+      <div className="stats"><StatsSection onDashboard={onDashboard} dbData={usData} dbChartDataArr={chartDataArr} dbChartLabelsArr={chartLabelsArr} /></div>
       <div className="map"><Map onDashboard={onDashboard} /></div>
       <div className="counties"><CountiesSection onDashboard={onDashboard} dbCountiesCases={usCountiesCases} dbCountiesDeaths={usCountiesDeaths} /></div>
       <div className="date"><DateSection user={user} /></div>

@@ -8,6 +8,7 @@ const axios = require('axios').default;
 
 export default function StatePage({ user }) {
   const [stateData, setStateData] = useState([]);
+  const [chartData, setChartData] = useState([]);
   const [stateCountiesCases, setStateCountiesCases] = useState([]);
   const [stateCountiesDeaths, setStateCountiesDeaths] = useState([]);
   const state = localStorage.getItem('storageStateName');
@@ -18,7 +19,6 @@ export default function StatePage({ user }) {
     .then(res => {
       const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
       setStateData(apiDataArr);
-      console.log(apiDataArr);
     })
     .catch(err => {
       console.log(err);
@@ -44,7 +44,7 @@ export default function StatePage({ user }) {
 
   return (
   <div className="statePage dashboard flex-ctr-ctr">
-    <div className="stats"><StatsSection onDashboard={onDashboard} sData={stateData} /></div>
+    <div className="stats"><StatsSection onDashboard={onDashboard} sData={stateData} sChartData={chartData} /></div>
     <div className="map"><Map onDashboard={onDashboard} /></div>
     <div className="counties"><CountiesSection onDashboard={onDashboard} sCountiesCases={stateCountiesCases} sCountiesDeaths={stateCountiesDeaths} /></div>
     <div className="date"><DateSection user={user}/></div>
