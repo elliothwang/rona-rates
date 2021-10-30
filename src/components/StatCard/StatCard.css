@@ -5,7 +5,7 @@
   border-radius: 0.5vmin;
 }
 
-.cardFront {
+.cardFront, .cardBack{
   height: 9.75vh;
   width: 100%;
 }
@@ -119,7 +119,10 @@
 
 .cardGraph {
   height: 7.35vh;
+  width: 31vw;
   border-radius: 0 0 0.5vmin 0.5vmin;
+  background-color: var(--light-gray);
+  overflow: hidden;
 }
 
 .spaced {
@@ -134,11 +137,10 @@
   color: green;
 }
 
-
 @media only screen and (min-width: 769px) {
   .statCard, .cardFront, .cardBack {
     height: 19.8vh;
-    width: 23.25vw;
+    width: 23.5vw;
   }
 
   .cardHeader {
@@ -190,16 +192,22 @@
 
   .cardGraph {
     height: 14.8vh;
+    width: 23.5vw;
   }
 }
 
 @media only screen and (min-width: 1921px) {
   .statCard, .cardFront, .cardBack {
-    width: 11.5vw;
+    width: 11vw;
   }
 
   .stat3, .msg > * {
     font-size: 1vmin;
+  }
+
+  .cardGraph {
+    height: 14.8vh;
+    width: 11vw;
   }
 }
 

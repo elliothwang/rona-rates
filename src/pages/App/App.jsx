@@ -22,7 +22,6 @@ export default function App() {
             .then(res => {
               const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
               setUserLocationData(apiDataArr);
-              console.log(apiDataArr);
               console.log(apiDataArr[11].val);
               console.log(apiDataArr[14].val.administrative[2].name);
             })
