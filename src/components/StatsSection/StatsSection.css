@@ -1,7 +1,7 @@
 .statsSection {
   justify-content: space-between;
   flex-wrap: wrap;
-  height: 9.8vh;
+  height: 19.8vh;
   width: 96vw;
   overflow-y: auto;
   font-family: "PT Serif", serif;

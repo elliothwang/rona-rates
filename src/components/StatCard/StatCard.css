@@ -1,12 +1,12 @@
 .statCard {
   flex-direction: column;
-  height: 9.75vh;
+  height: 19.75vh;
   width: 31vw;
   border-radius: 0.5vmin;
 }
 
 .cardFront, .cardBack{
-  height: 9.75vh;
+  height: 19.75vh;
   width: 100%;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .cardHeader {
-  height: 2.5vh;
+  height: 5vh;
   width: 100%;
   font-size: 1.5vmin;
   color: var(--main-black);
@@ -28,13 +28,13 @@
 }
 
 .flipButton {
-  height: 2.4vh;
-  width: 2.4vh;
+  height: 4.7vh;
+  width: 4.7vh;
   position: absolute;
   left: 0;
   top: 0;
-  border-top: 2.43vh solid var(--light-gray);
-  border-right: 2.4vh solid var(--main-blue);
+  border-top: 4.86vh solid var(--light-gray);
+  border-right: 4.7vh solid var(--main-blue);
   border-top-left-radius: 0.2vmin;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .cardContent {
-  height: 7.35vh;
+  height: 14.8vh;
   width: 100%;
   flex-direction: column;
   border: 0.1vmin solid var(--light-gray);
@@ -65,12 +65,12 @@
 }
 
 .stat1Container, .stat2Container {
-  height: 2.5vh;
+  height: 5vh;
   width: 100%;
 }
 
 .stat3Container {
-  height: 2.35vh;
+  height: 4.8vh;
   width: 100%;
 }
 
@@ -81,26 +81,26 @@
 }
 
 .stat1, .stat2 {
-  height: 2.5vh;
+  height: 5vh;
   font-size: 2vmin;
   font-weight: bold;
   color: var(--tan-1);
 }
 
 .stat3 {
-  height: 2.35vh;
+  height: 2.5vh;
   font-size: 1.5vmin;
   color: var(--tan-1);
 }
 
 .msg1, .msg2 {
-  height: 2.5vh;
+  height: 5vh;
   font-size: 1.2vmin;
   color: var(--tan-1);
 }
 
 .msg3 {
-  height: 2.35vh;
+  height: 4.8vh;
   font-size: 1.1vmin;
   color: var(--tan-1);
 }
@@ -118,7 +118,7 @@
 }
 
 .cardGraph {
-  height: 7.35vh;
+  height: 14.8vh;
   width: 31vw;
   border-radius: 0 0 0.5vmin 0.5vmin;
   background-color: var(--light-gray);
