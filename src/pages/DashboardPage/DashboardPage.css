@@ -1,8 +1,7 @@
 .dashboard {
   display: grid;
   grid-template-columns: 96vw;
-  grid-template-rows: 2.5vh 10vh 40vh 25vh;
-  /* grid-template-rows: 2.5vh 20vh 40vh 15vh; */
+  grid-template-rows: 2vh 20vh 40vh 15.5vh;
   grid-gap: 1vh;
   margin: 2vh auto;
 }

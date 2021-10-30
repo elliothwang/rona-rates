@@ -1,4 +1,3 @@
-import './StatePage.css';
 import React, { useState, useEffect } from 'react';
 import Map from '../../components/Map/Map';
 import StatsSection from '../../components/StatsSection/StatsSection';

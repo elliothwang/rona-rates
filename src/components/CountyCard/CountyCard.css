@@ -1,19 +1,19 @@
 .countyCard {
-  height: 5vh;
+  height: 4.18vh;
   width: 100%;
   font-family: "PT Serif", serif;
   border-bottom: 0.1vmin solid var(--light-gray);
 }
 
 .countyIdx {
-  height: 5vh;
+  height: 4.18vh;
   width: 10%;
   font-size: 2vmin;
   color: var(--tan-1);
 }
 
 .countyName {
-  height: 5vh;
+  height: 4.18vh;
   width: 41.75%;
   color: var(--tan-1);
   font-size: 2vmin;
@@ -21,7 +21,7 @@
 }
 
 .countyCasesStat, .countyDeathsStat {
-  height: 5vh;
+  height: 4.18vh;
   width: 48.25%;
   font-size: 2.25vmin;
 }

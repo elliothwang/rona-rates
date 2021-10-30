@@ -1,11 +1,11 @@
 .countiesSection {
-  height: 25vh;
+  height: 15.5vh;
   overflow: hidden;
   font-family: "PT Serif", serif;
 }
 
 .casesTab, .deathsTab {
-  height: 3.5vh;
+  height: 3vh;
   width: 50%;
   font-size: 2vmin;
   color: var(--light-gray);
@@ -30,7 +30,7 @@
 }
 
 .countiesContent {
-  height: 21.5vh;
+  height: 12.5vh;
   overflow-y: scroll;
 }
 
@@ -50,6 +50,7 @@
   }
 
   .casesTab, .deathsTab {
+    height: 3.5vh;
     font-size: 1.25vmin;
   }
   
