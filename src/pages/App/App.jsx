@@ -12,6 +12,7 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [userLocationData, setUserLocationData] = useState([]);
 
+  
   function location() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -19,22 +20,22 @@ export default function App() {
           const lat = position.coords.latitude;
           const long = position.coords.longitude;
           axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${long}-&localityLanguage=en`)
-            .then(res => {
-              const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
-              setUserLocationData(apiDataArr);
-              console.log(apiDataArr[11].val);
-              console.log(apiDataArr[14].val.administrative[2].name);
-            })
-            .catch(err => {
-              console.log(err);
-            });
-      });
-    } else {
-      console.log("Not Available");
-    }
-  }
-  
-  useEffect(() => location() , []);
+          .then(res => {
+            const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
+            setUserLocationData(apiDataArr);
+            console.log(apiDataArr[11].val);
+            console.log(apiDataArr[14].val.administrative[2].name);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+        });
+      } else {
+        console.log("Not Available");
+      }
+    };
+    
+    useEffect(() => user && location(), [user]);
     
   return (
     <main className="App">
