@@ -14,48 +14,57 @@ export default function DashboardPage({ user }) {
   const [usCountiesDeaths, setUsCountiesDeaths] = useState([]);
   const onDashboard = true;
 
-  function getUSData() {
-    axios.get('https://corona.lmao.ninja/v2/countries/USA?yesterday=true&strict=true&query')
-    .then(res => {
-      const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
-      setUsData(apiDataArr);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  };
+  useEffect(() => {
+    function getUSData() {
+      axios.get('https://corona.lmao.ninja/v2/countries/USA?yesterday=true&strict=true&query')
+      .then(res => {
+        const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
+        setUsData(apiDataArr);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    };
+    getUSData();
+  }, []);
 
-  function getHistoricalUSData() {
-    axios.get('https://corona.lmao.ninja/v2/historical/USA?lastdays=30')
-    .then(res => {
-      const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
-      setChartDataArr([...chartDataArr, Object.values(apiDataArr[2].val.cases), Object.values(apiDataArr[2].val.deaths)]);
-      setChartLabelsArr([...chartLabelsArr, Object.keys(apiDataArr[2].val.cases)]);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  }
+  useEffect(() => {
+    function getUSChartData() {
+      axios.get('https://corona.lmao.ninja/v2/historical/USA?lastdays=30')
+      .then(res => {
+        const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
+        setChartDataArr([...chartDataArr, Object.values(apiDataArr[2].val.cases), Object.values(apiDataArr[2].val.deaths)]);
+        setChartLabelsArr([...chartLabelsArr, Object.keys(apiDataArr[2].val.cases)]);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    };
+    getUSChartData();
+  }, []);
 
-  function getTopCountiesData() {
-    axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
-    .then(res => {
-      const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val})).sort((acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed);
-      const sortedCountiesCases = apiDataArr.sort((acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed);
-      const usCountiesCasesTemp = sortedCountiesCases.slice(0, 25);
-      setUsCountiesCases(usCountiesCasesTemp);
-      const sortedCountiesDeaths = apiDataArr.sort((acc, curr) => curr.val.stats.deaths - acc.val.stats.deaths);
-      const usCountiesDeathsTemp = sortedCountiesDeaths.slice(0, 25);
-      setUsCountiesDeaths(usCountiesDeathsTemp);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  };
+  useEffect(() => {
+    function getTopCountiesData() {
+      axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
+      .then(res => {
+        const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val})).sort((acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed);
+        const sortedCountiesCases = apiDataArr.sort((acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed);
+        const usCountiesCasesTemp = sortedCountiesCases.slice(0, 25);
+        setUsCountiesCases(usCountiesCasesTemp);
+        const sortedCountiesDeaths = apiDataArr.sort((acc, curr) => curr.val.stats.deaths - acc.val.stats.deaths);
+        const usCountiesDeathsTemp = sortedCountiesDeaths.slice(0, 25);
+        setUsCountiesDeaths(usCountiesDeathsTemp);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    };
+    getTopCountiesData();
+  }, []);
 
-  useEffect(() => getUSData() , []);
-  useEffect(() => getHistoricalUSData() , []);
-  useEffect(() => getTopCountiesData(), []);
+  // useEffect(() => getUSData() , []);
+  // useEffect(() => getHistoricalUSData() , []);
+  // useEffect(() => getTopCountiesData(), []);
 
   return (
     <div className="dashboard flex-ctr-ctr">
