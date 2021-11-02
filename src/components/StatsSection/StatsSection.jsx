@@ -3,7 +3,7 @@ import React from 'react';
 import StatCard from '../StatCard/StatCard';
 import moment from 'moment';
 
-export default function StatsSection({ onDashboard, dbData, dbChartDataArr, dbChartLabelsArr, sData, sChartData }) {
+export default function StatsSection({ onDashboard, dbData, dbChartData, dbChartLabels, sData, sChartData, sChartLabels }) {
   let yesterday = moment().subtract(1, 'days').format('l'); 
 
   return (
@@ -16,8 +16,8 @@ export default function StatsSection({ onDashboard, dbData, dbChartDataArr, dbCh
             stat2={dbData[11]?.val}
             stat3={dbData[4]?.val}
             chartTitle={"Past 30 days"}
-            chartData={dbChartDataArr[0]}
-            chartLabels={dbChartLabelsArr[0]}
+            chartData={dbChartData[0]}
+            chartLabels={dbChartLabels[0]}
             msg2={"(per 1 million)"}
             msg3={`(from ${yesterday})`}
             spaced={"spaced"}
@@ -29,8 +29,8 @@ export default function StatsSection({ onDashboard, dbData, dbChartDataArr, dbCh
             stat2={dbData[12]?.val}
             stat3={dbData[6]?.val}
             chartTitle={"Past 30 days"}
-            chartData={dbChartDataArr[1]}
-            chartLabels={dbChartLabelsArr[0]}
+            chartData={dbChartData[1]}
+            chartLabels={dbChartLabels[0]}
             msg2={"(per 1 million)"}
             msg3={`(from ${yesterday})`}
             spaced={"spaced"}
