@@ -64,10 +64,10 @@ export default function DashboardPage({ user }) {
 
   return (
     <div className="dashboard flex-ctr-ctr">
-      <div className="stats"><StatsSection onDashboard={onDashboard} dbData={usData} dbChartData={chartData} dbChartLabels={chartLabels} /></div>
-      <div className="map"><Map onDashboard={onDashboard} /></div>
-      <div className="counties"><CountiesSection onDashboard={onDashboard} dbCountiesCases={usCountiesCases} dbCountiesDeaths={usCountiesDeaths} /></div>
-      <div className="date"><DateSection user={user} /></div>
+      <div className="dbStats"><StatsSection onDashboard={onDashboard} dbData={usData} dbChartData={chartData} dbChartLabels={chartLabels} /></div>
+      <div className="dbMap"><Map onDashboard={onDashboard} /></div>
+      <div className="dbCounties"><CountiesSection onDashboard={onDashboard} dbCountiesCases={usCountiesCases} dbCountiesDeaths={usCountiesDeaths} /></div>
+      <div className="dbDate"><DateSection user={user} /></div>
     </div>
   );
 }

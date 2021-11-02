@@ -6,23 +6,23 @@
   margin: 2vh auto;
 }
 
-.date {
+.dbDate {
   grid-row: 1;
   border: 0.1vmin solid var(--light-gray);
   border-radius: 0.5vmin;
 }
 
-.stats {
+.dbStats {
   grid-row: 2;
 }
 
-.map {
+.dbMap {
   grid-row: 3 / 4;
   border: 0.1vmin solid var(--light-gray);
   border-radius: 0.5vmin;
 }
 
-.counties {
+.dbCounties {
   grid-row: 4;
   border: 0.1vmin solid var(--light-gray);
   border-radius: 0.5vmin;
@@ -35,26 +35,26 @@
     grid-template-rows: 20vh 46vh 14vh;
   }
 
-  .stats {
+  .dbStats {
     grid-column: 1;
     grid-row: 1;
   }
   
-  .map {
+  .dbMap {
     grid-column: 1;
     grid-row: 2 / 4;
     border: 0.1vmin solid var(--light-gray);
     border-radius: 0.5vmin;
   }
   
-  .counties {
+  .dbCounties {
     grid-column: 2;
     grid-row: 1 / 3;
     border: 0.1vmin solid var(--light-gray);
     border-radius: 0.5vmin;
   }
   
-  .date {
+  .dbDate {
     grid-column: 2;
     grid-row: 3;
     border: 0.1vmin solid var(--light-gray);
