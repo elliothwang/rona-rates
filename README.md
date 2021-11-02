@@ -24,5 +24,6 @@ https://github.com/elliothwang/covid-dashboard <br/>
 https://corona-rona.herokuapp.com/
 
 <h1>Next Steps:</h1>
-  1. Show a more detailed (county-specific) map<br/>
-  2. Allow users to compare statistics on graphs<br/>
+  1. Show a more detailed (county-specific) choropleth map.<br/>
+  2. Create a user-centric 'user' page.<br/>
+  3. Allow users to customize statistics on graphs & show state-specific graphs.<br/>
