@@ -54,10 +54,10 @@ export default function StatePage({ user }) {
 
   return (
   <div className="statePage dashboard flex-ctr-ctr">
-    <div className="stats"><StatsSection onDashboard={onDashboard} sData={stateData} sChartData={chartData} sChartLabels={chartLabels} /></div>
-    <div className="map"><Map onDashboard={onDashboard} /></div>
-    <div className="counties"><CountiesSection onDashboard={onDashboard} sCountiesCases={stateCountiesCases} sCountiesDeaths={stateCountiesDeaths} /></div>
-    <div className="date"><DateSection user={user}/></div>
+    <div className="dbStats"><StatsSection onDashboard={onDashboard} sData={stateData} sChartData={chartData} sChartLabels={chartLabels} /></div>
+    <div className="dbMap"><Map onDashboard={onDashboard} /></div>
+    <div className="dbCounties"><CountiesSection onDashboard={onDashboard} sCountiesCases={stateCountiesCases} sCountiesDeaths={stateCountiesDeaths} /></div>
+    <div className="dbDate"><DateSection user={user}/></div>
   </div>
   )
 }
