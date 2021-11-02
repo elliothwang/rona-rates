@@ -1,20 +1,21 @@
 import './Map.css';
 import React, { useState }  from 'react';
-import { useHistory } from 'react-router-dom';
-import USAMap from 'react-usa-map';
-import * as help from '../../utilities/helper-functions';
-import {states} from '../../assets/states-object.js';
+import MapChart from '../MapChart/MapChart';
+// import { useHistory } from 'react-router-dom';
+// import USAMap from 'react-usa-map';
+// import * as help from '../../utilities/helper-functions';
+// import {states} from '../../assets/states-object.js';
 
-export default function Map({ onDashboard }) {
+export default function Map({ onDashboard, user, userLat, userLong, userLocation }) {
   const [legendShown, setLegendShown] = useState(true);
-  const history = useHistory();
+  // const history = useHistory();
 
-  function handleMapClick(evt) {
-    const stateAbr = evt.target.dataset.name;
-    const state = states[stateAbr]
-    localStorage.setItem('storageStateName', state);
-    history.push(`/${state}`);
-  }
+  // function handleMapClick(evt) {
+  //   const stateAbr = evt.target.dataset.name;
+  //   const state = states[stateAbr]
+  //   localStorage.setItem('storageStateName', state);
+  //   history.push(`/${state}`);
+  // }
 
   function handleLegendClick() {
     if (legendShown) {
@@ -72,7 +73,9 @@ export default function Map({ onDashboard }) {
         </div>
       </div>
       { onDashboard ? 
-        <USAMap className="flex-ctr-ctr" customize={help.customizeStates()} onClick={handleMapClick}/>
+        // <USAMap className="flex-ctr-ctr" customize={help.customizeStates()} onClick={handleMapClick}/>
+        // <MapChart user={user} userLat={userLat} userLong={userLong} userLocation={userLocation} />
+        <div>placeholder for us map</div>
       :
         <div>placeholder for state map</div>
       }

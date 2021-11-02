@@ -6,7 +6,7 @@ import CountiesSection from '../../components/CountiesSection/CountiesSection';
 import DateSection from '../../components/DateSection/DateSection';
 const axios = require('axios').default;
 
-export default function DashboardPage({ user }) {
+export default function DashboardPage({ user, userLat, userLong, userLocation }) {
   const [usData, setUsData] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [chartLabels, setChartLabels] = useState([]);
@@ -65,7 +65,7 @@ export default function DashboardPage({ user }) {
   return (
     <div className="dashboard flex-ctr-ctr">
       <div className="dbStats"><StatsSection onDashboard={onDashboard} dbData={usData} dbChartData={chartData} dbChartLabels={chartLabels} /></div>
-      <div className="dbMap"><Map onDashboard={onDashboard} /></div>
+      <div className="dbMap"><Map onDashboard={onDashboard} user={user} userLat={userLat} userLong={userLong} userLocation={userLocation} /></div>
       <div className="dbCounties"><CountiesSection onDashboard={onDashboard} dbCountiesCases={usCountiesCases} dbCountiesDeaths={usCountiesDeaths} /></div>
       <div className="dbDate"><DateSection user={user} /></div>
     </div>

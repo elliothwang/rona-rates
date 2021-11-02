@@ -10,21 +10,22 @@ const axios = require('axios').default;
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [userLocationData, setUserLocationData] = useState([]);
+  const [userLat, setUserLat] = useState();
+  const [userLong, setUserLong] = useState();
+  const [userLocation, setUserLocation] = useState("");
 
-  
   function location() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function(position) {
           const lat = position.coords.latitude;
+          setUserLat(lat);
           const long = position.coords.longitude;
+          setUserLong(long);
           axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${long}-&localityLanguage=en`)
           .then(res => {
             const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
-            setUserLocationData(apiDataArr);
-            console.log(apiDataArr[11].val);
-            console.log(apiDataArr[14].val.administrative[2].name);
+            setUserLocation(`${apiDataArr[11].val}, ${apiDataArr[14].val.administrative[2].name}`);
           })
           .catch(err => {
             console.log(err);
@@ -43,10 +44,10 @@ export default function App() {
         <NavBar user={user} setUser={setUser} />
         <Switch>
           <Route path="/:state">
-            <StatePage user={user} userLocationData={userLocationData} />
+            <StatePage user={user} userLat={userLat} userLong={userLong} userLocation={userLocation} />
           </Route>
           <Route path="/">
-            <DashboardPage user={user} userLocationData={userLocationData} />
+            <DashboardPage user={user} userLat={userLat} userLong={userLong} userLocation={userLocation} />
           </Route>
           <Redirect to="/" />
         </Switch>
