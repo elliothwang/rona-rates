@@ -2,7 +2,7 @@
   height: 40vh;
   margin: auto;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
   font-family: "PT Serif", serif;
 }
 
