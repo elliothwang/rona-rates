@@ -6,7 +6,7 @@ const axios = require('axios').default;
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
 
 const colorScale = scaleQuantize()
-  .domain([1, 10])
+  .domain([1, 5000000])
   .range([
     "#ffedea",
     "#ffcec5",
@@ -53,7 +53,6 @@ const MapChart = ({ user, setTooltipContent}) => {
     // csv("/unemployment-by-county-2017.csv").then(counties => {
     //   setData(counties);
     // });
-    
   }, []);
 
   return (
@@ -66,8 +65,7 @@ const MapChart = ({ user, setTooltipContent}) => {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  stroke="#FFF"
-                  fill="#EEE"
+                  stroke="white"
                   onMouseEnter={() => {
                     setTooltipContent(`${geo.properties.name} County`);
                   }}
@@ -76,17 +74,13 @@ const MapChart = ({ user, setTooltipContent}) => {
                   }}
                   style={{
                     default: {
-                      fill: "#D6D6DA",
+                      fill: "#EEE",
                       outline: "none"
                     },
                     hover: {
-                      fill: "#F53",
+                      fill: "blue",
                       outline: "none"
                     },
-                    pressed: {
-                      fill: "#E42",
-                      outline: "none"
-                    }
                   }}
                 />
               ))
