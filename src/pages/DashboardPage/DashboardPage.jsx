@@ -65,7 +65,7 @@ export default function DashboardPage({ user, userLat, userLong, userLocation })
   return (
     <div className="dashboard flex-ctr-ctr">
       <div className="dbStats"><StatsSection onDashboard={onDashboard} dbData={usData} dbChartData={chartData} dbChartLabels={chartLabels} /></div>
-      <div className="dbMap"><Map onDashboard={onDashboard} user={user} userLat={userLat} userLong={userLong} userLocation={userLocation} /></div>
+      <div className="dbMap"><Map onDashboard={onDashboard} user={user} /></div>
       <div className="dbCounties"><CountiesSection onDashboard={onDashboard} dbCountiesCases={usCountiesCases} dbCountiesDeaths={usCountiesDeaths} /></div>
       <div className="dbDate"><DateSection user={user} /></div>
     </div>

@@ -1,12 +1,14 @@
 import './Map.css';
 import React, { useState }  from 'react';
 import MapChart from '../MapChart/MapChart';
+import ReactTooltip from "react-tooltip";
 // import { useHistory } from 'react-router-dom';
 // import USAMap from 'react-usa-map';
 // import * as help from '../../utilities/helper-functions';
 // import {states} from '../../assets/states-object.js';
 
 export default function Map({ onDashboard, user, userLat, userLong, userLocation }) {
+  const [content, setContent] = useState("");
   const [legendShown, setLegendShown] = useState(true);
   // const history = useHistory();
 
@@ -58,9 +60,9 @@ export default function Map({ onDashboard, user, userLat, userLong, userLocation
               <div>1,000,001 - 2,000,000</div>
               <div>750,001 - 1,000,000</div>
               <div>275,001 - 750,000</div>
-              <div>0 - 275,000</div>
+              <div>1 - 275,000</div>
             </div>
-          :
+          : 
             <div className="mapLegendText">
               <div>5</div>
               <div>4</div>
@@ -73,12 +75,17 @@ export default function Map({ onDashboard, user, userLat, userLong, userLocation
         </div>
       </div>
       { onDashboard ? 
-        // <USAMap className="flex-ctr-ctr" customize={help.customizeStates()} onClick={handleMapClick}/>
-        // <MapChart user={user} userLat={userLat} userLong={userLong} userLocation={userLocation} />
-        <div>placeholder for us map</div>
-      :
-        <div>placeholder for state map</div>
-      }
+        <>
+          {/* <USAMap className="flex-ctr-ctr" customize={help.customizeStates()} onClick={handleMapClick}/> */}
+          <MapChart user={user} setTooltipContent={setContent} />
+          <ReactTooltip>{content}</ReactTooltip>
+        </>
+        :
+        <>
+          <MapChart user={user} setTooltipContent={setContent} />
+          <ReactTooltip>{content}</ReactTooltip>
+        </>      
+        }
     </div>
   )
 }
