@@ -6,12 +6,12 @@ import CountiesSection from '../../components/CountiesSection/CountiesSection';
 import DateSection from '../../components/DateSection/DateSection';
 const axios = require('axios').default;
 
-export default function DashboardPage({ user, userLat, userLong, userLocation }) {
+export default function DashboardPage({ user }) {
   const [usData, setUsData] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [chartLabels, setChartLabels] = useState([]);
-  const [usCountiesCases, setUsCountiesCases] = useState([]);
-  const [usCountiesDeaths, setUsCountiesDeaths] = useState([]);
+  const [usCountiesTopCases, setUsCountiesTopCases] = useState([]);
+  const [usCountiesTopDeaths, setUsCountiesTopDeaths] = useState([]);
   const onDashboard = true;
 
   useEffect(() => {
@@ -47,13 +47,12 @@ export default function DashboardPage({ user, userLat, userLong, userLocation })
     function getTopCountiesData() {
       axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
       .then(res => {
-        const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val})).sort((acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed);
-        const sortedCountiesCases = apiDataArr.sort((acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed);
-        const usCountiesCasesTemp = sortedCountiesCases.slice(0, 25);
-        setUsCountiesCases(usCountiesCasesTemp);
-        const sortedCountiesDeaths = apiDataArr.sort((acc, curr) => curr.val.stats.deaths - acc.val.stats.deaths);
-        const usCountiesDeathsTemp = sortedCountiesDeaths.slice(0, 25);
-        setUsCountiesDeaths(usCountiesDeathsTemp);
+        const sortedCountiesCases = Object.entries(res.data).map(([stat, val]) => ({stat, val})).sort((acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed);
+        const usCountiesTopCases = sortedCountiesCases.slice(0, 25);
+        setUsCountiesTopCases(usCountiesTopCases);
+        const sortedCountiesDeaths = Object.entries(res.data).map(([stat, val]) => ({stat, val})).sort((acc, curr) => curr.val.stats.deaths - acc.val.stats.deaths);
+        const usCountiesTopDeaths = sortedCountiesDeaths.slice(0, 25);
+        setUsCountiesTopDeaths(usCountiesTopDeaths);
       })
       .catch(err => {
         console.log(err);
@@ -66,7 +65,7 @@ export default function DashboardPage({ user, userLat, userLong, userLocation })
     <div className="dashboard flex-ctr-ctr">
       <div className="dbStats"><StatsSection onDashboard={onDashboard} dbData={usData} dbChartData={chartData} dbChartLabels={chartLabels} /></div>
       <div className="dbMap"><Map onDashboard={onDashboard} user={user} /></div>
-      <div className="dbCounties"><CountiesSection onDashboard={onDashboard} dbCountiesCases={usCountiesCases} dbCountiesDeaths={usCountiesDeaths} /></div>
+      <div className="dbCounties"><CountiesSection onDashboard={onDashboard} dbCountiesTopCases={usCountiesTopCases} dbCountiesTopDeaths={usCountiesTopDeaths} /></div>
       <div className="dbDate"><DateSection user={user} /></div>
     </div>
   );
