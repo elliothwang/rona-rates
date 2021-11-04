@@ -5,10 +5,10 @@ import CountiesSection from '../../components/CountiesSection/CountiesSection';
 import DateSection from '../../components/DateSection/DateSection';
 const axios = require('axios').default;
 
-export default function StatePage({ user, userLat, userLong, userLocation }) {
+export default function StatePage({ user }) {
   const [stateData, setStateData] = useState([]);
   const [chartData, setChartData] = useState([]);
-  const [chartLabels, setChartLabels] = useState([]);
+  // const [chartLabels, setChartLabels] = useState([]);
   const [stateCountiesCases, setStateCountiesCases] = useState([]);
   const [stateCountiesDeaths, setStateCountiesDeaths] = useState([]);
   const state = localStorage.getItem('storageStateName');
@@ -54,7 +54,7 @@ export default function StatePage({ user, userLat, userLong, userLocation }) {
 
   return (
   <div className="statePage dashboard flex-ctr-ctr">
-    <div className="dbStats"><StatsSection onDashboard={onDashboard} sData={stateData} sChartData={chartData} sChartLabels={chartLabels} /></div>
+    <div className="dbStats"><StatsSection onDashboard={onDashboard} sData={stateData} sChartData={chartData} /></div>
     <div className="dbMap"><Map onDashboard={onDashboard} user={user} /></div>
     <div className="dbCounties"><CountiesSection onDashboard={onDashboard} sCountiesCases={stateCountiesCases} sCountiesDeaths={stateCountiesDeaths} /></div>
     <div className="dbDate"><DateSection user={user}/></div>

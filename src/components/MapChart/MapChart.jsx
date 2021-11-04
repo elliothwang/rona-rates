@@ -1,6 +1,7 @@
 import React, { useState, useEffect, memo } from "react";
 import { ComposableMap, ZoomableGroup, Geographies, Geography, Marker } from "react-simple-maps";
 import { scaleQuantize } from "d3-scale";
+import * as help from '../../utilities/helper-functions';
 const axios = require('axios').default;
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
@@ -21,6 +22,7 @@ const colorScale = scaleQuantize()
 
 const MapChart = ({ user, setTooltipContent}) => {
   const [data, setData] = useState([]);
+  const [usCounties, setUsCounties] = useState([]);
   const [userLat, setUserLat] = useState();
   const [userLong, setUserLong] = useState();
   const [userLocation, setUserLocation] = useState("");
@@ -38,6 +40,7 @@ const MapChart = ({ user, setTooltipContent}) => {
             .then(res => {
               const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
               setUserLocation(`${apiDataArr[11].val}, ${apiDataArr[14].val.administrative[2].name}`);
+              console.log(userLocation);
             })
             .catch(err => {
               console.log(err);
@@ -49,10 +52,18 @@ const MapChart = ({ user, setTooltipContent}) => {
   }, [user])
 
   useEffect(() => {
-    // https://www.bls.gov/lau/
-    // csv("/unemployment-by-county-2017.csv").then(counties => {
-    //   setData(counties);
-    // });
+    function getUSCountiesData() {
+      axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
+      .then(res => {
+        const dataObj = Object.entries(res.data).map(e => e[1]);
+        console.log(dataObj);
+        setUsCounties(dataObj);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    };
+    getUSCountiesData();
   }, []);
 
   return (
@@ -61,33 +72,35 @@ const MapChart = ({ user, setTooltipContent}) => {
         <ZoomableGroup zoom={1}>
           <Geographies geography={geoUrl}>
             {({ geographies }) => (
-              geographies.map(geo => (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  stroke="white"
-                  onMouseEnter={() => {
-                    setTooltipContent(`${geo.properties.name} County`);
-                  }}
-                  onMouseLeave={() => {
-                    setTooltipContent("");
-                  }}
-                  style={{
-                    default: {
-                      fill: "#EEE",
-                      outline: "none"
-                    },
-                    hover: {
-                      fill: "blue",
-                      outline: "none"
-                    },
-                  }}
-                />
-              ))
+              geographies.map(geo => {
+                // const cur = usCounties.find(county => help.geoId(`${county.county} County, ${help.abbr(county.province)}`) === geo.id);
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    // fill={colorScale(cur ? cur.stats.confirmed : "#EEE")}
+                    onMouseEnter={() => {
+                      setTooltipContent(`${geo.properties.name} County`);
+                    }}
+                    onMouseLeave={() => {
+                      setTooltipContent("");
+                    }}
+                    style={{
+                      default: {
+                        fill: "#EEE",
+                        outline: "none"
+                      },
+                      hover: {
+                        fill: "blue",
+                        outline: "none"
+                      },
+                    }}
+                  />
+                );
+              })
             )}
           </Geographies>
-          {
-            (user && userLong && userLat) && (
+          {(user && userLong && userLat) && (
             <Marker coordinates={[userLong, userLat]}>
               <g
                 fill="none"
@@ -108,8 +121,7 @@ const MapChart = ({ user, setTooltipContent}) => {
                 {user.name}
               </text>
             </Marker>
-            )
-          }
+          )}
         </ZoomableGroup>
       </ComposableMap>
     </>

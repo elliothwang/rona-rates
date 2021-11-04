@@ -3,11 +3,8 @@ import React, { useState }  from 'react';
 import MapChart from '../MapChart/MapChart';
 import ReactTooltip from "react-tooltip";
 // import { useHistory } from 'react-router-dom';
-// import USAMap from 'react-usa-map';
-// import * as help from '../../utilities/helper-functions';
-// import {states} from '../../assets/states-object.js';
 
-export default function Map({ onDashboard, user, userLat, userLong, userLocation }) {
+export default function Map({ onDashboard, user }) {
   const [content, setContent] = useState("");
   const [legendShown, setLegendShown] = useState(true);
   // const history = useHistory();
@@ -76,7 +73,6 @@ export default function Map({ onDashboard, user, userLat, userLong, userLocation
       </div>
       { onDashboard ? 
         <>
-          {/* <USAMap className="flex-ctr-ctr" customize={help.customizeStates()} onClick={handleMapClick}/> */}
           <MapChart user={user} setTooltipContent={setContent} />
           <ReactTooltip>{content}</ReactTooltip>
         </>
