@@ -2,7 +2,7 @@ import './CountiesSection.css';
 import React, { useState } from 'react';
 import CountyCard from '../CountyCard/CountyCard';
 
-export default function CountiesSection({ onDashboard, dbCountiesCases, dbCountiesDeaths, sCountiesCases, sCountiesDeaths }) {
+export default function CountiesSection({ onDashboard, dbCountiesTopCases, dbCountiesTopDeaths, sCountiesCases, sCountiesDeaths }) {
   const [casesShown, setCasesShown] = useState(true);
 
   function handleTabClick(evt) {
@@ -28,7 +28,7 @@ export default function CountiesSection({ onDashboard, dbCountiesCases, dbCounti
         { onDashboard ? 
           <>
             { casesShown ? 
-              dbCountiesCases.map((county, idx) => 
+              dbCountiesTopCases.map((county, idx) => 
                 <CountyCard 
                   title={county?.val.county}
                   stat1={county?.val.stats.confirmed }
@@ -38,7 +38,7 @@ export default function CountiesSection({ onDashboard, dbCountiesCases, dbCounti
                 />
               )
               :
-              dbCountiesDeaths.map((county, idx) => 
+              dbCountiesTopDeaths.map((county, idx) => 
                 <CountyCard 
                   title={county?.val.county}
                   stat1={county?.val.stats.deaths }
