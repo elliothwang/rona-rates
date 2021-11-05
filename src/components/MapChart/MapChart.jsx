@@ -1,31 +1,44 @@
 import React, { useState, useEffect, memo } from "react";
 import { ComposableMap, ZoomableGroup, Geographies, Geography, Marker } from "react-simple-maps";
-import { scaleQuantize } from "d3-scale";
+import { scaleThreshold } from "d3-scale";
 import * as help from '../../utilities/helper-functions';
 const axios = require('axios').default;
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
 
-const colorScale = scaleQuantize()
-  .domain([1, 5000000])
-  .range([
-    "#ffedea",
-    "#ffcec5",
-    "#ffad9f",
-    "#ff8a75",
-    "#ff5533",
-    "#e2492d",
-    "#be3d26",
-    "#9a311f",
-    "#782618"
-  ]);
+const colorScaleCountiesCases = scaleThreshold()
+.domain([1000, 10000, 25000, 100000, 250000, 1500000])
+.range([
+  "#cfe2f3",
+  "#9fc5e8",
+  "#6fa8dc",
+  "#3d85c6",
+  "#416aab",
+  "#204c91"
+]);
 
-const MapChart = ({ user, setTooltipContent}) => {
-  const [data, setData] = useState([]);
+const colorScaleCountiesDeaths = scaleThreshold()
+.domain([100, 250, 500, 1000, 2500, 5000, 7500, 10000, 25000])
+.range([
+  "#ffedea",
+  "#ffcec5",
+  "#ffad9f",
+  "#ff8a75",
+  "#ff5533",
+  "#e2492d",
+  "#be3d26",
+  "#9a311f",
+  "#782618"
+]);
+
+const MapChart = ({ user, onDashboard, setTooltipContent}) => {
   const [usCounties, setUsCounties] = useState([]);
   const [userLat, setUserLat] = useState();
   const [userLong, setUserLong] = useState();
   const [userLocation, setUserLocation] = useState("");
+  const [geoCenterLat, setGeoCenterLat] = useState();
+  const [geoCenterLong, setGeoCenterLong] = useState();
+  const [geoZoom, setGeoZoom] = useState(1);
 
   useEffect(() => {
     function location() {
@@ -48,15 +61,15 @@ const MapChart = ({ user, setTooltipContent}) => {
           });
         } 
       };
-      user && location()
-  }, [user])
+      user && location();
+  }, [user]);
 
+  
   useEffect(() => {
     function getUSCountiesData() {
       axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
       .then(res => {
         const dataObj = Object.entries(res.data).map(e => e[1]);
-        console.log(dataObj);
         setUsCounties(dataObj);
       })
       .catch(err => {
@@ -66,34 +79,54 @@ const MapChart = ({ user, setTooltipContent}) => {
     getUSCountiesData();
   }, []);
 
+  
+  useEffect(() => {
+    function getGeoCenter() {
+      const stateName = localStorage.getItem('storageStateName');
+      const stateData = help.geoCenter(stateName);
+      setGeoCenterLat(stateData.lat);
+      setGeoCenterLong(stateData.lon);
+      setGeoZoom(stateData.zoom);
+    };
+    // (!onDashboard && localStorage.getItem("storageStateName")) && getGeoCenter();
+    getGeoCenter();
+  }, [])
+  
+  // useEffect(() => {
+    //   onDashboard && (localStorage.removeItem('storageStateName'));
+    // }, [])
+  
+
   return (
     <>
       <ComposableMap projection="geoAlbersUsa">
-        <ZoomableGroup zoom={1}>
+        {(geoCenterLat && geoCenterLong && geoZoom) && (
+        <ZoomableGroup center={[geoCenterLong, geoCenterLat]} zoom={geoZoom} >
           <Geographies geography={geoUrl}>
             {({ geographies }) => (
               geographies.map(geo => {
-                // const cur = usCounties.find(county => help.geoId(`${county.county} County, ${help.abbr(county.province)}`) === geo.id);
+                const curr = usCounties.find(county => county.county === geo.properties.name);
                 return (
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
-                    // fill={colorScale(cur ? cur.stats.confirmed : "#EEE")}
+                    fill={colorScaleCountiesCases(curr ? curr.stats.confirmed : "#cfe2f3")}
                     onMouseEnter={() => {
                       setTooltipContent(`${geo.properties.name} County`);
+                      console.log(geo.properties.name);
                     }}
                     onMouseLeave={() => {
                       setTooltipContent("");
                     }}
                     style={{
-                      default: {
-                        fill: "#EEE",
-                        outline: "none"
-                      },
                       hover: {
                         fill: "blue",
-                        outline: "none"
+                        outline: "white"
                       },
+                      click: {
+                        fill: "blue",
+                        outline: "white"
+                      }
                     }}
                   />
                 );
@@ -123,6 +156,7 @@ const MapChart = ({ user, setTooltipContent}) => {
             </Marker>
           )}
         </ZoomableGroup>
+        )}
       </ComposableMap>
     </>
   );
