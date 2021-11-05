@@ -66,7 +66,7 @@ export default function DashboardPage({ user }) {
       <div className="dbStats"><StatsSection onDashboard={onDashboard} dbData={usData} dbChartData={chartData} dbChartLabels={chartLabels} /></div>
       <div className="dbMap"><Map onDashboard={onDashboard} user={user} /></div>
       <div className="dbCounties"><CountiesSection onDashboard={onDashboard} dbCountiesTopCases={usCountiesTopCases} dbCountiesTopDeaths={usCountiesTopDeaths} /></div>
-      <div className="dbDate"><DateSection user={user} /></div>
+      <div className="dbDate"><DateSection user={user} onDashboard={onDashboard} /></div>
     </div>
   );
 }

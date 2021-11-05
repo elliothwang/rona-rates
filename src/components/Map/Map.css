@@ -16,7 +16,7 @@
   left: 0;
   background-color: var(--popup-form-background);
   border: 0.1vmin solid var(--main-black);
-  z-index: 3;
+  z-index: 2;
   box-shadow:
   0 2.8px 2.2px rgba(0, 0, 0, 0.034),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -147,12 +147,18 @@
 }
 
 .usaMap > * {
-  transform: scale(0.6);
+  transform: scale(0.4);
   overflow: auto;
 }
 
 .hidden {
   display: none;
+}
+
+@media only screen and (min-width: 481px) {
+  .usaMap > * {
+    transform: scale(0.65);
+  }
 }
 
 @media only screen and (min-width: 769px) {
@@ -168,17 +174,21 @@
   .mapLegendText > * {
     font-size: 1.5vmin;
   }
-}
 
-@media only screen and (min-width: 900px) {
   .usaMap > * {
     transform: scale(0.7);
   }
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 900px) {
   .usaMap > * {
     transform: scale(0.8);
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .usaMap > * {
+    transform: scale(0.9);
   }
 }
 

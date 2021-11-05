@@ -1,6 +1,6 @@
 import React, { useState, useEffect, memo } from "react";
-import { ComposableMap, ZoomableGroup, Geographies, Geography, Marker } from "react-simple-maps";
 import { scaleThreshold } from "d3-scale";
+import { ComposableMap, ZoomableGroup, Geographies, Geography, Marker } from "react-simple-maps";
 import * as help from '../../utilities/helper-functions';
 const axios = require('axios').default;
 
@@ -18,20 +18,17 @@ const colorScaleCountiesCases = scaleThreshold()
 ]);
 
 const colorScaleCountiesDeaths = scaleThreshold()
-.domain([100, 250, 500, 1000, 2500, 5000, 7500, 10000, 25000])
+.domain([100, 500, 1000, 5000, 10000, 25000])
 .range([
   "#ffedea",
   "#ffcec5",
   "#ffad9f",
   "#ff8a75",
   "#ff5533",
-  "#e2492d",
-  "#be3d26",
-  "#9a311f",
-  "#782618"
+  "#e2492d"
 ]);
 
-const MapChart = ({ user, onDashboard, setTooltipContent}) => {
+const MapChart = ({ user, onDashboard, setTooltipContent }) => {
   const [usCounties, setUsCounties] = useState([]);
   const [userLat, setUserLat] = useState();
   const [userLong, setUserLong] = useState();
@@ -79,7 +76,6 @@ const MapChart = ({ user, onDashboard, setTooltipContent}) => {
     getUSCountiesData();
   }, []);
 
-  
   useEffect(() => {
     function getGeoCenter() {
       const stateName = localStorage.getItem('storageStateName');
@@ -88,76 +84,135 @@ const MapChart = ({ user, onDashboard, setTooltipContent}) => {
       setGeoCenterLong(stateData.lon);
       setGeoZoom(stateData.zoom);
     };
-    // (!onDashboard && localStorage.getItem("storageStateName")) && getGeoCenter();
-    getGeoCenter();
-  }, [])
+    (!onDashboard && localStorage.getItem("storageStateName")) && getGeoCenter();
+  }, []);
   
-  // useEffect(() => {
-    //   onDashboard && (localStorage.removeItem('storageStateName'));
-    // }, [])
-  
+  useEffect(() => {
+    onDashboard && (localStorage.removeItem('storageStateName'));
+  }, []);
 
   return (
     <>
-      <ComposableMap projection="geoAlbersUsa">
-        {(geoCenterLat && geoCenterLong && geoZoom) && (
-        <ZoomableGroup center={[geoCenterLong, geoCenterLat]} zoom={geoZoom} >
-          <Geographies geography={geoUrl}>
-            {({ geographies }) => (
-              geographies.map(geo => {
-                const curr = usCounties.find(county => county.county === geo.properties.name);
-                return (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill={colorScaleCountiesCases(curr ? curr.stats.confirmed : "#cfe2f3")}
-                    onMouseEnter={() => {
-                      setTooltipContent(`${geo.properties.name} County`);
-                      console.log(geo.properties.name);
-                    }}
-                    onMouseLeave={() => {
-                      setTooltipContent("");
-                    }}
-                    style={{
-                      hover: {
-                        fill: "blue",
-                        outline: "white"
-                      },
-                      click: {
-                        fill: "blue",
-                        outline: "white"
-                      }
-                    }}
-                  />
-                );
-              })
+      { onDashboard ? 
+        <>
+          <ComposableMap className="countyMap" data-tip="" projection="geoAlbersUsa">
+            <ZoomableGroup zoom={1} >
+              <Geographies geography={geoUrl}>
+                {({ geographies }) => (
+                  geographies.map(geo => {
+                    const curr = usCounties.find(county => county.county === geo.properties.name);
+                    return (
+                      <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+                        onMouseEnter={() => {
+                          setTooltipContent(`${geo.properties.name} County`);
+                        }}
+                        onMouseLeave={() => {
+                          setTooltipContent("");
+                        }}
+                        fill={colorScaleCountiesCases(curr ? curr.stats.confirmed : "#EEE")}
+                        style={{
+                          hover: {
+                            fill: "gray",
+                            outline: "none"
+                          },
+                          pressed: {
+                            outline: "black"
+                          }
+                        }}
+                      />
+                    );
+                  })
+                )}
+              </Geographies>
+              {(user && userLong && userLat) && (
+                <Marker coordinates={[userLong, userLat]} >
+                  <g
+                    fill="none"
+                    stroke="black"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    transform="translate(-12, -24)"
+                  >
+                    <circle cx="12" cy="10" r="3" />
+                    <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
+                  </g>
+                  <text
+                    textAnchor="middle"
+                    y={-30}
+                    style={{ fontFamily: "PT Serif", fill: "black" }}
+                  >
+                    {user.name}
+                  </text>
+                </Marker>
+              )}
+            </ZoomableGroup>
+
+          </ComposableMap>
+        </>
+      :
+        <>
+          <ComposableMap className="countyMap" data-tip="" projection="geoAlbersUsa">
+            {(geoCenterLat && geoCenterLong && geoZoom) && (
+              <ZoomableGroup center={[geoCenterLong, geoCenterLat]} zoom={geoZoom} >
+                <Geographies geography={geoUrl}>
+                  {({ geographies }) => (
+                    geographies.map(geo => {
+                      const curr = usCounties.find(county => county.county === geo.properties.name);
+                      return (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill={colorScaleCountiesCases(curr ? curr.stats.confirmed : "#EEE")}
+                          onMouseEnter={() => {
+                            setTooltipContent(`${geo.properties.name} County`);
+                          }}
+                          onMouseLeave={() => {
+                            setTooltipContent("");
+                          }}
+                          style={{
+                            hover: {
+                              fill: "gray",
+                              outline: "none"
+                            },
+                            pressed: {
+                              outline: "black"
+                            }
+                          }}
+                        />
+                      );
+                    })
+                  )}
+                </Geographies>
+                {(user && userLong && userLat) && (
+                  <Marker coordinates={[userLong, userLat]} >
+                    <g
+                      fill="none"
+                      stroke="black"
+                      strokeWidth="1"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      transform="translate(-12, -24)"
+                    >
+                      <circle cx="12" cy="10" r="3" />
+                      <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
+                    </g>
+                    <text
+                      textAnchor="middle"
+                      y={-30}
+                      style={{ fontFamily: "PT Serif", fill: "black" }}
+                    >
+                      {user.name}
+                    </text>
+                  </Marker>
+                )}
+              </ZoomableGroup>
             )}
-          </Geographies>
-          {(user && userLong && userLat) && (
-            <Marker coordinates={[userLong, userLat]}>
-              <g
-                fill="none"
-                stroke="black"
-                strokeWidth="1"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                transform="translate(-12, -24)"
-              >
-                <circle cx="12" cy="10" r="3" />
-                <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
-              </g>
-              <text
-                textAnchor="middle"
-                y={-30}
-                style={{ fontFamily: "PT Serif", fill: "black" }}
-              >
-                {user.name}
-              </text>
-            </Marker>
-          )}
-        </ZoomableGroup>
-        )}
-      </ComposableMap>
+          </ComposableMap>
+        </>
+      }
     </>
   );
 };
