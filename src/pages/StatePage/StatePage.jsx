@@ -57,7 +57,7 @@ export default function StatePage({ user }) {
     <div className="dbStats"><StatsSection onDashboard={onDashboard} sData={stateData} sChartData={chartData} /></div>
     <div className="dbMap"><Map onDashboard={onDashboard} user={user} /></div>
     <div className="dbCounties"><CountiesSection onDashboard={onDashboard} sCountiesCases={stateCountiesCases} sCountiesDeaths={stateCountiesDeaths} /></div>
-    <div className="dbDate"><DateSection user={user}/></div>
+    <div className="dbDate"><DateSection user={user} onDashboard={onDashboard} /></div>
   </div>
   )
 }

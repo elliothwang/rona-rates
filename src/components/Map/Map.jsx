@@ -1,7 +1,7 @@
 import './Map.css';
 import React, { useState }  from 'react';
-import MapChart from '../MapChart/MapChart';
 import ReactTooltip from "react-tooltip";
+import MapChart from '../MapChart/MapChart';
 import { useHistory } from 'react-router-dom';
 import USAMap from 'react-usa-map';
 import {states} from '../../assets/states-object.js';
@@ -118,10 +118,14 @@ export default function Map({ onDashboard, user }) {
         <div className="usaMap">
           <USAMap customize={help.customizeStates()} onClick={handleMapClick}/>
         </div>      
+        // <>
+        //   <MapChart user={user} onDashboard={onDashboard} setTooltipContent={setContent} />
+        //   <ReactTooltip className="flex-ctr-ctr">{content}</ReactTooltip>
+        // </>      
         :
         <>
           <MapChart user={user} onDashboard={onDashboard} setTooltipContent={setContent} />
-          <ReactTooltip>{content}</ReactTooltip>
+          <ReactTooltip className="flex-ctr-ctr">{content}</ReactTooltip>
         </>      
         }
     </div>
