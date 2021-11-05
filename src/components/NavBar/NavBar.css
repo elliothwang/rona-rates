@@ -5,7 +5,7 @@
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 4;
+  z-index: 5;
 }
 
 .authPopUp {
@@ -42,6 +42,7 @@
   width: 100vw;
   padding: 0 1vmin;
   background-color: var(--light-gray);
+  overflow: hidden;
 }
 
 .pageTitle {
@@ -84,7 +85,7 @@
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   right: 0;
   background-color: var(--main-black);
@@ -143,7 +144,8 @@
 }
 
 .sideNavButton {
-  padding: 0.4vmin 0.4vmin 0.5vmin 0.4vmin;
+  height: 3vh;
+  width: 3vh;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -153,9 +155,8 @@
   transition-duration: 0.75s;
   background-color: var(--light-gray);
   border-radius: 0.5vmin;
-  z-index: 2;
+  z-index: 4;
   border: 0.1vmin solid var(--main-black);;
-  margin: 0 0 0.5vmin 0;
 }
 
 .sideNavButton:before {
