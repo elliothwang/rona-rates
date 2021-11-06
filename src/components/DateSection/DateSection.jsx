@@ -9,21 +9,20 @@ export default function DateSection({ onDashboard }) {
     <div className="dateSection marquee flex-ctr-ctr">
       <div className="marqueeText flex-ctr-ctr">
         <div className="yesterdayText">Updated as of: &nbsp;</div>
-        <div className="yesterdayDate">{yesterday}</div>
-        { onDashboard ?
+        { onDashboard ? 
+          <div className="yesterdayDate">{yesterday}</div>
+        :
+          <div className="yesterdayDate">{yesterday}&nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;</div>
+        }
           <div className="apiInfo">
             <div>
-              <i>(data from NovelCOVID API)</i>
-            </div>
-            <div>
-              <a href="https://documenter.getpostman.com/view/11144369/Szf6Z9B3?version=latest" target="_blank" rel="noopener noreferrer">
-                NovelCOVID API
-              </a>
+              <i>(data from &nbsp;
+                <a href="https://documenter.getpostman.com/view/11144369/Szf6Z9B3?version=latest" target="_blank" rel="noopener noreferrer">
+                  NovelCOVID API
+                </a>
+                )</i>
             </div>
           </div>
-        :
-          <div className="apiInfo">&nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;<i>(data from NovelCOVID API)</i></div>
-        }
       </div>
     </div>
   )

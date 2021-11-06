@@ -107,6 +107,30 @@
   background-color: var(--blue-6);
 }
 
+.red1 {
+  background-color: var(--red-1);
+}
+
+.red2 {
+  background-color: var(--red-2);
+}
+
+.red3 {
+  background-color: var(--red-3);
+} 
+
+.red4 {
+  background-color: var(--red-4);
+}
+
+.red5 {
+  background-color: var(--red-5);
+}
+
+.red6 {
+  background-color: var(--red-6);
+}
+
 .mapLegendText > * {
   display: flex;
   justify-content: center;
@@ -115,12 +139,13 @@
   font-size: 2vmin;
 }
 
-.zoomInButton, .zoomOutButton, .resetButton {
+.casesButton, .deathsButton, .countiesButton {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.25vmin;
   height: 3vh;
-  width: 3vh;
+  width: 6vh;
   position: absolute;
   top: 0;
   right: 0;
@@ -138,12 +163,38 @@
   cursor: pointer;
 }
 
-.zoomOutButton {
-  top: 3vh;
+.deathsButton {
+  right: 6vh;
 }
 
-.resetButton {
-  top: 6vh;
+.countiesButton {
+  right: 12vh;
+}
+
+.casesButton:hover, .casesMap {
+  background-color: #9fc5e8;
+}
+
+.deathsButton:hover, .deathsMap {
+  background-color: #ffb6b6;
+}
+
+.countiesDefault:hover {
+  color: var(--light-gray);
+  background-color: var(--text-gray);
+  border: 0.1vmin solid var(--light-gray);
+}
+
+.countiesMap {
+  color: var(--light-gray);
+  background-color: var(--text-gray);
+  border: 0.1vmin solid var(--light-gray);
+}
+
+.countiesMap:hover {
+  color: black;
+  background-color: var(--popup-form-background);
+  border: 0.1vmin solid var(--main-black);
 }
 
 .usaMap > * {
