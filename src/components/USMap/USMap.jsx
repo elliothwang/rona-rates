@@ -99,10 +99,14 @@ const MapChart = ({ user, userLat, userLong, userLocation, casesShown, countiesS
   }, []);
 
   function handleMapClick() {
-    const state = tooltipContent.split(" ")[0];
-    localStorage.setItem('storageStateName', state);
-    history.push(`/${state}`);
-  }
+    if (!countiesShown) {
+      const state = tooltipContent.split(" ")[0];
+      localStorage.setItem('storageStateName', state);
+      history.push(`/${state}`);
+    } else {
+      alert('Click the "Counties" Button again & click on any state!')
+    };
+  };
 
   return (
     <ComposableMap data-tip="" projection="geoAlbersUsa">
