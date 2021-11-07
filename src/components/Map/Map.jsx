@@ -27,7 +27,6 @@ export default function Map({ onDashboard, user }) {
             .then(res => {
               const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
               setUserLocation(`${apiDataArr[11].val}, ${apiDataArr[14].val.administrative[2].name}`);
-              console.log(userLocation);
             })
             .catch(err => {
               console.log(err);

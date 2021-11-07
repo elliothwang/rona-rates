@@ -9,14 +9,14 @@ export default function DateSection({ onDashboard }) {
     <div className="dateSection marquee flex-ctr-ctr">
       <div className="marqueeText flex-ctr-ctr">
         <div className="yesterdayText">Updated as of: &nbsp;</div>
-        { onDashboard ? 
+        {!onDashboard ? 
           <div className="yesterdayDate">{yesterday}</div>
         :
           <div className="yesterdayDate">{yesterday}&nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;</div>
         }
           <div className="apiInfo">
             <div>
-              <i>(data from &nbsp;
+              <i>&nbsp;(data from &nbsp;
                 <a href="https://documenter.getpostman.com/view/11144369/Szf6Z9B3?version=latest" target="_blank" rel="noopener noreferrer">
                   NovelCOVID API
                 </a>
