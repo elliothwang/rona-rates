@@ -38,9 +38,8 @@ const StateMap = ({ user, userLat, userLong, userLocation, casesShown, setToolti
     function getUSCountiesData() {
       axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
       .then(res => {
-        const dataObj = Object.entries(res.data).map(e => e[1]);
+        const dataObj = Object.entries(res.data).map(e => e[1]).filter(county => county.province === localStorage.getItem("storageStateName"));
         setUsCounties(dataObj);
-        console.log(dataObj);
       })
       .catch(err => {
         console.log(err);
@@ -74,25 +73,27 @@ const StateMap = ({ user, userLat, userLong, userLocation, casesShown, setToolti
                     geography={geo}
                     fill={
                       casesShown ?
-                        colorScaleCountyCases(curr ? curr?.stats.confirmed : "#EEE")
+                        colorScaleCountyCases(curr ? curr?.stats.confirmed : "transparent")
                       :
-                        colorScaleCountyDeaths(curr ? curr?.stats.deaths : "#EEE")
+                        colorScaleCountyDeaths(curr ? curr?.stats.deaths : "#3e4348")
                     }
-                    stroke="white"
+                    stroke={curr?.province === localStorage.getItem("storageStateName") ? "white" : "transparent"}
                     style={{
                       hover: {
                         fill: "gray",
-                        outline: "none"
+                        outline: "white"
                       },
                       pressed: {
                         outline: "black"
                       }
                     }}
                     onMouseEnter={() => {
-                      casesShown ?
-                        setTooltipContent(`${geo.properties.name} County - ${help.addCommas(curr?.stats.confirmed)}`)
-                      :
-                        setTooltipContent(`${geo.properties.name} County - ${help.addCommas(curr?.stats.deaths)}`)
+                      curr?.province === localStorage.getItem("storageStateName") && (
+                        casesShown ?
+                          setTooltipContent(`${geo.properties.name} County - ${help.addCommas(curr?.stats.confirmed)}`)
+                        :
+                          setTooltipContent(`${geo.properties.name} County - ${help.addCommas(curr?.stats.deaths)}`)
+                      )
                     }}
                     onMouseLeave={() => {
                       setTooltipContent("");

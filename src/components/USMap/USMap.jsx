@@ -52,18 +52,6 @@ const colorScaleCountyDeaths = scaleThreshold()
   "#bb0808"
 ]);
 
-const offsets = {
-  VT: [50, -8],
-  NH: [34, 2],
-  MA: [30, -1],
-  RI: [28, 2],
-  CT: [35, 10],
-  NJ: [34, 1],
-  DE: [33, 0],
-  MD: [47, 10],
-  DC: [49, 21]
-};
-
 const MapChart = ({ user, userLat, userLong, userLocation, casesShown, countiesShown, tooltipContent, setTooltipContent }) => {
   const [stateData, setStateData] = useState([]);
   const [usCounties, setUsCounties] = useState([]);
@@ -109,7 +97,7 @@ const MapChart = ({ user, userLat, userLong, userLocation, casesShown, countiesS
   };
 
   return (
-    <ComposableMap data-tip="" projection="geoAlbersUsa">
+    <ComposableMap className="usMap" data-tip="" projection="geoAlbersUsa">
       <ZoomableGroup zoom={1} >
         <Geographies geography={countiesShown ? geoUrlCounties : geoUrlStates}>
           {({ geographies }) => (
@@ -132,7 +120,7 @@ const MapChart = ({ user, userLat, userLong, userLocation, casesShown, countiesS
                         :
                         colorScaleStateDeaths(currState ? currState?.deaths : "#EEE")
                   }
-                  stroke="white"
+                  stroke="#dce4e9"
                   style={{
                     hover: {
                       fill: "gray",
