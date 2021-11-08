@@ -37,8 +37,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: 0.5vmin solid var(--light-gray);
-  height: 5vh;
+  height: 5vmin;
   width: 100vw;
   padding: 0 1vmin;
   background-color: var(--light-gray);
@@ -51,6 +50,9 @@
 }
 
 .pageTitle > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "PT Serif", serif;
   font-size: 4vmin;
   color: var(--main-black);;
@@ -64,18 +66,11 @@
 }
 
 .logo {
-  height: 5vmin;
+  height: 3vmin;
   margin: 0 1vmin 0 0;
 }
 
-.homeTopNav,
-.statsTopNav,
-.myCountyTopNav,
-.logOutTopNav,
-.spacerTopNav,
-.logInTopNav,
-.signUpTopNav,
-.spacerTopNav {
+.topNavLinks {
   display: none;
 }
 
@@ -165,10 +160,6 @@
     border: 0.1vmin solid var(--popup-border);
   }
 
-  .topNavBar {
-    border-bottom: 0.3vmin solid var(--light-gray);
-  }
-
   .homeSideNav,
   .statsSideNav,
   .myCountySideNav {
@@ -188,7 +179,7 @@
 
 @media only screen and (min-width: 769px) {
   .topNavBar {
-    height: 4vh;
+    height: 4vmin;
   }
 
   .pageTitle {
@@ -204,12 +195,23 @@
     height: 3vmin;
     margin: 0 0.5vmin 0 0;
   }
+
+  .topNavLinks {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 4vmin;
+  }
+  
+  .topNavLinks > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   .homeTopNav,
-  .statsTopNav,
-  .myCountyTopNav,
   .logInTopNav {
-    display: inline;
+    height: 4vmin;
     font-family: "PT Serif", serif;
     font-size: 1.5vmin;
     margin: 0 1vmin;
@@ -220,8 +222,6 @@
   }
 
   .homeTopNav:hover,
-  .statsTopNav:hover,
-  .myCountyTopNav:hover,
   .logInTopNav:hover {
     color: var(--main-blue);
     text-decoration: none;
@@ -229,6 +229,7 @@
 
   .spacerTopNav {
     display: inline;
+    height: 2.5vmin;
     padding: 0.35vmin 0 0.35vmin 0;
     border-left: 0.2vmin solid var(--body-background);
     pointer-events: none;
@@ -236,7 +237,7 @@
 
   .logOutTopNav,
   .signUpTopNav {
-    display: inline;
+    height: 3vmin;
     font-family: "PT Serif", serif;
     font-size: 1.5vmin;
     padding: 0.3vmin 0.3vmin 0.35vmin 0.3vmin;
