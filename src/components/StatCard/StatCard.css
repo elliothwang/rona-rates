@@ -19,7 +19,6 @@
 .cardHeader {
   height: 5vh;
   width: 100%;
-  font-size: 1.5vmin;
   color: var(--main-black);
   background-color: var(--main-blue);
   border-radius: 0.35vmin 0.35vmin 0 0;
@@ -46,7 +45,7 @@
 }
 
 .cardTitle {
-  font-size: 1.75vmin;
+  font-size: 1.5vh;
 }
 
 .cardContent {
@@ -82,26 +81,26 @@
 
 .stat1, .stat2 {
   height: 5vh;
-  font-size: 2vmin;
+  font-size: 2vh;
   font-weight: bold;
   color: var(--tan-1);
 }
 
 .stat3 {
   height: 2.5vh;
-  font-size: 1.5vmin;
+  font-size: 1.5vh;
   color: var(--tan-1);
 }
 
 .msg1, .msg2 {
   height: 5vh;
-  font-size: 1.2vmin;
+  font-size: 1.2vh;
   color: var(--tan-1);
 }
 
 .msg3 {
   height: 4.8vh;
-  font-size: 1.1vmin;
+  font-size: 1.1vh;
   color: var(--tan-1);
 }
 
