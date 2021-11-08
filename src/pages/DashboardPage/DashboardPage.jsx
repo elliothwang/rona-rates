@@ -60,6 +60,10 @@ export default function DashboardPage({ user }) {
     getTopCountiesData();
   }, []);
 
+  useEffect(() => {
+    localStorage.removeItem("storageStateName");
+  }, [])
+
   return (
     <div className="dashboard flex-ctr-ctr">
       <div className="dbStats"><StatsSection onDashboard={true} dbData={usData} dbChartData={chartData} dbChartLabels={chartLabels} /></div>

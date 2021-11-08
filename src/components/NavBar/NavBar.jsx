@@ -73,20 +73,19 @@ export default function NavBar({ user, setUser }) {
         <div className="pageTitle">
           <NavLink to="/" exact className="flx-ctr-ctr" name="activeHome">
             <img className="logo" src={logo} alt="2019-nCoV"/>
-            corona-rona
           </NavLink>
         </div>
-        <div>
-          <NavLink to="/" exact className="homeTopNav flex-ctr-ctr" name="activeHome" activeStyle={{color : "#60a6dc", borderTop : "0.2vmin solid #60a6dc"}}>Home</NavLink>
-          <NavLink to="" className="spacerTopNav flex-ctr-ctr"></NavLink>
-        { user ?
-          <NavLink to="" className="logOutTopNav flex-ctr-ctr" onClick={handleLogOut}>Log Out</NavLink>
-          :
-          <Fragment>
-            <div className="logInTopNav" onClick={handleAuthClick}>Log In</div>
-            <div className="signUpTopNav" onClick={handleAuthClick}>Sign Up</div>
-          </Fragment>
-        }
+        <div className="topNavLinks">
+          <NavLink to="/" exact className="homeTopNav" name="activeHome" activeStyle={{color : "#60a6dc", borderTop : "0.2vmin solid #60a6dc"}}>Home</NavLink>
+          <NavLink to="" className="spacerTopNav"></NavLink>
+          {user ?
+            <NavLink to="" className="logOutTopNav" onClick={handleLogOut}>Log Out</NavLink>
+            :
+            <Fragment>
+              <div className="logInTopNav" onClick={handleAuthClick}>Log In</div>
+              <div className="signUpTopNav" onClick={handleAuthClick}>Sign Up</div>
+            </Fragment>
+          }
         </div>
         <div className="sideNavButton flex-ctr-ctr" onClick={handleArrowClick}>
           <div className="closeArrowIcon hidden">
