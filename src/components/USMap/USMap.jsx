@@ -57,12 +57,12 @@ const MapChart = ({ user, userLat, userLong, userLocation, casesShown, countiesS
   const [usCounties, setUsCounties] = useState([]);
   const history = useHistory();
 
-  useEffect(() => {
+  useEffect(() => { 
     function getStateData() {
       axios.get("https://corona.lmao.ninja/v2/states?sort&yesterday")
       .then(res => {
-        const dataObj = Object.entries(res.data).map(e => e[1]);
-        setStateData(dataObj);
+        const data = Object.entries(res.data).map(e => e[1]);
+        setStateData(data);
       })
       .catch(err => {
         console.log(err);
@@ -75,9 +75,11 @@ const MapChart = ({ user, userLat, userLong, userLocation, casesShown, countiesS
     function getUSCountiesData() {
       axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
       .then(res => {
-        const dataObj = Object.entries(res.data).map(e => e[1]);
-        setUsCounties(dataObj);
-        console.log(dataObj);
+        const data = Object.entries(res.data).map(e => e[1]);
+        for (let i = 0; i < data.length; i++) {
+          data[i].country = help.geoId(data[i].county, data[i].province);
+        }
+        setUsCounties(data);
       })
       .catch(err => {
         console.log(err);
@@ -88,7 +90,9 @@ const MapChart = ({ user, userLat, userLong, userLocation, casesShown, countiesS
 
   function handleMapClick() {
     if (!countiesShown) {
-      const state = tooltipContent.split(" ")[0];
+      const state = tooltipContent.split(" -")[0];
+      console.log(state);
+      console.log(state.length);
       localStorage.setItem('storageStateName', state);
       history.push(`/${state}`);
     } else {
@@ -103,7 +107,7 @@ const MapChart = ({ user, userLat, userLong, userLocation, casesShown, countiesS
           {({ geographies }) => (
             geographies.map(geo => {
               const currState = stateData.find(state => state.state === geo.properties.name);
-              const currCounty = usCounties.find(county => county.county === geo.properties.name);
+              const currCounty = usCounties.find(county => county.country === geo.id);
               return (
                 <Geography
                   key={geo.rsmKey}
@@ -124,18 +128,23 @@ const MapChart = ({ user, userLat, userLong, userLocation, casesShown, countiesS
                   style={{
                     hover: {
                       fill: "gray",
-                      outline: "none"
-                    },
-                    pressed: {
-                      outline: "black"
+                      outline: "white"
                     }
                   }}
                   onClick={handleMapClick}
                   onMouseEnter={() => {
-                    casesShown ?
-                      setTooltipContent(`${geo.properties.name} - ${help.addCommas(currState?.cases)}`)
-                    :
-                      setTooltipContent(`${geo.properties.name} - ${help.addCommas(currState?.deaths)}`)
+                    (currState || currCounty) && (
+                      countiesShown ?
+                        casesShown ?
+                          setTooltipContent(`${geo.properties.name} - ${help.addCommas(currCounty?.stats.confirmed)}`)
+                        :
+                          setTooltipContent(`${geo.properties.name} - ${help.addCommas(currCounty?.stats.deaths)}`)
+                      :
+                        casesShown ?
+                          setTooltipContent(`${geo.properties.name} - ${help.addCommas(currState?.cases)}`)
+                        :
+                          setTooltipContent(`${geo.properties.name} - ${help.addCommas(currState?.deaths)}`)
+                    )
                   }}
                   onMouseLeave={() => {
                     setTooltipContent("");

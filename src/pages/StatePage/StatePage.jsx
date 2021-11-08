@@ -12,7 +12,6 @@ export default function StatePage({ user }) {
   const [stateCountiesCases, setStateCountiesCases] = useState([]);
   const [stateCountiesDeaths, setStateCountiesDeaths] = useState([]);
   const state = localStorage.getItem('storageStateName');
-  const onDashboard = false;
 
   useEffect(() => {
     function getStateData() {
@@ -54,10 +53,10 @@ export default function StatePage({ user }) {
 
   return (
   <div className="statePage dashboard flex-ctr-ctr">
-    <div className="dbStats"><StatsSection onDashboard={onDashboard} sData={stateData} sChartData={chartData} /></div>
-    <div className="dbMap"><Map onDashboard={onDashboard} user={user} /></div>
-    <div className="dbCounties"><CountiesSection onDashboard={onDashboard} sCountiesCases={stateCountiesCases} sCountiesDeaths={stateCountiesDeaths} /></div>
-    <div className="dbDate"><DateSection user={user} onDashboard={onDashboard} /></div>
+    <div className="dbStats"><StatsSection onDashboard={false} sData={stateData} sChartData={chartData} /></div>
+    <div className="dbMap"><Map onDashboard={false} user={user} /></div>
+    <div className="dbCounties"><CountiesSection onDashboard={false} sCountiesCases={stateCountiesCases} sCountiesDeaths={stateCountiesDeaths} /></div>
+    <div className="dbDate"><DateSection user={user} onDashboard={false} /></div>
   </div>
   )
 }

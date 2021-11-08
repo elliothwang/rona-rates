@@ -9,7 +9,7 @@ export default function DateSection({ onDashboard }) {
     <div className="dateSection marquee flex-ctr-ctr">
       <div className="marqueeText flex-ctr-ctr">
         <div className="yesterdayText">Updated as of: &nbsp;</div>
-        {!onDashboard ? 
+        {onDashboard ? 
           <div className="yesterdayDate">{yesterday}</div>
         :
           <div className="yesterdayDate">{yesterday}&nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;</div>
