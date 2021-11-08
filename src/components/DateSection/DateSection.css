@@ -18,39 +18,39 @@
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
-  -moz-animation: scroll-left 1.5s linear infinite;
-  -webkit-animation: scroll-left 1.5s linear infinite;
-  animation: scroll-left 15s linear infinite;
+  -moz-animation: scroll-left 2s linear infinite;
+  -webkit-animation: scroll-left 2s linear infinite;
+  animation: scroll-left 20s linear infinite;
 }
 
 @-moz-keyframes scroll-left {
   0% {
-      -moz-transform: translateX(100%);
+      -moz-transform: translateX(200%);
   }
   100% {
-      -moz-transform: translateX(-100%);
+      -moz-transform: translateX(-200%);
   }
 }
 
 @-webkit-keyframes scroll-left {
   0% {
-      -webkit-transform: translateX(100%);
+      -webkit-transform: translateX(200%);
   }
   100% {
-      -webkit-transform: translateX(-100%);
+      -webkit-transform: translateX(-200%);
   }
 }
 
 @keyframes scroll-left {
   0% {
-      -moz-transform: translateX(100%);
-      -webkit-transform: translateX(100%);
-      transform: translateX(100%);
+      -moz-transform: translateX(200%);
+      -webkit-transform: translateX(200%);
+      transform: translateX(200%);
   }
   100% {
-      -moz-transform: translateX(-100%);
-      -webkit-transform: translateX(-100%);
-      transform: translateX(-100%);
+      -moz-transform: translateX(-200%);
+      -webkit-transform: translateX(-200%);
+      transform: translateX(-200%);
   }
 }
 

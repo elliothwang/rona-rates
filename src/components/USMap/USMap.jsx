@@ -125,10 +125,10 @@ const MapChart = ({ user, userLat, userLong, userLocation, casesShown, countiesS
                         colorScaleStateDeaths(currState ? currState?.deaths : "#EEE")
                   }
                   stroke="#dce4e9"
+                  strokeWidth={countiesShown ? "0.25" : "0.5"}
                   style={{
                     hover: {
-                      fill: "gray",
-                      outline: "white"
+                      fill: "gray"
                     }
                   }}
                   onClick={handleMapClick}

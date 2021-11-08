@@ -5,6 +5,12 @@
   border-bottom: 0.1vmin solid var(--light-gray);
 }
 
+.countyCard > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .countyIdx {
   height: 4.18vh;
   width: 10%;

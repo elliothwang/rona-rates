@@ -3465,6 +3465,7 @@ export function geoId(county, state) {
   Object.filter = (obj, x) => 
   Object.keys(obj)
     .filter( key => x(obj[key]) )
+    // eslint-disable-next-line
     .reduce( (res, key) => (res[key] = obj[key], res), {} );
 
   var filtered = Object.filter(geoIds, county => county === countyStr); 
