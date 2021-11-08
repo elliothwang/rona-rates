@@ -12,7 +12,6 @@ export default function DashboardPage({ user }) {
   const [chartLabels, setChartLabels] = useState([]);
   const [usCountiesTopCases, setUsCountiesTopCases] = useState([]);
   const [usCountiesTopDeaths, setUsCountiesTopDeaths] = useState([]);
-  const onDashboard = true;
 
   useEffect(() => {
     function getUSData() {
@@ -63,10 +62,10 @@ export default function DashboardPage({ user }) {
 
   return (
     <div className="dashboard flex-ctr-ctr">
-      <div className="dbStats"><StatsSection onDashboard={onDashboard} dbData={usData} dbChartData={chartData} dbChartLabels={chartLabels} /></div>
-      <div className="dbMap"><Map onDashboard={onDashboard} user={user} /></div>
-      <div className="dbCounties"><CountiesSection onDashboard={onDashboard} dbCountiesTopCases={usCountiesTopCases} dbCountiesTopDeaths={usCountiesTopDeaths} /></div>
-      <div className="dbDate"><DateSection user={user} onDashboard={onDashboard} /></div>
+      <div className="dbStats"><StatsSection onDashboard={true} dbData={usData} dbChartData={chartData} dbChartLabels={chartLabels} /></div>
+      <div className="dbMap"><Map onDashboard={true} user={user} /></div>
+      <div className="dbCounties"><CountiesSection onDashboard={true} dbCountiesTopCases={usCountiesTopCases} dbCountiesTopDeaths={usCountiesTopDeaths} /></div>
+      <div className="dbDate"><DateSection user={user} onDashboard={true} /></div>
     </div>
   );
 }

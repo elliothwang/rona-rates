@@ -29,7 +29,7 @@ const colorScaleCountyDeaths = scaleThreshold()
 ]);
 
 const StateMap = ({ user, userLat, userLong, userLocation, casesShown, setTooltipContent }) => {
-  const [usCounties, setUsCounties] = useState([]);
+  const [stateCounties, setStateCounties] = useState([]);
   const [geoCenterLat, setGeoCenterLat] = useState();
   const [geoCenterLong, setGeoCenterLong] = useState();
   const [geoZoom, setGeoZoom] = useState(1);
@@ -38,8 +38,11 @@ const StateMap = ({ user, userLat, userLong, userLocation, casesShown, setToolti
     function getUSCountiesData() {
       axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
       .then(res => {
-        const dataObj = Object.entries(res.data).map(e => e[1]).filter(county => county.province === localStorage.getItem("storageStateName"));
-        setUsCounties(dataObj);
+        const data = Object.entries(res.data).map(e => e[1]).filter(county => county.province === localStorage.getItem("storageStateName"));
+        for (let i = 0; i < data.length; i++) {
+          data[i].country = help.geoId(data[i].county, data[i].province);
+        }
+        setStateCounties(data);
       })
       .catch(err => {
         console.log(err);
@@ -51,6 +54,7 @@ const StateMap = ({ user, userLat, userLong, userLocation, casesShown, setToolti
   useEffect(() => {
     function getGeoCenter() {
       const stateName = localStorage.getItem('storageStateName');
+      console.log(stateName);
       const stateData = help.geoCenter(stateName);
       setGeoCenterLat(stateData.lat);
       setGeoCenterLong(stateData.lon);
@@ -66,25 +70,22 @@ const StateMap = ({ user, userLat, userLong, userLocation, casesShown, setToolti
           <Geographies geography={geoUrl}>
             {({ geographies }) => (
               geographies.map(geo => {
-                const curr = usCounties.find(county => county.county === geo.properties.name);
+                const curr = stateCounties.find(county => county.country === geo.id);
                 return (
                   <Geography
                     key={geo.rsmKey}
-                    geography={geo}
+                    geography={geo}x
                     fill={
                       casesShown ?
-                        colorScaleCountyCases(curr ? curr?.stats.confirmed : "transparent")
+                        colorScaleCountyCases(curr ? curr?.stats.confirmed : "#EEE")
                       :
-                        colorScaleCountyDeaths(curr ? curr?.stats.deaths : "#3e4348")
+                        colorScaleCountyDeaths(curr ? curr?.stats.deaths : "#EEE")
                     }
-                    stroke={curr?.province === localStorage.getItem("storageStateName") ? "white" : "transparent"}
+                    stroke={curr?.province === localStorage.getItem("storageStateName") ? "#3e4348" : "transparent"}
+                    strokeWidth="0.15"
                     style={{
                       hover: {
                         fill: "gray",
-                        outline: "white"
-                      },
-                      pressed: {
-                        outline: "black"
                       }
                     }}
                     onMouseEnter={() => {
