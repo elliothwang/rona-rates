@@ -116,7 +116,7 @@ export default function MapNavBar({ onDashboard, legendShown, setLegendShown, ca
         }
       </div>
     </div>
-    <div>
+    <div className="buttonsContainer">
       <div className="deathsButton" onClick={handleColorSwitch}>
         Deaths
       </div>

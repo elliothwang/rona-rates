@@ -54,7 +54,7 @@
 }
 
 .mapLegendTitle {
-  font-size: 1.5vmin;
+  font-size: 1.5vh;
   margin-bottom: 1.5vmin;
 }
 
@@ -136,14 +136,14 @@
   justify-content: center;
   align-items: center;
   height: 2vh;
-  font-size: 2vmin;
+  font-size: 1vh;
 }
 
-.casesButton, .deathsButton, .countiesButton {
+.buttonsContainer > * {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.25vmin;
+  font-size: 1.25vh;
   height: 3vh;
   width: 6vh;
   position: absolute;
