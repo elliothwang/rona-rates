@@ -3,9 +3,11 @@
   If you need to find relevant, up-to-date statistics & information on COVID-19, you've come to the right place! Find information on general US statistics, state-specific, & even county-specific statistics.
 
 <h1>Screenshots:</h1>
-<img src="https://i.imgur.com/5ef6K0r.png" /> </br>
-<img src="https://i.imgur.com/f317Epn.png" /> </br>
-<img src="https://i.imgur.com/hwG8bw4.png" /> </br>
+<img src="https://i.imgur.com/4MgiWiO.png" /> </br>
+<img src="https://i.imgur.com/x5LqlgE.png" /> </br>
+<img src="https://i.imgur.com/HWjnv52.png" /> </br>
+<img src="https://i.imgur.com/g1gjUN5.png" /> </br>
+<img src="https://i.imgur.com/Hz8cLIN.png" /> </br>
 
 
 <h1>Technologies Used:</h1>
@@ -17,6 +19,8 @@
   <li>Express</li> 
   <li>React</li> 
   <li>Node.js</li> 
+  <li>d3.js</li> 
+  <li>REST API</li> 
 
 <h1>Getting Started:</h1>
 https://trello.com/b/yx47zwB5/personal-project-covid-19-dashboard <br/>
