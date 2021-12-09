@@ -15,13 +15,13 @@ export default function App() {
       <Fragment>
         <NavBar user={user} setUser={setUser} />
         <Switch>
-          <Route path="/corona-rona/:state">
+          <Route path="/:state">
             <StatePage user={user} />
           </Route>
-          <Route path="/corona-rona">
+          <Route path="/">
             <DashboardPage user={user} />
           </Route>
-          <Redirect to="/corona-rona" />
+          <Redirect to="/" />
         </Switch>
         <Footer />
       </Fragment>

@@ -72,7 +72,7 @@ export default function NavBar({ user, setUser }) {
       <div className="topNavBar">
         <div className="pageTitle">
           <NavLink to="/" exact className="flx-ctr-ctr" name="activeHome">
-            <img className="logo" src={logo} alt="2019-nCoV"/>
+            <img className="logo" src={logo} alt="2019-nCoV"/>Rona Rates
           </NavLink>
         </div>
         <div className="topNavLinks">

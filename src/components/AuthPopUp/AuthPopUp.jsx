@@ -1,7 +1,7 @@
 import './AuthPopUp.css';
 import React from 'react';
 import SignUpForm from '../SignUpForm/SignUpForm';
-import LogInForm from '../LogInForm/LogInForm';
+import LoginForm from '../LoginForm/LoginForm';
 
 export default function AuthPage({ setUser, showLogIn, setShowLogIn, closeAuthPopUp }) {
   function handlePasswordReset() {
@@ -11,7 +11,7 @@ export default function AuthPage({ setUser, showLogIn, setShowLogIn, closeAuthPo
   return (
     <main>
       <div className="form">
-        {showLogIn ? <LogInForm setUser={setUser} closeAuthPopUp={closeAuthPopUp} /> : <SignUpForm setUser={setUser} closeAuthPopUp={closeAuthPopUp} />}
+        {showLogIn ? <LoginForm setUser={setUser} closeAuthPopUp={closeAuthPopUp} /> : <SignUpForm setUser={setUser} closeAuthPopUp={closeAuthPopUp} />}
       </div>
       { showLogIn ? 
         <div className="bottomLinks">
