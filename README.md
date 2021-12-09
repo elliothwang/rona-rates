@@ -23,7 +23,7 @@
 <h1>Getting Started:</h1>
 <a href="https://trello.com/b/yx47zwB5/corona-rona">Trello</a> <br/>
 <a href="https://github.com/elliothwang/covid-dashboard">Github</a> <br/>
-<a href="rona-rates.netlify.app/">Demo</a> <br/>
+<a href="https://rona-rates.netlify.app">Demo</a> <br/>
 
 
 <h1>Next Steps:</h1>
