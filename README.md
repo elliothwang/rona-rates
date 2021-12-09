@@ -1,5 +1,5 @@
 <h1>App Title:</h1> 
-  <strong>Rona Rates</strong> <br/><br/>
+  <h1><strong>Rona Rates</strong></h1> <br/><br/>
   If you need to find relevant, up-to-date statistics & information on COVID-19, you've come to the right place! Find information on general US statistics, state-specific, & even county-specific statistics.
 
 <h1>Screenshots:</h1>
@@ -23,6 +23,8 @@
 <h1>Getting Started:</h1>
 <a href="https://trello.com/b/yx47zwB5/personal-project-covid-19-dashboard">Trello</a> <br/>
 <a href="https://github.com/elliothwang/covid-dashboard">Github</a> <br/>
+<a href="">Demo</a> <br/>
+
 
 <h1>Next Steps:</h1>
   1. Create a user-centric 'user' page.<br/>
