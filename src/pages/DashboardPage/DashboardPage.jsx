@@ -15,61 +15,102 @@ export default function DashboardPage({ user }) {
 
   useEffect(() => {
     function getUSData() {
-      axios.get('https://corona.lmao.ninja/v2/countries/USA?yesterday=true&strict=true&query')
-      .then(res => {
-        const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
-        setUsData(apiDataArr);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    };
+      axios
+        .get(
+          'https://corona.lmao.ninja/v2/countries/USA?yesterday=true&strict=true&query'
+        )
+        .then((res) => {
+          const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({
+            stat,
+            val,
+          }));
+          setUsData(apiDataArr);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
     getUSData();
   }, []);
 
   useEffect(() => {
     function getUSChartData() {
-      axios.get('https://corona.lmao.ninja/v2/historical/USA?lastdays=30')
-      .then(res => {
-        const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
-        setChartData([...chartData, Object.values(apiDataArr[2].val.cases), Object.values(apiDataArr[2].val.deaths)]);
-        setChartLabels([...chartLabels, Object.keys(apiDataArr[2].val.cases)]);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    };
+      axios
+        .get('https://corona.lmao.ninja/v2/historical/USA?lastdays=30')
+        .then((res) => {
+          const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({
+            stat,
+            val,
+          }));
+          setChartData([
+            ...chartData,
+            Object.values(apiDataArr[2].val.cases),
+            Object.values(apiDataArr[2].val.deaths),
+          ]);
+          setChartLabels([
+            ...chartLabels,
+            Object.keys(apiDataArr[2].val.cases),
+          ]);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
     getUSChartData();
   }, [chartData, chartLabels]);
 
   useEffect(() => {
     function getTopCountiesData() {
-      axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
-      .then(res => {
-        const sortedCountiesCases = Object.entries(res.data).map(([stat, val]) => ({stat, val})).sort((acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed);
-        const usCountiesTopCases = sortedCountiesCases.slice(0, 25);
-        setUsCountiesTopCases(usCountiesTopCases);
-        const sortedCountiesDeaths = Object.entries(res.data).map(([stat, val]) => ({stat, val})).sort((acc, curr) => curr.val.stats.deaths - acc.val.stats.deaths);
-        const usCountiesTopDeaths = sortedCountiesDeaths.slice(0, 25);
-        setUsCountiesTopDeaths(usCountiesTopDeaths);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    };
+      axios
+        .get('https://corona.lmao.ninja/v2/jhucsse/counties')
+        .then((res) => {
+          const sortedCountiesCases = Object.entries(res.data)
+            .map(([stat, val]) => ({ stat, val }))
+            .sort(
+              (acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed
+            );
+          const usCountiesTopCases = sortedCountiesCases.slice(0, 25);
+          setUsCountiesTopCases(usCountiesTopCases);
+          const sortedCountiesDeaths = Object.entries(res.data)
+            .map(([stat, val]) => ({ stat, val }))
+            .sort((acc, curr) => curr.val.stats.deaths - acc.val.stats.deaths);
+          const usCountiesTopDeaths = sortedCountiesDeaths.slice(0, 25);
+          setUsCountiesTopDeaths(usCountiesTopDeaths);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
     getTopCountiesData();
   }, []);
 
   useEffect(() => {
-    localStorage.removeItem("storageStateName");
-  }, [])
+    localStorage.removeItem('storageStateName');
+  }, []);
 
   return (
     <div className="dashboard flex-ctr-ctr">
-      <div className="dbStats"><StatsSection onDashboard={true} dbData={usData} dbChartData={chartData} dbChartLabels={chartLabels} /></div>
-      <div className="dbMap"><Map onDashboard={true} user={user} /></div>
-      <div className="dbCounties"><CountiesSection onDashboard={true} dbCountiesTopCases={usCountiesTopCases} dbCountiesTopDeaths={usCountiesTopDeaths} /></div>
-      <div className="dbDate"><DateSection user={user} onDashboard={true} /></div>
+      <div className="dbStats">
+        <StatsSection
+          onDashboard={true}
+          dbData={usData}
+          dbChartData={chartData}
+          dbChartLabels={chartLabels}
+        />
+      </div>
+      <div className="dbMap">
+        <Map onDashboard={true} user={user} />
+      </div>
+      <div className="dbCounties">
+        <CountiesSection
+          onDashboard={true}
+          dbCountiesTopCases={usCountiesTopCases}
+          dbCountiesTopDeaths={usCountiesTopDeaths}
+        />
+      </div>
+      <div className="dbDate">
+        <DateSection user={user} onDashboard={true} />
+      </div>
     </div>
   );
 }

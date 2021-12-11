@@ -15,48 +15,80 @@ export default function StatePage({ user }) {
 
   useEffect(() => {
     function getStateData() {
-      axios.get(`https://corona.lmao.ninja/v2/states/${state}?yesterday=true`)
-      .then(res => {
-        const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
-        setStateData(apiDataArr);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    };
+      axios
+        .get(`https://corona.lmao.ninja/v2/states/${state}?yesterday=true`)
+        .then((res) => {
+          const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({
+            stat,
+            val,
+          }));
+          setStateData(apiDataArr);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
     getStateData();
   }, [state]);
 
   useEffect(() => {
     function getStateChartData() {
       setChartData(null);
-    };
+    }
     getStateChartData();
   }, [state]);
 
   useEffect(() => {
     function getStateCountiesData() {
-      axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
-      .then(res => {
-        const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({stat, val}));
-        const stateCountiesCases = apiDataArr.filter(el => el.val.province === `${state}`).sort((acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed);
-        setStateCountiesCases(stateCountiesCases);
-        const stateCountiesDeaths = apiDataArr.filter(el => el.val.province === `${state}`).sort((acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed);
-        setStateCountiesDeaths(stateCountiesDeaths);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    };
+      axios
+        .get('https://corona.lmao.ninja/v2/jhucsse/counties')
+        .then((res) => {
+          const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({
+            stat,
+            val,
+          }));
+          const stateCountiesCases = apiDataArr
+            .filter((el) => el.val.province === `${state}`)
+            .sort(
+              (acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed
+            );
+          setStateCountiesCases(stateCountiesCases);
+          const stateCountiesDeaths = apiDataArr
+            .filter((el) => el.val.province === `${state}`)
+            .sort(
+              (acc, curr) => curr.val.stats.confirmed - acc.val.stats.confirmed
+            );
+          setStateCountiesDeaths(stateCountiesDeaths);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
     getStateCountiesData();
   }, [state]);
 
   return (
-  <div className="statePage dashboard flex-ctr-ctr">
-    <div className="dbStats"><StatsSection onDashboard={false} sData={stateData} sChartData={chartData} /></div>
-    <div className="dbMap"><Map onDashboard={false} user={user} /></div>
-    <div className="dbCounties"><CountiesSection onDashboard={false} sCountiesCases={stateCountiesCases} sCountiesDeaths={stateCountiesDeaths} /></div>
-    <div className="dbDate"><DateSection user={user} onDashboard={false} /></div>
-  </div>
-  )
+    <div className="statePage dashboard flex-ctr-ctr">
+      <div className="dbStats">
+        <StatsSection
+          onDashboard={false}
+          sData={stateData}
+          sChartData={chartData}
+        />
+      </div>
+      <div className="dbMap">
+        <Map onDashboard={false} user={user} />
+      </div>
+      <div className="dbCounties">
+        <CountiesSection
+          onDashboard={false}
+          sCountiesCases={stateCountiesCases}
+          sCountiesDeaths={stateCountiesDeaths}
+        />
+      </div>
+      <div className="dbDate">
+        <DateSection user={user} onDashboard={false} />
+      </div>
+    </div>
+  );
 }

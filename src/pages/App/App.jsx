@@ -7,6 +7,9 @@ import DashboardPage from '../DashboardPage/DashboardPage';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 
+// TODO: protect all 50 state routes;
+// TODO: add loader screen;
+
 export default function App() {
   const [user, setUser] = useState(getUser());
 
