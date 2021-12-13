@@ -6,7 +6,6 @@ import StatePage from '../StatePage/StatePage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
-import Loader from '../../components/Loader/Loader';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
