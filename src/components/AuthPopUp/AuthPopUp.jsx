@@ -3,7 +3,6 @@ import React from 'react';
 import SignUpForm from '../SignUpForm/SignUpForm';
 import LoginForm from '../LoginForm/LoginForm';
 
-// TODO: add Google OAuth;
 export default function AuthPage({
   setUser,
   showLogIn,

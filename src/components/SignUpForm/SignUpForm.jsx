@@ -1,6 +1,7 @@
 import './SignUpForm.css';
 import React, { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import GoogleIn from '../GoogleIn/GoogleIn';
 
 export default class SignUpForm extends Component {
   state = {
@@ -8,20 +9,24 @@ export default class SignUpForm extends Component {
     email: '',
     password: '',
     confirm: '',
-    error: ''
+    error: '',
   };
 
   handleChange = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value,
-      error: ''
+      error: '',
     });
+  };
+
+  handleGoogleSignup = (response) => {
+    console.log(response);
   };
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const formData = {...this.state};
+      const formData = { ...this.state };
       delete formData.error;
       delete formData.confirm;
       // The promise returned by the signUp service method
@@ -33,7 +38,7 @@ export default class SignUpForm extends Component {
       this.props.closeAuthPopUp();
     } catch (err) {
       // An error occurred
-      this.setState({ error: 'Sign Up Failed - Please Try Again'});
+      this.setState({ error: 'Sign Up Failed - Please Try Again' });
     }
   };
 
@@ -45,14 +50,51 @@ export default class SignUpForm extends Component {
         <div className="signUpTag">Create your free account here.</div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-              <input type="text" name="name" value={this.state.name} placeholder="Name" onChange={this.handleChange} required autoFocus />
-              <input type="text" name="email" value={this.state.email} placeholder="Email" onChange={this.handleChange} required />
-              <input type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleChange} required />
-              <input type="password" name="confirm" value={this.state.confirm} placeholder="Confirm Password" onChange={this.handleChange} required />
-            <button type="submit" disabled={disable}>Sign Up</button>
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              placeholder="Name"
+              onChange={this.handleChange}
+              required
+              autoFocus
+            />
+            <input
+              type="text"
+              name="email"
+              value={this.state.email}
+              placeholder="Email"
+              onChange={this.handleChange}
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
+              placeholder="Password"
+              onChange={this.handleChange}
+              required
+            />
+            <input
+              type="password"
+              name="confirm"
+              value={this.state.confirm}
+              placeholder="Confirm Password"
+              onChange={this.handleChange}
+              required
+            />
+            <button type="submit" disabled={disable}>
+              Sign Up
+            </button>
           </form>
         </div>
-        <p className="error-message" style={{ display: !this.state.error ? "none" : "inline"}}>&nbsp;{this.state.error}</p>
+        <GoogleIn auth={'Sign up'} setUser={this.props.setUser} />
+        <p
+          className="error-message"
+          style={{ display: !this.state.error ? 'none' : 'inline' }}
+        >
+          &nbsp;{this.state.error}
+        </p>
       </div>
     );
   }

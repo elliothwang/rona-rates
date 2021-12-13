@@ -53,9 +53,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "PT Serif", serif;
+  font-family: 'PT Serif', serif;
   font-size: 4vmin;
-  color: var(--main-black);;
+  color: var(--main-black);
   text-decoration: none;
   margin-left: 3vmin;
 }
@@ -110,7 +110,7 @@
 .homeSideNav,
 .statsSideNav,
 .myCountySideNav {
-  font-family: "PT Serif", serif;
+  font-family: 'PT Serif', serif;
   font-size: 7vmin;
   color: var(--main-blue);
   text-decoration: none;
@@ -135,7 +135,7 @@
 .logInSideNav,
 .logOutSideNav,
 .signUpSideNav {
-  font-family: "PT Serif", serif;
+  font-family: 'PT Serif', serif;
   font-size: 5vmin;
   color: var(--main-blue);
   width: auto;
@@ -208,21 +208,21 @@
     align-items: center;
     height: 4vmin;
   }
-  
+
   .topNavLinks > * {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
+
   .homeTopNav,
   .logInTopNav {
     height: 4vmin;
-    font-family: "PT Serif", serif;
+    font-family: 'PT Serif', serif;
     font-size: 1.5vmin;
     margin: 0 1vmin;
     padding: 0.6vmin;
-    color: var(--main-black);;
+    color: var(--main-black);
     text-decoration: none;
     cursor: pointer;
   }
@@ -244,7 +244,7 @@
   .logOutTopNav,
   .signUpTopNav {
     height: 3vmin;
-    font-family: "PT Serif", serif;
+    font-family: 'PT Serif', serif;
     font-size: 1.5vmin;
     padding: 0.3vmin 0.3vmin 0.35vmin 0.3vmin;
     text-decoration: none;

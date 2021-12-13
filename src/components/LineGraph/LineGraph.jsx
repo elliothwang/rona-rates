@@ -1,7 +1,6 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
-// TODO: fix graph;
 export default function LineGraph({ chartData, chartLabels }) {
   const chartState = {
     labels: chartLabels,

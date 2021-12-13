@@ -6,7 +6,6 @@ import USMap from '../USMap/USMap';
 import MapNavBar from '../MapNavBar/MapNavBar';
 const axios = require('axios').default;
 
-// TODO: add redux for casesShown;
 export default function Map({ onDashboard, user }) {
   const [userLat, setUserLat] = useState();
   const [userLong, setUserLong] = useState();

@@ -1,11 +1,12 @@
 import './LoginForm.css';
 import React, { useState, useEffect, useRef } from 'react';
 import * as usersService from '../../utilities/users-service';
+import GoogleIn from '../GoogleIn/GoogleIn';
 
 export default function LogInForm({ setUser, closeAuthPopUp }) {
   const [credentials, setCredentials] = useState({
     email: '',
-    password: ''
+    password: '',
   });
   const [error, setError] = useState('');
   // const [passwordShown, setPasswordShown] = useState(false);
@@ -29,8 +30,8 @@ export default function LogInForm({ setUser, closeAuthPopUp }) {
       closeAuthPopUp();
       setCredentials({
         email: '',
-        password: ''
-      })
+        password: '',
+      });
     } catch (err) {
       setError('Log In Failed - Please Try Again');
     }
@@ -42,12 +43,35 @@ export default function LogInForm({ setUser, closeAuthPopUp }) {
       <div className="logInTag">Log in here, friend.</div>
       <div className="form-container">
         <form className="logInForm" onSubmit={handleSubmit}>
-          <input type="email" name="email" value={credentials.email} placeholder="Email" autoComplete="email" onChange={handleChange} ref={inputElement} required />
-          <input type="password" name="password" value={credentials.password} placeholder="Password" autoComplete="off" onChange={handleChange} required />
+          <input
+            type="email"
+            name="email"
+            value={credentials.email}
+            placeholder="Email"
+            autoComplete="email"
+            onChange={handleChange}
+            ref={inputElement}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            value={credentials.password}
+            placeholder="Password"
+            autoComplete="off"
+            onChange={handleChange}
+            required
+          />
           <button type="submit">Log In</button>
         </form>
       </div>
-      <p className="error-message" style={{ display: !error ? "none" : "inline"}}>&nbsp;{error}</p>
+      <GoogleIn auth={'Log in'} setUser={setUser} close={closeAuthPopUp} />
+      <p
+        className="error-message"
+        style={{ display: !error ? 'none' : 'inline' }}
+      >
+        &nbsp;{error}
+      </p>
     </div>
   );
 }

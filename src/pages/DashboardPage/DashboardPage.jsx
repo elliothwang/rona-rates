@@ -33,6 +33,7 @@ export default function DashboardPage({ user }) {
     getUSData();
   }, []);
 
+  // TODO: fix api chart data call;
   useEffect(() => {
     function getUSChartData() {
       axios

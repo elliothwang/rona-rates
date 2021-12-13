@@ -18,6 +18,7 @@
   <li>Redux</li> 
   <li>d3.js</li> 
   <li>REST API</li>
+  <li>Google OAuth</li>
 
 <h1>Getting Started:</h1>
 <a href="https://trello.com/b/yx47zwB5/rona-rates">Trello</a> <br/>

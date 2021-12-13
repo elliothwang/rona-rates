@@ -1,16 +1,17 @@
 import './NavBar.css';
 import { NavLink } from 'react-router-dom';
 import React, { Fragment, useState } from 'react';
+import useKeypress from 'react-use-keypress';
 import * as userService from '../../utilities/users-service';
 import AuthPopUp from '../AuthPopUp/AuthPopUp';
 import logo from '../../assets/images/2019-nCoV.png';
-import useKeypress from 'react-use-keypress';
 
-// TODO: allow login/signup on enter keypress;
 export default function NavBar({ user, setUser }) {
   const [sideNavOpen, setSideNavOpen] = useState(false);
   const [popUpOpen, setPopUpOpen] = useState(false);
   const [showLogIn, setShowLogIn] = useState(true);
+
+  console.log(user);
 
   function handleLogOut() {
     userService.logOut();
