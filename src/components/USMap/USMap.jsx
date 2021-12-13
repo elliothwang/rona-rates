@@ -80,11 +80,10 @@ const MapChart = ({
 
   function handleMapClick() {
     if (!countiesShown) {
-      const state = tooltipContent.split(' -')[0];
-      console.log(state);
-      console.log(state.length);
+      const state = tooltipContent.split(' - ')[0];
+      const stateRoute = state.split(' ').join('');
       localStorage.setItem('storageStateName', state);
-      history.push(`/${state}`);
+      history.push(`/${stateRoute}`);
     } else {
       alert('Click the "Counties" Button again & click on any state!');
     }

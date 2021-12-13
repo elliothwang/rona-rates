@@ -1,20 +1,19 @@
 import './App.css';
-import React, { Fragment, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import StatePage from '../StatePage/StatePage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
+import Loader from '../../components/Loader/Loader';
 
-// TODO: fix two-word state routes (i.e. New York);
-// TODO: add loader screen;
 export default function App() {
   const [user, setUser] = useState(getUser());
 
   return (
     <main className="App">
-      <Fragment>
+      <>
         <NavBar user={user} setUser={setUser} />
         <Switch>
           <Route
@@ -27,7 +26,7 @@ export default function App() {
               '/Colorado',
               '/Connecticut',
               '/Delaware',
-              '/Washington%20DC',
+              '/WashingtonDC',
               '/Florida',
               '/Georgia',
               '/Hawaii',
@@ -48,26 +47,26 @@ export default function App() {
               '/Montana',
               '/Nebraska',
               '/Nevada',
-              '/New%20Hampshire',
-              '/New%20Jersey',
-              '/New%20Mexico',
-              '/New%20York',
-              '/North%20Carolina',
-              '/North%20Dakota',
+              '/NewHampshire',
+              '/NewJersey',
+              '/NewMexico',
+              '/NewYork',
+              '/NorthCarolina',
+              '/NorthDakota',
               '/Ohio',
               '/Oklahoma',
               '/Oregon',
               '/Pennsylvania',
-              '/Rhode%20Island',
-              '/South%20Carolina',
-              '/South%20Dakota',
+              '/RhodeIsland',
+              '/SouthCarolina',
+              '/SouthDakota',
               '/Tennessee',
               '/Texas',
               '/Utah',
               '/Vermont',
               '/Virginia',
               '/Washington',
-              '/West%20Virginia',
+              '/WestVirginia',
               '/Wisconsin',
               '/Wyoming',
             ]}
@@ -80,7 +79,7 @@ export default function App() {
           <Redirect to="/" />
         </Switch>
         <Footer />
-      </Fragment>
+      </>
     </main>
   );
 }
