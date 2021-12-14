@@ -81,6 +81,7 @@ export default function NavBar({ user, setUser }) {
           </div>
           <div className="authPage">
             <AuthPopUp
+              user={user}
               setUser={setUser}
               showLogIn={showLogIn}
               setShowLogIn={setShowLogIn}

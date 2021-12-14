@@ -4,6 +4,7 @@ import SignUpForm from '../SignUpForm/SignUpForm';
 import LoginForm from '../LoginForm/LoginForm';
 
 export default function AuthPage({
+  user,
   setUser,
   showLogIn,
   setShowLogIn,
@@ -17,9 +18,17 @@ export default function AuthPage({
     <main>
       <div className="form">
         {showLogIn ? (
-          <LoginForm setUser={setUser} closeAuthPopUp={closeAuthPopUp} />
+          <LoginForm
+            user={user}
+            setUser={setUser}
+            closeAuthPopUp={closeAuthPopUp}
+          />
         ) : (
-          <SignUpForm setUser={setUser} closeAuthPopUp={closeAuthPopUp} />
+          <SignUpForm
+            user={user}
+            setUser={setUser}
+            closeAuthPopUp={closeAuthPopUp}
+          />
         )}
       </div>
       {showLogIn ? (

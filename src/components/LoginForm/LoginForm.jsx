@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import * as usersService from '../../utilities/users-service';
 import GoogleIn from '../GoogleIn/GoogleIn';
 
-export default function LogInForm({ setUser, closeAuthPopUp }) {
+export default function LogInForm({ user, setUser, closeAuthPopUp }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
@@ -67,6 +67,7 @@ export default function LogInForm({ setUser, closeAuthPopUp }) {
       </div>
       <GoogleIn
         auth={'Log in'}
+        user={user}
         setUser={setUser}
         closeAuthPopUp={closeAuthPopUp}
       />

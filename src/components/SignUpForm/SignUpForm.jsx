@@ -90,6 +90,7 @@ export default class SignUpForm extends Component {
         </div>
         <GoogleIn
           auth={'Sign up'}
+          user={this.props.user}
           setUser={this.props.setUser}
           closeAuthPopUp={this.props.closeAuthPopUp}
         />
