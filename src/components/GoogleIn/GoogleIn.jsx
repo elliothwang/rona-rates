@@ -8,10 +8,8 @@ function GoogleIn({ auth, user, setUser, closeAuthPopUp }) {
   function onSuccess(res) {
     setUser(res.profileObj);
     refreshTokenSetup(res);
-    if (user) {
-      console.log('user detected');
-      closeAuthPopUp();
-    }
+    // ! FIX THIS
+    closeAuthPopUp();
   }
 
   function onFailure(res) {
