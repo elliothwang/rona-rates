@@ -7,14 +7,16 @@ const clientId =
 function GoogleIn({ auth, user, setUser, closeAuthPopUp }) {
   function onSuccess(res) {
     setUser(res.profileObj);
-
     refreshTokenSetup(res);
-    user && closeAuthPopUp();
+    if (user) {
+      console.log('user detected');
+      closeAuthPopUp();
+    }
   }
 
   function onFailure(res) {
     console.log('[Login Failure] res:', res);
-    user && closeAuthPopUp();
+    closeAuthPopUp();
   }
 
   return (

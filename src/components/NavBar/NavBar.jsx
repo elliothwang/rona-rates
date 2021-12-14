@@ -11,8 +11,6 @@ export default function NavBar({ user, setUser }) {
   const [popUpOpen, setPopUpOpen] = useState(false);
   const [showLogIn, setShowLogIn] = useState(true);
 
-  console.log(user);
-
   function handleLogOut() {
     userService.logOut();
     setUser(null);
