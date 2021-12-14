@@ -88,7 +88,11 @@ export default class SignUpForm extends Component {
             </button>
           </form>
         </div>
-        <GoogleIn auth={'Sign up'} setUser={this.props.setUser} />
+        <GoogleIn
+          auth={'Sign up'}
+          setUser={this.props.setUser}
+          closeAuthPopUp={this.props.closeAuthPopUp}
+        />
         <p
           className="error-message"
           style={{ display: !this.state.error ? 'none' : 'inline' }}

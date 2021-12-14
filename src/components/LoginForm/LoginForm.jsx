@@ -65,7 +65,11 @@ export default function LogInForm({ setUser, closeAuthPopUp }) {
           <button type="submit">Log In</button>
         </form>
       </div>
-      <GoogleIn auth={'Log in'} setUser={setUser} close={closeAuthPopUp} />
+      <GoogleIn
+        auth={'Log in'}
+        setUser={setUser}
+        closeAuthPopUp={closeAuthPopUp}
+      />
       <p
         className="error-message"
         style={{ display: !error ? 'none' : 'inline' }}
