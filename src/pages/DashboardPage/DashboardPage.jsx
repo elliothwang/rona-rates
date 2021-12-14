@@ -57,7 +57,7 @@ export default function DashboardPage({ user }) {
         });
     }
     getUSChartData();
-  }, []);
+  }, [chartData, chartLabels]);
 
   useEffect(() => {
     function getTopCountiesData() {
