@@ -24,8 +24,8 @@ export default function StatsSection({
             stat2={dbData[11]?.val}
             stat3={dbData[4]?.val}
             chartTitle={'Past 30 days'}
-            chartData={dbChartData[0]}
-            chartLabels={dbChartLabels[0]}
+            // chartData={dbChartData[0]}
+            // chartLabels={dbChartLabels[0]}
             msg2={'(per 1 million)'}
             msg3={`(from ${yesterday})`}
             spaced={'spaced'}
@@ -37,8 +37,8 @@ export default function StatsSection({
             stat2={dbData[12]?.val}
             stat3={dbData[6]?.val}
             chartTitle={'Past 30 days'}
-            chartData={dbChartData[1]}
-            chartLabels={dbChartLabels[0]}
+            // chartData={dbChartData[1]}
+            // chartLabels={dbChartLabels[0]}
             msg2={'(per 1 million)'}
             msg3={`(from ${yesterday})`}
             spaced={'spaced'}
