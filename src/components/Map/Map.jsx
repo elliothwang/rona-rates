@@ -41,8 +41,7 @@ export default function Map({ onDashboard, user }) {
         });
       }
     }
-    // ! FIX THIS
-    setTimeout(() => user && location(), 1000);
+    setTimeout(() => user && location(), 750);
   }, [user]);
 
   return (

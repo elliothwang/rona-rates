@@ -4,11 +4,10 @@ import { refreshTokenSetup } from '../../utilities/refreshToken';
 const clientId =
   '533247774785-7t4n50gqkt8mp67k9t90g8jnnqljbvub.apps.googleusercontent.com';
 
-function GoogleIn({ auth, user, setUser, closeAuthPopUp }) {
+function GoogleIn({ auth, setUser, closeAuthPopUp }) {
   function onSuccess(res) {
     setUser(res.profileObj);
     refreshTokenSetup(res);
-    // ! FIX THIS
     closeAuthPopUp();
   }
 
