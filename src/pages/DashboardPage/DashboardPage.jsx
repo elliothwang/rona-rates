@@ -33,7 +33,6 @@ export default function DashboardPage({ user }) {
     getUSData();
   }, []);
 
-  // TODO: fix api chart data call;
   useEffect(() => {
     function getUSChartData() {
       axios
@@ -58,7 +57,7 @@ export default function DashboardPage({ user }) {
         });
     }
     getUSChartData();
-  }, [chartData, chartLabels]);
+  }, []);
 
   useEffect(() => {
     function getTopCountiesData() {
