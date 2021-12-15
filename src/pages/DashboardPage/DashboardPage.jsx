@@ -8,8 +8,8 @@ const axios = require('axios').default;
 
 export default function DashboardPage({ user }) {
   const [usData, setUsData] = useState([]);
-  const [chartData, setChartData] = useState([]);
-  const [chartLabels, setChartLabels] = useState([]);
+  // const [chartData, setChartData] = useState([]);
+  // const [chartLabels, setChartLabels] = useState([]);
   const [usCountiesTopCases, setUsCountiesTopCases] = useState([]);
   const [usCountiesTopDeaths, setUsCountiesTopDeaths] = useState([]);
 
@@ -32,32 +32,6 @@ export default function DashboardPage({ user }) {
     }
     getUSData();
   }, []);
-
-  useEffect(() => {
-    function getUSChartData() {
-      axios
-        .get('https://corona.lmao.ninja/v2/historical/USA?lastdays=30')
-        .then((res) => {
-          const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({
-            stat,
-            val,
-          }));
-          setChartData([
-            ...chartData,
-            Object.values(apiDataArr[2].val.cases),
-            Object.values(apiDataArr[2].val.deaths),
-          ]);
-          setChartLabels([
-            ...chartLabels,
-            Object.keys(apiDataArr[2].val.cases),
-          ]);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-    getUSChartData();
-  }, [chartData, chartLabels]);
 
   useEffect(() => {
     function getTopCountiesData() {
@@ -94,8 +68,8 @@ export default function DashboardPage({ user }) {
         <StatsSection
           onDashboard={true}
           dbData={usData}
-          dbChartData={chartData}
-          dbChartLabels={chartLabels}
+          // dbChartData={chartData}
+          // dbChartLabels={chartLabels}
         />
       </div>
       <div className="dbMap">

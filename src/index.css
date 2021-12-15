@@ -118,9 +118,10 @@ code {
   justify-content: center;
   align-items: center;
   padding: 2vmin;
+  margin: 0 auto;
   border: 0.1vmin solid var(--tan-3);
   border-radius: 0.5vmin;
-  width: 50%;
+  width: 60%;
 }
 
 p.error-message {
@@ -132,6 +133,14 @@ p.error-message {
 form {
   display: grid;
   color: var(--text-light);
+  width: 100%;
+}
+
+.googleAuth {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 1vmin;
+  margin-bottom: 1.5vmin;
 }
 
 input {

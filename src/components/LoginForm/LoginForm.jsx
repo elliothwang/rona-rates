@@ -69,6 +69,7 @@ export default function LogInForm({ user, setUser, closeAuthPopUp }) {
         auth={'Log in'}
         user={user}
         setUser={setUser}
+        setError={setError}
         closeAuthPopUp={closeAuthPopUp}
       />
       <p

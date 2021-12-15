@@ -4,7 +4,7 @@ import { refreshTokenSetup } from '../../utilities/refreshToken';
 const clientId =
   '533247774785-7t4n50gqkt8mp67k9t90g8jnnqljbvub.apps.googleusercontent.com';
 
-function GoogleIn({ auth, setUser, closeAuthPopUp }) {
+function GoogleIn({ auth, setUser, setError, closeAuthPopUp }) {
   function onSuccess(res) {
     setUser(res.profileObj);
     refreshTokenSetup(res);
@@ -13,11 +13,11 @@ function GoogleIn({ auth, setUser, closeAuthPopUp }) {
 
   function onFailure(res) {
     console.log('[Login Failure] res:', res);
-    closeAuthPopUp();
+    setError('Log In Failed - Please Try Again');
   }
 
   return (
-    <div>
+    <div className="googleAuth">
       <GoogleLogin
         clientId={clientId}
         buttonText={`${auth} with Google`}

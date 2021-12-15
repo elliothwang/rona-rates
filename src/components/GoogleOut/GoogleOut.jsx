@@ -9,7 +9,7 @@ function GoogleOut({ setUser }) {
   }
 
   return (
-    <div>
+    <div className="googleAuth">
       <GoogleLogout
         clientId={clientId}
         buttonText={`Log out`}
