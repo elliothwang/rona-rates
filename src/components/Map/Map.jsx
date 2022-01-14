@@ -12,7 +12,6 @@ export default function Map({ onDashboard, user }) {
   const [userLocation, setUserLocation] = useState('');
   const [content, setContent] = useState('');
   const [legendShown, setLegendShown] = useState(true);
-  const [casesShown, setCasesShown] = useState(true);
   const [countiesShown, setCountiesShown] = useState(false);
 
   useEffect(() => {
@@ -50,8 +49,8 @@ export default function Map({ onDashboard, user }) {
         onDashboard={onDashboard}
         legendShown={legendShown}
         setLegendShown={setLegendShown}
-        casesShown={casesShown}
-        setCasesShown={setCasesShown}
+        // casesShown={casesShown}
+        // setCasesShown={setCasesShown}
         countiesShown={countiesShown}
         setCountiesShown={setCountiesShown}
       />
@@ -62,7 +61,7 @@ export default function Map({ onDashboard, user }) {
             userLat={userLat}
             userLong={userLong}
             userLocation={userLocation}
-            casesShown={casesShown}
+            // casesShown={casesShown}
             countiesShown={countiesShown}
             tooltipContent={content}
             setTooltipContent={setContent}
@@ -76,7 +75,7 @@ export default function Map({ onDashboard, user }) {
             userLat={userLat}
             userLong={userLong}
             userLocation={userLocation}
-            casesShown={casesShown}
+            // casesShown={casesShown}
             setTooltipContent={setContent}
           />
           <ReactTooltip className="flex-ctr-ctr">{content}</ReactTooltip>

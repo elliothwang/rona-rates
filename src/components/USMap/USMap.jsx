@@ -1,4 +1,5 @@
 import React, { useState, useEffect, memo } from 'react';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { scaleThreshold } from 'd3-scale';
 import {
@@ -36,11 +37,11 @@ const MapChart = ({
   userLat,
   userLong,
   userLocation,
-  casesShown,
   countiesShown,
   tooltipContent,
   setTooltipContent,
 }) => {
+  const casesShown = useSelector((state) => state.casesShown.value);
   const [stateData, setStateData] = useState([]);
   const [usCounties, setUsCounties] = useState([]);
   const history = useHistory();

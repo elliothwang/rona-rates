@@ -87,7 +87,7 @@ export default function StatePage({ user }) {
         />
       </div>
       <div className="dbDate">
-        <DateSection user={user} onDashboard={false} />
+        <DateSection user={user} />
       </div>
     </div>
   );

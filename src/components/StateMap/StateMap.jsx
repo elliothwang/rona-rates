@@ -1,34 +1,34 @@
-import React, { useState, useEffect, memo } from "react";
-import { scaleThreshold } from "d3-scale";
-import { ComposableMap, ZoomableGroup, Geographies, Geography, Marker } from "react-simple-maps";
+import React, { useState, useEffect, memo } from 'react';
+import { useSelector } from 'react-redux';
+import { scaleThreshold } from 'd3-scale';
+import {
+  ComposableMap,
+  ZoomableGroup,
+  Geographies,
+  Geography,
+  Marker,
+} from 'react-simple-maps';
 import * as help from '../../utilities/helper-functions';
 const axios = require('axios').default;
 
-const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
+const geoUrl = 'https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json';
 
 const colorScaleCountyCases = scaleThreshold()
-.domain([1000, 10000, 25000, 100000, 250000, 1500000])
-.range([
-  "#cfe2f3",
-  "#9fc5e8",
-  "#6fa8dc",
-  "#3d85c6",
-  "#416aab",
-  "#204c91"
-]);
+  .domain([1000, 10000, 25000, 100000, 250000, 1500000])
+  .range(['#cfe2f3', '#9fc5e8', '#6fa8dc', '#3d85c6', '#416aab', '#204c91']);
 
 const colorScaleCountyDeaths = scaleThreshold()
-.domain([100, 500, 1000, 5000, 10000, 50000])
-.range([
-  "#fcdcd6",
-  "#ffb6b6",
-  "#f29292",
-  "#de6969",
-  "#da3a3a",
-  "#bb0808"
-]);
+  .domain([100, 500, 1000, 5000, 10000, 50000])
+  .range(['#fcdcd6', '#ffb6b6', '#f29292', '#de6969', '#da3a3a', '#bb0808']);
 
-const StateMap = ({ user, userLat, userLong, userLocation, casesShown, setTooltipContent }) => {
+const StateMap = ({
+  user,
+  userLat,
+  userLong,
+  userLocation,
+  setTooltipContent,
+}) => {
+  const casesShown = useSelector((state) => state.casesShown.value);
   const [stateCounties, setStateCounties] = useState([]);
   const [geoCenterLat, setGeoCenterLat] = useState();
   const [geoCenterLong, setGeoCenterLong] = useState();
@@ -36,76 +36,99 @@ const StateMap = ({ user, userLat, userLong, userLocation, casesShown, setToolti
 
   useEffect(() => {
     function getUSCountiesData() {
-      axios.get('https://corona.lmao.ninja/v2/jhucsse/counties')
-      .then(res => {
-        const data = Object.entries(res.data).map(e => e[1]).filter(county => county.province === localStorage.getItem("storageStateName"));
-        for (let i = 0; i < data.length; i++) {
-          data[i].country = help.geoId(data[i].county, data[i].province);
-        }
-        setStateCounties(data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    };
+      axios
+        .get('https://corona.lmao.ninja/v2/jhucsse/counties')
+        .then((res) => {
+          const data = Object.entries(res.data)
+            .map((e) => e[1])
+            .filter(
+              (county) =>
+                county.province === localStorage.getItem('storageStateName')
+            );
+          for (let i = 0; i < data.length; i++) {
+            data[i].country = help.geoId(data[i].county, data[i].province);
+          }
+          setStateCounties(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
     getUSCountiesData();
   }, []);
 
   useEffect(() => {
     function getGeoCenter() {
       const stateName = localStorage.getItem('storageStateName');
-      console.log(stateName);
       const stateData = help.geoCenter(stateName);
       setGeoCenterLat(stateData.lat);
       setGeoCenterLong(stateData.lon);
       setGeoZoom(stateData.zoom);
-    };
-    localStorage.getItem("storageStateName") && getGeoCenter();
+    }
+    localStorage.getItem('storageStateName') && getGeoCenter();
   }, []);
 
   return (
     <ComposableMap data-tip="" projection="geoAlbersUsa">
-      {(geoCenterLat && geoCenterLong && geoZoom) && (
-        <ZoomableGroup center={[geoCenterLong, geoCenterLat]} zoom={geoZoom} >
+      {geoCenterLat && geoCenterLong && geoZoom && (
+        <ZoomableGroup center={[geoCenterLong, geoCenterLat]} zoom={geoZoom}>
           <Geographies geography={geoUrl}>
-            {({ geographies }) => (
-              geographies.map(geo => {
-                const curr = stateCounties.find(county => county.country === geo.id);
+            {({ geographies }) =>
+              geographies.map((geo) => {
+                const curr = stateCounties.find(
+                  (county) => county.country === geo.id
+                );
                 return (
                   <Geography
                     key={geo.rsmKey}
-                    geography={geo}x
+                    geography={geo}
+                    x
                     fill={
-                      casesShown ?
-                        colorScaleCountyCases(curr ? curr?.stats.confirmed : "#EEE")
-                      :
-                        colorScaleCountyDeaths(curr ? curr?.stats.deaths : "#EEE")
+                      casesShown
+                        ? colorScaleCountyCases(
+                            curr ? curr?.stats.confirmed : '#EEE'
+                          )
+                        : colorScaleCountyDeaths(
+                            curr ? curr?.stats.deaths : '#EEE'
+                          )
                     }
-                    stroke={curr?.province === localStorage.getItem("storageStateName") ? "#3e4348" : "transparent"}
+                    stroke={
+                      curr?.province ===
+                      localStorage.getItem('storageStateName')
+                        ? '#3e4348'
+                        : 'transparent'
+                    }
                     strokeWidth="0.15"
                     style={{
                       hover: {
-                        fill: "gray",
-                      }
+                        fill: 'gray',
+                      },
                     }}
                     onMouseEnter={() => {
-                      curr?.province === localStorage.getItem("storageStateName") && (
-                        casesShown ?
-                          setTooltipContent(`${geo.properties.name} County - ${help.addCommas(curr?.stats.confirmed)}`)
-                        :
-                          setTooltipContent(`${geo.properties.name} County - ${help.addCommas(curr?.stats.deaths)}`)
-                      )
+                      curr?.province ===
+                        localStorage.getItem('storageStateName') &&
+                        (casesShown
+                          ? setTooltipContent(
+                              `${geo.properties.name} County - ${help.addCommas(
+                                curr?.stats.confirmed
+                              )}`
+                            )
+                          : setTooltipContent(
+                              `${geo.properties.name} County - ${help.addCommas(
+                                curr?.stats.deaths
+                              )}`
+                            ));
                     }}
                     onMouseLeave={() => {
-                      setTooltipContent("");
+                      setTooltipContent('');
                     }}
                   />
                 );
               })
-            )}
+            }
           </Geographies>
-          {(user && userLong && userLat) && (
-            <Marker coordinates={[userLong, userLat]} >
+          {user && userLong && userLat && (
+            <Marker coordinates={[userLong, userLat]}>
               <g
                 fill="none"
                 stroke="black"
@@ -120,7 +143,7 @@ const StateMap = ({ user, userLat, userLong, userLocation, casesShown, setToolti
               <text
                 textAnchor="middle"
                 y={-30}
-                style={{ fontFamily: "PT Serif", fill: "black" }}
+                style={{ fontFamily: 'PT Serif', fill: 'black' }}
               >
                 {user.name}
               </text>

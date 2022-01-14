@@ -4,9 +4,12 @@ import StatsSection from '../../components/StatsSection/StatsSection';
 import Map from '../../components/Map/Map';
 import CountiesSection from '../../components/CountiesSection/CountiesSection';
 import DateSection from '../../components/DateSection/DateSection';
+import { useDispatch } from 'react-redux';
+import { setDefault } from '../../features/casesSlice';
 const axios = require('axios').default;
 
 export default function DashboardPage({ user }) {
+  const dispatch = useDispatch();
   const [usData, setUsData] = useState([]);
   // const [chartData, setChartData] = useState([]);
   // const [chartLabels, setChartLabels] = useState([]);
@@ -60,6 +63,7 @@ export default function DashboardPage({ user }) {
 
   useEffect(() => {
     localStorage.removeItem('storageStateName');
+    dispatch(setDefault());
   }, []);
 
   return (
@@ -83,7 +87,7 @@ export default function DashboardPage({ user }) {
         />
       </div>
       <div className="dbDate">
-        <DateSection user={user} onDashboard={true} />
+        <DateSection user={user} />
       </div>
     </div>
   );
