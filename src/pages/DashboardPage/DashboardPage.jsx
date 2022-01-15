@@ -64,7 +64,7 @@ export default function DashboardPage({ user }) {
   useEffect(() => {
     localStorage.removeItem('storageStateName');
     dispatch(setDefault());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="dashboard flex-ctr-ctr">
