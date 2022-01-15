@@ -1,80 +1,98 @@
 import './CountiesSection.css';
-import React, { useState } from 'react';
 import CountyCard from '../CountyCard/CountyCard';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCasesShown } from '../../features/casesSlice';
 
-export default function CountiesSection({ onDashboard, dbCountiesTopCases, dbCountiesTopDeaths, sCountiesCases, sCountiesDeaths }) {
-  const [casesShown, setCasesShown] = useState(true);
+export default function CountiesSection({
+  onDashboard,
+  dbCountiesTopCases,
+  dbCountiesTopDeaths,
+  sCountiesCases,
+  sCountiesDeaths,
+}) {
+  const dispatch = useDispatch();
+  const casesShown = useSelector((state) => state.casesShown.value);
 
   function handleTabClick(evt) {
     const name = evt.target.className;
-    if (casesShown && name === "deathsTab flex-ctr-ctr") {
-      document.querySelector(".casesTab").classList.remove('activeTab');
-      document.querySelector(".deathsTab").classList.add('activeTab');
-      setCasesShown(!casesShown);
-    } else if (!casesShown && name === "casesTab flex-ctr-ctr") {
-      document.querySelector(".casesTab").classList.add('activeTab');
-      document.querySelector(".deathsTab").classList.remove('activeTab');
-      setCasesShown(!casesShown);
-    };
-  };
+    if (casesShown && name === 'deathsTab flex-ctr-ctr') {
+      dispatch(setCasesShown());
+    } else if (!casesShown && name === 'casesTab flex-ctr-ctr') {
+      dispatch(setCasesShown());
+    }
+  }
 
   return (
     <div className="countiesSection">
       <div className="countiesHeader flex-ctr-ctr">
-        <div className="casesTab activeTab flex-ctr-ctr" onClick={handleTabClick}>Cases by County</div>
-        <div className="deathsTab flex-ctr-ctr" onClick={handleTabClick}>Deaths by County</div>
+        <div
+          className={
+            casesShown
+              ? 'casesTab flex-ctr-ctr activeTab'
+              : 'casesTab flex-ctr-ctr'
+          }
+          onClick={handleTabClick}
+        >
+          Cases by County
+        </div>
+        <div
+          className={
+            casesShown
+              ? 'deathsTab flex-ctr-ctr'
+              : 'deathsTab flex-ctr-ctr activeTab'
+          }
+          onClick={handleTabClick}
+        >
+          Deaths by County
+        </div>
       </div>
       <div className="countiesContent">
-        { onDashboard ? 
+        {onDashboard ? (
           <>
-            { casesShown ? 
-              dbCountiesTopCases.map((county, idx) => 
-                <CountyCard 
-                  title={county?.val.county}
-                  stat1={county?.val.stats.confirmed }
-                  key={idx}
-                  idx={idx}
-                  casesShown={casesShown}
-                />
-              )
-              :
-              dbCountiesTopDeaths.map((county, idx) => 
-                <CountyCard 
-                  title={county?.val.county}
-                  stat1={county?.val.stats.deaths }
-                  key={idx}
-                  idx={idx}
-                  casesShown={casesShown}
-                />
-              )
-            }
+            {casesShown
+              ? dbCountiesTopCases.map((county, idx) => (
+                  <CountyCard
+                    title={county?.val.county}
+                    stat1={county?.val.stats.confirmed}
+                    key={idx}
+                    idx={idx}
+                    casesShown={casesShown}
+                  />
+                ))
+              : dbCountiesTopDeaths.map((county, idx) => (
+                  <CountyCard
+                    title={county?.val.county}
+                    stat1={county?.val.stats.deaths}
+                    key={idx}
+                    idx={idx}
+                    casesShown={casesShown}
+                  />
+                ))}
           </>
-        : 
+        ) : (
           <>
-            { casesShown ? 
-              sCountiesCases.map((county, idx) => 
-                <CountyCard 
-                  title={county?.val.county}
-                  stat1={county?.val.stats.confirmed }
-                  key={idx}
-                  idx={idx}
-                  casesShown={casesShown}
-                />
-              )
-              :
-              sCountiesDeaths.map((county, idx) => 
-                <CountyCard 
-                  title={county?.val.county}
-                  stat1={county?.val.stats.deaths }
-                  key={idx}
-                  idx={idx}
-                  casesShown={casesShown}
-                />
-              )
-            }
+            {casesShown
+              ? sCountiesCases.map((county, idx) => (
+                  <CountyCard
+                    title={county?.val.county}
+                    stat1={county?.val.stats.confirmed}
+                    key={idx}
+                    idx={idx}
+                    casesShown={casesShown}
+                  />
+                ))
+              : sCountiesDeaths.map((county, idx) => (
+                  <CountyCard
+                    title={county?.val.county}
+                    stat1={county?.val.stats.deaths}
+                    key={idx}
+                    idx={idx}
+                    casesShown={casesShown}
+                  />
+                ))}
           </>
-        }
+        )}
       </div>
     </div>
-  )
+  );
 }
