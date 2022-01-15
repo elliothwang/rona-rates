@@ -14,7 +14,7 @@ const axios = require('axios').default;
 const geoUrl = 'https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json';
 
 const colorScaleCountyCases = scaleThreshold()
-  .domain([1000, 10000, 25000, 100000, 250000, 1500000])
+  .domain([1000, 10000, 25000, 250000, 500000, 2500000])
   .range(['#cfe2f3', '#9fc5e8', '#6fa8dc', '#3d85c6', '#416aab', '#204c91']);
 
 const colorScaleCountyDeaths = scaleThreshold()

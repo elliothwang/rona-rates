@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setDefault, setCasesShown } from '../../features/casesSlice';
+import { setCasesShown } from '../../features/casesSlice';
 
 export default function MapNavBar({
   onDashboard,
@@ -12,43 +12,20 @@ export default function MapNavBar({
   const casesShown = useSelector((state) => state.casesShown.value);
 
   function handleLegendClick() {
-    if (legendShown) {
-      document.querySelector('.mapLegend').classList.add('hidden');
-      setLegendShown(false);
-    } else {
-      document.querySelector('.mapLegend').classList.remove('hidden');
-      setLegendShown(true);
-    }
+    setLegendShown(!legendShown);
   }
 
   function handleColorSwitch(evt) {
     const name = evt.target.className;
     if (casesShown && name === 'deathsButton') {
-      document.querySelector('.casesButton').classList.remove('casesMap');
-      document.querySelector('.deathsButton').classList.add('deathsMap');
       dispatch(setCasesShown());
     } else if (!casesShown && name === 'casesButton') {
-      document.querySelector('.casesButton').classList.add('casesMap');
-      document.querySelector('.deathsButton').classList.remove('deathsMap');
       dispatch(setCasesShown());
     }
   }
 
   function handleMapSwitch() {
-    if (!countiesShown) {
-      document.querySelector('.countiesButton').classList.add('countiesMap');
-      document
-        .querySelector('.countiesButton')
-        .classList.remove('countiesDefault');
-      setCountiesShown(true);
-    }
-    if (countiesShown) {
-      document.querySelector('.countiesButton').classList.remove('countiesMap');
-      document
-        .querySelector('.countiesButton')
-        .classList.add('countiesDefault');
-      setCountiesShown(false);
-    }
+    setCountiesShown(!countiesShown);
   }
 
   return (
@@ -69,7 +46,13 @@ export default function MapNavBar({
           <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z" />
         </svg>
       </div>
-      <div className="mapLegend flex-ctr-ctr">
+      <div
+        className={
+          legendShown
+            ? 'mapLegend flex-ctr-ctr'
+            : 'mapLegend flex-ctr-ctr hidden'
+        }
+      >
         <div className="closeMapLegendIcon" onClick={handleLegendClick}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -108,18 +91,18 @@ export default function MapNavBar({
           {onDashboard && !countiesShown ? (
             casesShown ? (
               <div className="mapLegendText">
-                <div>4,000,001 - 5,000,000</div>
-                <div>2,000,001 - 4,000,000</div>
+                <div>6,000,001 - 8,000,000</div>
+                <div>3,000,001 - 6,000,000</div>
+                <div>2,000,001 - 3,000,000</div>
                 <div>1,000,001 - 2,000,000</div>
-                <div>750,001 - 1,000,000</div>
-                <div>275,001 - 750,000</div>
-                <div>1 - 275,000</div>
+                <div>500,001 - 1,000,000</div>
+                <div>1 - 500,000</div>
               </div>
             ) : (
               <div className="mapLegendText">
                 <div>50,001 - 100,000</div>
-                <div>20,001 - 50,000</div>
-                <div>10,001 - 20,000</div>
+                <div>25,001 - 50,000</div>
+                <div>10,001 - 25,000</div>
                 <div>5,001 - 10,000</div>
                 <div>2,501 - 5,000</div>
                 <div>1 - 2,500</div>
@@ -127,11 +110,11 @@ export default function MapNavBar({
             )
           ) : casesShown ? (
             <div className="mapLegendText">
-              <div>250,001 - 1,500,000</div>
+              <div>500,001 - 2,500,000</div>
+              <div>250,001 - 500,000</div>
               <div>100,001 - 250,000</div>
               <div>25,001 - 100,000</div>
-              <div>10,001 - 25,000</div>
-              <div>1,001 - 10,000</div>
+              <div>1,001 - 25,000</div>
               <div>1 - 1,000</div>
             </div>
           ) : (
@@ -147,15 +130,25 @@ export default function MapNavBar({
         </div>
       </div>
       <div className="buttonsContainer">
-        <div className="deathsButton" onClick={handleColorSwitch}>
+        <div
+          className={casesShown ? 'deathsButton' : 'deathsButton deathsMap'}
+          onClick={handleColorSwitch}
+        >
           Deaths
         </div>
-        <div className="casesButton casesMap" onClick={handleColorSwitch}>
+        <div
+          className={casesShown ? 'casesButton casesMap' : 'casesButton'}
+          onClick={handleColorSwitch}
+        >
           Cases
         </div>
         {onDashboard && (
           <div
-            className="countiesButton countiesDefault"
+            className={
+              countiesShown
+                ? 'countiesButton countiesDefault'
+                : 'countiesButton countiesMap'
+            }
             onClick={handleMapSwitch}
           >
             Counties
