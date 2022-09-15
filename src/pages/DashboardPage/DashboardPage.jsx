@@ -16,6 +16,7 @@ export default function DashboardPage({ user }) {
   const [usCountiesTopCases, setUsCountiesTopCases] = useState([]);
   const [usCountiesTopDeaths, setUsCountiesTopDeaths] = useState([]);
 
+  // ! FIX: this api call is catching the CORS policy error
   useEffect(() => {
     function getUSData() {
       axios
@@ -28,6 +29,7 @@ export default function DashboardPage({ user }) {
             val,
           }));
           setUsData(apiDataArr);
+          console.log(apiDataArr);
         })
         .catch((err) => {
           console.log(err);
@@ -36,6 +38,7 @@ export default function DashboardPage({ user }) {
     getUSData();
   }, []);
 
+  // ! FIX: this api call is catching the CORS policy error
   useEffect(() => {
     function getTopCountiesData() {
       axios

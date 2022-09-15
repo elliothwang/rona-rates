@@ -46,6 +46,7 @@ const MapChart = ({
   const [usCounties, setUsCounties] = useState([]);
   const history = useHistory();
 
+  // ! FIX: this api call is catching the CORS policy error
   useEffect(() => {
     function getStateData() {
       axios
@@ -61,6 +62,7 @@ const MapChart = ({
     getStateData();
   }, []);
 
+  // ! FIX: this api call is catching the CORS policy error
   useEffect(() => {
     function getUSCountiesData() {
       axios
