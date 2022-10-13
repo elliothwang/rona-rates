@@ -50,7 +50,7 @@ const MapChart = ({
   useEffect(() => {
     function getStateData() {
       axios
-        .get('https://corona.lmao.ninja/v2/states?sort&yesterday')
+        .get('/states?sort&yesterday')
         .then((res) => {
           const data = Object.entries(res.data).map((e) => e[1]);
           setStateData(data);
@@ -66,7 +66,7 @@ const MapChart = ({
   useEffect(() => {
     function getUSCountiesData() {
       axios
-        .get('https://corona.lmao.ninja/v2/jhucsse/counties')
+        .get('/jhucsse/counties')
         .then((res) => {
           const data = Object.entries(res.data).map((e) => e[1]);
           for (let i = 0; i < data.length; i++) {

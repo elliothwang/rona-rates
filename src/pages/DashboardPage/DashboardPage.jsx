@@ -20,9 +20,7 @@ export default function DashboardPage({ user }) {
   useEffect(() => {
     function getUSData() {
       axios
-        .get(
-          'https://corona.lmao.ninja/v2/countries/USA?yesterday=true&strict=true&query'
-        )
+        .get('countries/USA?yesterday=true&strict=true&query')
         .then((res) => {
           const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({
             stat,
@@ -38,11 +36,11 @@ export default function DashboardPage({ user }) {
     getUSData();
   }, []);
 
-  // ! FIX: this api call is catching the CORS policy error
+  // ! FIX : this api call is catching the CORS policy error
   useEffect(() => {
     function getTopCountiesData() {
       axios
-        .get('https://corona.lmao.ninja/v2/jhucsse/counties')
+        .get('/jhucsse/counties')
         .then((res) => {
           const sortedCountiesCases = Object.entries(res.data)
             .map(([stat, val]) => ({ stat, val }))
