@@ -17,7 +17,7 @@ export default function DateSection() {
             <i>
               &nbsp;(data from &nbsp;
               <a
-                href="https://documenter.getpostman.com/view/11144369/Szf6Z9B3?version=latest"
+                href="https://disease.sh/docs/#/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
