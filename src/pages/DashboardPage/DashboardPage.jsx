@@ -16,18 +16,16 @@ export default function DashboardPage({ user }) {
   const [usCountiesTopCases, setUsCountiesTopCases] = useState([]);
   const [usCountiesTopDeaths, setUsCountiesTopDeaths] = useState([]);
 
-  // ! FIX: this api call is catching the CORS policy error
   useEffect(() => {
     function getUSData() {
       axios
-        .get('countries/USA?yesterday=true&strict=true&query')
+        .get('https://disease.sh/v3/covid-19/countries/USA?strict=true')
         .then((res) => {
           const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({
             stat,
             val,
           }));
           setUsData(apiDataArr);
-          console.log(apiDataArr);
         })
         .catch((err) => {
           console.log(err);
@@ -36,11 +34,10 @@ export default function DashboardPage({ user }) {
     getUSData();
   }, []);
 
-  // ! FIX : this api call is catching the CORS policy error
   useEffect(() => {
     function getTopCountiesData() {
       axios
-        .get('/jhucsse/counties')
+        .get('https://disease.sh/v3/covid-19/jhucsse/counties')
         .then((res) => {
           const sortedCountiesCases = Object.entries(res.data)
             .map(([stat, val]) => ({ stat, val }))

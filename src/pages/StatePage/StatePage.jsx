@@ -16,7 +16,7 @@ export default function StatePage({ user }) {
   useEffect(() => {
     function getStateData() {
       axios
-        .get(`https://corona.lmao.ninja/v2/states/${state}?yesterday=true`)
+        .get(`https://disease.sh/v3/covid-19/states/${state}`)
         .then((res) => {
           const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({
             stat,
@@ -41,7 +41,7 @@ export default function StatePage({ user }) {
   useEffect(() => {
     function getStateCountiesData() {
       axios
-        .get('https://corona.lmao.ninja/v2/jhucsse/counties')
+        .get('https://disease.sh/v3/covid-19/jhucsse/counties')
         .then((res) => {
           const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({
             stat,

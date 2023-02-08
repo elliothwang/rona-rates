@@ -37,7 +37,7 @@ const StateMap = ({
   useEffect(() => {
     function getUSCountiesData() {
       axios
-        .get('https://corona.lmao.ninja/v2/jhucsse/counties')
+        .get('https://disease.sh/v3/covid-19/jhucsse/counties')
         .then((res) => {
           const data = Object.entries(res.data)
             .map((e) => e[1])

@@ -1,7 +1,7 @@
 useEffect(() => {
   function getUSChartData() {
     axios
-      .get('https://corona.lmao.ninja/v2/historical/USA?lastdays=30')
+      .get('https://disease.sh/v3/covid-19/countries/USA?strict=true')
       .then((res) => {
         const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({
           stat,

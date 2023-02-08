@@ -1,4 +1,5 @@
 const express = require('express');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
@@ -7,6 +8,13 @@ require('dotenv').config();
 require('./config/database');
 
 const app = express();
+
+// proxy middleware options
+/** @type {import('http-proxy-middleware/dist/types').Options} */
+const options = {
+  target: 'http://www.example.org/api', // target host with the same base path
+  changeOrigin: true, // needed for virtual hosted sites
+};
 
 app.use(logger('dev'));
 app.use(express.json());

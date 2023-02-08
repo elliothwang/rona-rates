@@ -46,11 +46,10 @@ const MapChart = ({
   const [usCounties, setUsCounties] = useState([]);
   const history = useHistory();
 
-  // ! FIX: this api call is catching the CORS policy error
   useEffect(() => {
     function getStateData() {
       axios
-        .get('/states?sort&yesterday')
+        .get('https://disease.sh/v3/covid-19/states')
         .then((res) => {
           const data = Object.entries(res.data).map((e) => e[1]);
           setStateData(data);
@@ -62,11 +61,10 @@ const MapChart = ({
     getStateData();
   }, []);
 
-  // ! FIX: this api call is catching the CORS policy error
   useEffect(() => {
     function getUSCountiesData() {
       axios
-        .get('/jhucsse/counties')
+        .get('https://disease.sh/v3/covid-19/jhucsse/counties')
         .then((res) => {
           const data = Object.entries(res.data).map((e) => e[1]);
           for (let i = 0; i < data.length; i++) {
