@@ -91,7 +91,7 @@ export default function MapNavBar({
           {onDashboard && !countiesShown ? (
             casesShown ? (
               <div className="mapLegendText">
-                <div>6,000,001 - 8,000,000</div>
+                <div>6,000,001+</div>
                 <div>3,000,001 - 6,000,000</div>
                 <div>2,000,001 - 3,000,000</div>
                 <div>1,000,001 - 2,000,000</div>
@@ -100,18 +100,18 @@ export default function MapNavBar({
               </div>
             ) : (
               <div className="mapLegendText">
-                <div>50,001 - 100,000</div>
+                <div>75,001+</div>
+                <div>50,001 - 75,000</div>
                 <div>25,001 - 50,000</div>
                 <div>10,001 - 25,000</div>
                 <div>5,001 - 10,000</div>
-                <div>2,501 - 5,000</div>
-                <div>1 - 2,500</div>
+                <div>1 - 5,000</div>
               </div>
             )
           ) : casesShown ? (
             <div className="mapLegendText">
-              <div>500,001 - 2,500,000</div>
-              <div>250,001 - 500,000</div>
+              <div>1,000,001+</div>
+              <div>500,001 - 1,000,000</div>
               <div>100,001 - 250,000</div>
               <div>25,001 - 100,000</div>
               <div>1,001 - 25,000</div>
@@ -119,7 +119,7 @@ export default function MapNavBar({
             </div>
           ) : (
             <div className="mapLegendText">
-              <div>10,001 - 50,000</div>
+              <div>10,001+</div>
               <div>5,001 - 10,000</div>
               <div>1,001 - 5,000</div>
               <div>501 - 1,000</div>

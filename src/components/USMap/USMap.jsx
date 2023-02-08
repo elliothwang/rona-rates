@@ -17,19 +17,19 @@ const geoUrlCounties =
   'https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json';
 
 const colorScaleStateCases = scaleThreshold()
-  .domain([500000, 1000000, 2000000, 3000000, 6000000, 8000000])
+  .domain([500000, 1000000, 2000000, 3000000, 6000000, 1500000])
   .range(['#cfe2f3', '#9fc5e8', '#6fa8dc', '#3d85c6', '#416aab', '#204c91']);
 
 const colorScaleStateDeaths = scaleThreshold()
-  .domain([2500, 5000, 10000, 25000, 50000, 100000])
+  .domain([5000, 10000, 25000, 50000, 75000, 500000])
   .range(['#fcdcd6', '#ffb6b6', '#f29292', '#de6969', '#da3a3a', '#bb0808']);
 
 const colorScaleCountyCases = scaleThreshold()
-  .domain([1000, 25000, 100000, 250000, 500000, 2500000])
+  .domain([5000, 10000, 25000, 50000, 1000000, 10000000])
   .range(['#cfe2f3', '#9fc5e8', '#6fa8dc', '#3d85c6', '#416aab', '#204c91']);
 
 const colorScaleCountyDeaths = scaleThreshold()
-  .domain([100, 500, 1000, 5000, 10000, 50000])
+  .domain([100, 500, 1000, 5000, 10000, 100000])
   .range(['#fcdcd6', '#ffb6b6', '#f29292', '#de6969', '#da3a3a', '#bb0808']);
 
 const MapChart = ({
