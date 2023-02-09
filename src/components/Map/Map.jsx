@@ -1,6 +1,6 @@
 import './Map.css';
 import React, { useState, useEffect } from 'react';
-import ReactTooltip from 'react-tooltip';
+import * as ReactTooltip from 'react-tooltip';
 import StateMap from '../StateMap/StateMap';
 import USMap from '../USMap/USMap';
 import MapNavBar from '../MapNavBar/MapNavBar';

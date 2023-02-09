@@ -1,6 +1,6 @@
 import React, { useState, useEffect, memo } from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { scaleThreshold } from 'd3-scale';
 import {
   ComposableMap,
@@ -44,7 +44,7 @@ const MapChart = ({
   const casesShown = useSelector((state) => state.casesShown.value);
   const [stateData, setStateData] = useState([]);
   const [usCounties, setUsCounties] = useState([]);
-  const history = useHistory();
+  const history = useNavigate();
 
   useEffect(() => {
     function getStateData() {

@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import StatePage from '../StatePage/StatePage';
 import DashboardPage from '../DashboardPage/DashboardPage';
@@ -14,7 +14,7 @@ export default function App() {
     <main className="App">
       <>
         <NavBar user={user} setUser={setUser} />
-        <Switch>
+        <Routes>
           <Route
             path={[
               '/Alabama',
@@ -75,8 +75,8 @@ export default function App() {
           <Route path="/">
             <DashboardPage user={user} />
           </Route>
-          <Redirect to="/" />
-        </Switch>
+          <Navigate to="/" />
+        </Routes>
         <Footer />
       </>
     </main>
