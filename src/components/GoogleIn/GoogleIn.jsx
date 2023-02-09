@@ -1,4 +1,4 @@
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from '@react-oauth/google';
 import { refreshTokenSetup } from '../../utilities/refreshToken';
 
 const clientId =
