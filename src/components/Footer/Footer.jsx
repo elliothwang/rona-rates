@@ -6,16 +6,16 @@ export default function Footer() {
   return (
     <div className="footer flex-ctr-ctr">
       <div className="socials">
-        <a href="https://www.linkedin.com/in/elliothwang/">
+        <a href="https://www.linkedin.com/">
           <i className="icon ion-social-linkedin"></i>
         </a>
-        <a href="https://github.com/elliothwang">
+        <a href="https://github.com/">
           <i className="icon ion-social-github"></i>
         </a>
-        <a href="https://www.instagram.com/elliothwang/">
+        <a href="https://www.instagram.com/">
           <i className="icon ion-social-instagram"></i>
         </a>
-        <a href="https://www.youtube.com/channel/UCrFKA3UOQe-MfH89QMOY9YA">
+        <a href="https://www.youtube.com/">
           <i className="icon ion-social-youtube"></i>
         </a>
       </div>
