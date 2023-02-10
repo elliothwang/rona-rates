@@ -14,6 +14,8 @@ export default function StatsSection({
 }) {
   let yesterday = moment().subtract(1, 'days').format('l');
 
+  console.log(dbData);
+
   return (
     <div className="statsSection flex-ctr-ctr">
       {onDashboard ? (

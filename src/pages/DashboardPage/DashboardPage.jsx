@@ -6,7 +6,7 @@ import CountiesSection from '../../components/CountiesSection/CountiesSection';
 import DateSection from '../../components/DateSection/DateSection';
 import { useDispatch } from 'react-redux';
 import { setDefault } from '../../features/casesSlice';
-const axios = require('axios').default;
+import axios, * as others from 'axios';
 
 export default function DashboardPage({ user }) {
   const dispatch = useDispatch();

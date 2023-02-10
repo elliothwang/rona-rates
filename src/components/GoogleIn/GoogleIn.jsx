@@ -1,4 +1,4 @@
-import { GoogleLogin } from '@react-oauth/google';
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import { refreshTokenSetup } from '../../utilities/refreshToken';
 
 const clientId =
@@ -17,15 +17,16 @@ function GoogleIn({ auth, setUser, setError, closeAuthPopUp }) {
   }
 
   return (
-    <div className="googleAuth">
-      <GoogleLogin
-        clientId={clientId}
-        buttonText={`${auth} with Google`}
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-        cookiePolicy={'single_host_origin'}
-      />
-    </div>
+    <GoogleOAuthProvider clientId={clientId}>
+      <div className="googleAuth">
+        <GoogleLogin
+          buttonText={`${auth} with Google`}
+          onSuccess={onSuccess}
+          onFailure={onFailure}
+          cookiePolicy={'single_host_origin'}
+        />
+      </div>
+    </GoogleOAuthProvider>
   );
 }
 

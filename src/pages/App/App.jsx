@@ -13,69 +13,71 @@ export default function App() {
   return (
     <main className="App">
       <>
-        <NavBar user={user} setUser={setUser} />
         <Routes>
-          <Route
-            path={[
-              '/Alabama',
-              '/Alaska',
-              '/Arizona',
-              '/Arkansas',
-              '/California',
-              '/Colorado',
-              '/Connecticut',
-              '/Delaware',
-              '/WashingtonDC',
-              '/Florida',
-              '/Georgia',
-              '/Hawaii',
-              '/Idaho',
-              '/Illinois',
-              '/Indiana',
-              '/Iowa',
-              '/Kansas',
-              '/Kentucky',
-              '/Louisiana',
-              '/Maine',
-              '/Maryland',
-              '/Massachusetts',
-              '/Michigan',
-              '/Minnesota',
-              '/Mississippi',
-              '/Missouri',
-              '/Montana',
-              '/Nebraska',
-              '/Nevada',
-              '/NewHampshire',
-              '/NewJersey',
-              '/NewMexico',
-              '/NewYork',
-              '/NorthCarolina',
-              '/NorthDakota',
-              '/Ohio',
-              '/Oklahoma',
-              '/Oregon',
-              '/Pennsylvania',
-              '/RhodeIsland',
-              '/SouthCarolina',
-              '/SouthDakota',
-              '/Tennessee',
-              '/Texas',
-              '/Utah',
-              '/Vermont',
-              '/Virginia',
-              '/Washington',
-              '/WestVirginia',
-              '/Wisconsin',
-              '/Wyoming',
-            ]}
-          >
-            <StatePage user={user} />
-          </Route>
-          <Route path="/">
-            <DashboardPage user={user} />
-          </Route>
-          <Navigate to="/" />
+          <Route element={<NavBar user={user} setUser={setUser} />} />
+          {[
+            '/Alabama',
+            '/Alaska',
+            '/Arizona',
+            '/Arkansas',
+            '/California',
+            '/Colorado',
+            '/Connecticut',
+            '/Delaware',
+            '/WashingtonDC',
+            '/Florida',
+            '/Georgia',
+            '/Hawaii',
+            '/Idaho',
+            '/Illinois',
+            '/Indiana',
+            '/Iowa',
+            '/Kansas',
+            '/Kentucky',
+            '/Louisiana',
+            '/Maine',
+            '/Maryland',
+            '/Massachusetts',
+            '/Michigan',
+            '/Minnesota',
+            '/Mississippi',
+            '/Missouri',
+            '/Montana',
+            '/Nebraska',
+            '/Nevada',
+            '/NewHampshire',
+            '/NewJersey',
+            '/NewMexico',
+            '/NewYork',
+            '/NorthCarolina',
+            '/NorthDakota',
+            '/Ohio',
+            '/Oklahoma',
+            '/Oregon',
+            '/Pennsylvania',
+            '/RhodeIsland',
+            '/SouthCarolina',
+            '/SouthDakota',
+            '/Tennessee',
+            '/Texas',
+            '/Utah',
+            '/Vermont',
+            '/Virginia',
+            '/Washington',
+            '/WestVirginia',
+            '/Wisconsin',
+            '/Wyoming',
+          ].map((path, index) => {
+            return (
+              <Route
+                key={index}
+                path={path}
+                element={<StatePage user={user} />}
+              />
+            );
+          })}
+          <Route path="/" element={<DashboardPage user={user} />} />
+          <Route element={<Navigate to="/" />} />
         </Routes>
         <Footer />
       </>
