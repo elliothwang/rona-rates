@@ -20,7 +20,7 @@ export default function StatCard({
 }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  console.log('stat3 from StatCard component', stat3);
+  // ! FIX stat3 is returning '0' as the api's 'today' stats are returning '0'. try different api?
 
   function handleCardFlip(evt) {
     evt.preventDefault();

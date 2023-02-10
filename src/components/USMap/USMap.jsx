@@ -32,6 +32,7 @@ const colorScaleCountyDeaths = scaleThreshold()
   .domain([100, 500, 1000, 5000, 10000, 100000])
   .range(['#fcdcd6', '#ffb6b6', '#f29292', '#de6969', '#da3a3a', '#bb0808']);
 
+// ! FIX 'TypeError: setTooltipContent is not a function' when clicking on a state
 const MapChart = ({
   user,
   userLat,
