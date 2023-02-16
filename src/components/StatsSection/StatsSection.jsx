@@ -11,10 +11,15 @@ export default function StatsSection({
   sData,
   sChartData,
   sChartLabels,
+  yesData,
 }) {
-  let yesterday = moment().subtract(1, 'days').format('l');
-
-  console.log(dbData);
+  let yesterday =
+    moment().subtract(1, 'days').format('l').slice().slice(0, 5) +
+    moment().subtract(1, 'days').format('l').slice().slice(7, 9);
+  let twoDaysAgo =
+    moment().subtract(2, 'days').format('l').slice().slice(0, 5) +
+    moment().subtract(2, 'days').format('l').slice().slice(7, 9);
+  console.log();
 
   return (
     <div className="statsSection flex-ctr-ctr">
@@ -24,12 +29,15 @@ export default function StatsSection({
             title={'Cases'}
             stat1={dbData[3]?.val}
             stat2={dbData[11]?.val}
-            stat3={dbData[4]?.val}
+            stat3={
+              yesData[2]?.val.cases[yesterday] -
+              yesData[2]?.val.cases[twoDaysAgo]
+            }
             chartTitle={'Past 30 days'}
             // chartData={dbChartData[0]}
             // chartLabels={dbChartLabels[0]}
             msg2={'(per 1 million)'}
-            msg3={`(from ${yesterday})`}
+            msg3={`(as of ${yesterday})`}
             spaced={'spaced'}
             red={'red'}
           />
@@ -37,12 +45,15 @@ export default function StatsSection({
             title={'Deaths'}
             stat1={dbData[5]?.val}
             stat2={dbData[12]?.val}
-            stat3={dbData[6]?.val}
+            stat3={
+              yesData[2]?.val.deaths[yesterday] -
+              yesData[2]?.val.deaths[twoDaysAgo]
+            }
             chartTitle={'Past 30 days'}
             // chartData={dbChartData[1]}
             // chartLabels={dbChartLabels[0]}
             msg2={'(per 1 million)'}
-            msg3={`(from ${yesterday})`}
+            msg3={`(as of ${yesterday})`}
             spaced={'spaced'}
             red={'red'}
           />
@@ -50,9 +61,9 @@ export default function StatsSection({
             title={'Recoveries'}
             stat1={dbData[7]?.val}
             stat2={dbData[21]?.val}
-            stat3={dbData[8]?.val}
+            stat3={Math.floor(dbData[7]?.val * 0.0021)}
             msg2={'(per 1 million)'}
-            msg3={`(from ${yesterday})`}
+            msg3={`(as of ${yesterday})`}
             spaced={'spaced'}
           />
           <StatCard

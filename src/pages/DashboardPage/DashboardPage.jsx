@@ -11,10 +11,29 @@ import axios, * as others from 'axios';
 export default function DashboardPage({ user }) {
   const dispatch = useDispatch();
   const [usData, setUsData] = useState([]);
+  const [yesterdayData, setYesterdayData] = useState([]);
   // const [chartData, setChartData] = useState([]);
   // const [chartLabels, setChartLabels] = useState([]);
   const [usCountiesTopCases, setUsCountiesTopCases] = useState([]);
   const [usCountiesTopDeaths, setUsCountiesTopDeaths] = useState([]);
+
+  useEffect(() => {
+    function getTodayData() {
+      axios
+        .get('https://disease.sh/v3/covid-19/historical/USA')
+        .then((res) => {
+          const apiDataArr = Object.entries(res.data).map(([stat, val]) => ({
+            stat,
+            val,
+          }));
+          setYesterdayData(apiDataArr);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    getTodayData();
+  }, []);
 
   useEffect(() => {
     function getUSData() {
@@ -70,6 +89,7 @@ export default function DashboardPage({ user }) {
         <StatsSection
           onDashboard={true}
           dbData={usData}
+          yesData={yesterdayData}
           // dbChartData={chartData}
           // dbChartLabels={chartLabels}
         />
