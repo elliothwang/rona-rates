@@ -3,7 +3,7 @@ import Map from '../../components/Map/Map';
 import StatsSection from '../../components/StatsSection/StatsSection';
 import CountiesSection from '../../components/CountiesSection/CountiesSection';
 import DateSection from '../../components/DateSection/DateSection';
-const axios = require('axios').default;
+import axios from 'axios';
 
 export default function StatePage({ user }) {
   const [stateData, setStateData] = useState([]);

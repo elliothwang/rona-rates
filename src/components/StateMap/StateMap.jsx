@@ -9,7 +9,7 @@ import {
   Marker,
 } from 'react-simple-maps';
 import * as help from '../../utilities/helper-functions';
-const axios = require('axios').default;
+import axios from 'axios';
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json';
 

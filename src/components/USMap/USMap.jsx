@@ -10,7 +10,7 @@ import {
   ZoomableGroup,
 } from 'react-simple-maps';
 import * as help from '../../utilities/helper-functions';
-import axios, * as others from 'axios';
+import axios from 'axios';
 
 const geoUrlStates = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 const geoUrlCounties =
