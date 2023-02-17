@@ -65,7 +65,7 @@ export default function StatCard({
               {msg2 && <div className="msg2">&nbsp;&nbsp;{msg2}</div>}
             </div>
           )}
-          {stat3 && (
+          {stat3 ? (
             <div className="stat3Container">
               <div className="plusSign">+&nbsp;</div>
               <div className={red ? 'stat3 red' : 'stat3 green'}>
@@ -73,6 +73,8 @@ export default function StatCard({
               </div>
               {msg3 && <div className="msg3">&nbsp;&nbsp;{msg3}</div>}
             </div>
+          ) : (
+            ''
           )}
         </div>
       </div>
