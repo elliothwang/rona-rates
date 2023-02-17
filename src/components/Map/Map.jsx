@@ -1,10 +1,13 @@
 import './Map.css';
 import React, { useState, useEffect } from 'react';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 import StateMap from '../StateMap/StateMap';
 import USMap from '../USMap/USMap';
 import MapNavBar from '../MapNavBar/MapNavBar';
 const axios = require('axios').default;
+
+// ! FIX change reacttooltip to material tooltip
 
 export default function Map({ onDashboard, user }) {
   const [userLat, setUserLat] = useState();
@@ -66,7 +69,12 @@ export default function Map({ onDashboard, user }) {
             ReactTooltipContent={content}
             setReactTooltipContent={setContent}
           />
-          <ReactTooltip className="flex-ctr-ctr">{content}</ReactTooltip>
+          {/* <a
+            data-tooltip-id="content"
+            data-tooltip-content={content}
+            data-tooltip-place="top"
+          ></a>
+          <ReactTooltip className="flex-ctr-ctr" id="content" /> */}
         </>
       ) : (
         <>
@@ -78,7 +86,12 @@ export default function Map({ onDashboard, user }) {
             // casesShown={casesShown}
             setReactTooltipContent={setContent}
           />
-          <ReactTooltip className="flex-ctr-ctr">{content}</ReactTooltip>
+          {/* <a
+            data-tooltip-id="content"
+            data-tooltip-content={content}
+            data-tooltip-place="top"
+          ></a>
+          <ReactTooltip id="content" /> */}
         </>
       )}
     </div>

@@ -26,7 +26,7 @@ const StateMap = ({
   userLat,
   userLong,
   userLocation,
-  setTooltipContent,
+  setReactTooltipContent,
 }) => {
   const casesShown = useSelector((state) => state.casesShown.value);
   const [stateCounties, setStateCounties] = useState([]);
@@ -108,19 +108,19 @@ const StateMap = ({
                       curr?.province ===
                         localStorage.getItem('storageStateName') &&
                         (casesShown
-                          ? setTooltipContent(
+                          ? setReactTooltipContent(
                               `${geo.properties.name} County - ${help.addCommas(
                                 curr?.stats.confirmed
                               )}`
                             )
-                          : setTooltipContent(
+                          : setReactTooltipContent(
                               `${geo.properties.name} County - ${help.addCommas(
                                 curr?.stats.deaths
                               )}`
                             ));
                     }}
                     onMouseLeave={() => {
-                      setTooltipContent('');
+                      setReactTooltipContent('');
                     }}
                   />
                 );

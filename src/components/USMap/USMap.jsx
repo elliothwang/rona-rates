@@ -32,20 +32,19 @@ const colorScaleCountyDeaths = scaleThreshold()
   .domain([100, 500, 1000, 5000, 10000, 100000])
   .range(['#fcdcd6', '#ffb6b6', '#f29292', '#de6969', '#da3a3a', '#bb0808']);
 
-// ! FIX: 'TypeError: setTooltipContent is not a function' when clicking on a state
 const MapChart = ({
   user,
   userLat,
   userLong,
   userLocation,
   countiesShown,
-  tooltipContent,
-  setTooltipContent,
+  ReactTooltipContent,
+  setReactTooltipContent,
 }) => {
   const casesShown = useSelector((state) => state.casesShown.value);
   const [stateData, setStateData] = useState([]);
   const [usCounties, setUsCounties] = useState([]);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     function getStateData() {
@@ -82,12 +81,12 @@ const MapChart = ({
 
   function handleMapClick() {
     if (!countiesShown) {
-      const state = tooltipContent.split(' - ')[0];
+      const state = ReactTooltipContent.split(' - ')[0];
       const stateRoute = state.split(' ').join('');
       localStorage.setItem('storageStateName', state);
-      history.push(`/${stateRoute}`);
+      navigate(`/${stateRoute}`);
     } else {
-      alert('Click the "Counties" Button again & click on any state!');
+      alert('Click the "Counties" Button again and then click on any state.');
     }
   }
 
@@ -136,30 +135,30 @@ const MapChart = ({
                     (currState || currCounty) &&
                       (countiesShown
                         ? casesShown
-                          ? setTooltipContent(
+                          ? setReactTooltipContent(
                               `${geo.properties.name} - ${help.addCommas(
                                 currCounty?.stats.confirmed
                               )}`
                             )
-                          : setTooltipContent(
+                          : setReactTooltipContent(
                               `${geo.properties.name} - ${help.addCommas(
                                 currCounty?.stats.deaths
                               )}`
                             )
                         : casesShown
-                        ? setTooltipContent(
+                        ? setReactTooltipContent(
                             `${geo.properties.name} - ${help.addCommas(
                               currState?.cases
                             )}`
                           )
-                        : setTooltipContent(
+                        : setReactTooltipContent(
                             `${geo.properties.name} - ${help.addCommas(
                               currState?.deaths
                             )}`
                           ));
                   }}
                   onMouseLeave={() => {
-                    setTooltipContent('');
+                    setReactTooltipContent('');
                   }}
                 />
               );
