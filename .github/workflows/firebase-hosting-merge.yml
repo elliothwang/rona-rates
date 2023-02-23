@@ -18,5 +18,3 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_RONA_RATES_1F112 }}'
           channelId: live
           projectId: rona-rates-1f112
-runs:
-  using: 'node16'
