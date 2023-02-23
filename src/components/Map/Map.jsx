@@ -1,17 +1,23 @@
 import './Map.css';
+// eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
-// import { Tooltip as ReactTooltip } from 'react-tooltip';
+// eslint-disable-next-line
+import { Tooltip as ReactTooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import StateMap from '../StateMap/StateMap';
 import USMap from '../USMap/USMap';
 import MapNavBar from '../MapNavBar/MapNavBar';
-// const axios = require('axios').default;
+// eslint-disable-next-line
+const axios = require('axios').default;
 
 // ! FIX change reacttooltip to material tooltip
 
 export default function Map({ onDashboard, user }) {
+  // eslint-disable-next-line
   const [userLat, setUserLat] = useState();
+  // eslint-disable-next-line
   const [userLong, setUserLong] = useState();
+  // eslint-disable-next-line
   const [userLocation, setUserLocation] = useState('');
   const [content, setContent] = useState('');
   const [legendShown, setLegendShown] = useState(true);
