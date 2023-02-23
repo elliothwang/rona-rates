@@ -1,6 +1,11 @@
-# Use this doc for reference -> https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions
+# Metadata Syntax for GitHub Actions
+# https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions
 
 name: 'Await for Firebase deployment'
+'on':
+  push:
+    branches:
+      - main
 description: 'Awaits for a Firebase deployment to be ready'
 inputs:
   deployment-url:
