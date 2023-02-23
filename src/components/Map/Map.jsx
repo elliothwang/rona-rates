@@ -1,11 +1,11 @@
 import './Map.css';
 import React, { useState, useEffect } from 'react';
-import { Tooltip as ReactTooltip } from 'react-tooltip';
+// import { Tooltip as ReactTooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import StateMap from '../StateMap/StateMap';
 import USMap from '../USMap/USMap';
 import MapNavBar from '../MapNavBar/MapNavBar';
-const axios = require('axios').default;
+// const axios = require('axios').default;
 
 // ! FIX change reacttooltip to material tooltip
 

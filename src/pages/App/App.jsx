@@ -10,6 +10,8 @@ import Footer from '../../components/Footer/Footer';
 export default function App() {
   const [user, setUser] = useState(getUser());
 
+  // ! FIX NAVBAR, which isn't displaying
+
   return (
     <main className="App">
       <>

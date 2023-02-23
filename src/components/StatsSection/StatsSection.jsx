@@ -19,7 +19,6 @@ export default function StatsSection({
   let twoDaysAgo =
     moment().subtract(2, 'days').format('l').slice().slice(0, 5) +
     moment().subtract(2, 'days').format('l').slice().slice(7, 9);
-  console.log();
 
   return (
     <div className="statsSection flex-ctr-ctr">
