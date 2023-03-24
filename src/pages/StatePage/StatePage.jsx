@@ -5,6 +5,8 @@ import CountiesSection from '../../components/CountiesSection/CountiesSection';
 import DateSection from '../../components/DateSection/DateSection';
 import axios from 'axios';
 
+// ! FIX: CORS Policy Error with StatePage's API calls
+
 export default function StatePage({ user }) {
   const [stateData, setStateData] = useState([]);
   const [chartData, setChartData] = useState([]);
